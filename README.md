@@ -1,17 +1,17 @@
-# {Company} Node Library
+# Vocode Node Library
 
-[![npm shield](https://img.shields.io/npm/v/@fern-api/{company})](https://www.npmjs.com/package/@fern-api/{company})
+[![npm shield](https://img.shields.io/npm/v/@fern-api/vocode)](https://www.npmjs.com/package/@fern-api/vocode)
 [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-SDK%20generated%20by%20Fern-brightgreen)](https://github.com/fern-api/fern)
 
-The {Company} Node.js library provides access to the {Company} API from JavaScript/TypeScript.
+The Vocode Node.js library provides access to the Vocode API from JavaScript/TypeScript.
 
 ## Documentation
 
-API reference documentation is available [here](docs_url).
+API reference documentation is available [here](https://docs.vocode.dev/).
 
 ## Usage
 
-[![Try it out](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](TODO)
+[![Try it out](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/typescript-example-using-sdk-built-with-fern-e3ypxt?file=app.ts&view=editor)
 
 ```typescript
 import { TODO } from "TODO";
