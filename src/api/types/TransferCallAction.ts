@@ -4,9 +4,9 @@
 
 import * as Vocode from "..";
 
-export interface DtmfAction {
+export interface TransferCallAction {
     id: string;
     userId: string;
     type?: Vocode.ActionType;
-    config?: Vocode.EmptyActionConfig;
+    config: Vocode.TransferCallConfig;
 }

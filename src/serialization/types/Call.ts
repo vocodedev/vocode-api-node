@@ -16,6 +16,8 @@ export const Call: core.serialization.ObjectSchema<serializers.Call.Raw, Vocode.
     transcript: core.serialization.string().optional(),
     recordingUrl: core.serialization.property("recording_url", core.serialization.string().optional()),
     status: core.serialization.lazy(async () => (await import("..")).CallStatus),
+    errorMessage: core.serialization.property("error_message", core.serialization.string().optional()),
+    recordingAvailable: core.serialization.property("recording_available", core.serialization.boolean().optional()),
 });
 
 export declare namespace Call {
@@ -29,5 +31,7 @@ export declare namespace Call {
         transcript?: string | null;
         recording_url?: string | null;
         status: serializers.CallStatus.Raw;
+        error_message?: string | null;
+        recording_available?: boolean | null;
     }
 }

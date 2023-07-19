@@ -7,8 +7,8 @@ import * as Vocode from "../../api";
 import * as core from "../../core";
 
 export const ActionType: core.serialization.Schema<serializers.ActionType.Raw, Vocode.ActionType> =
-    core.serialization.enum_(["action_end_conversation", "action_dtmf"]);
+    core.serialization.enum_(["action_end_conversation", "action_dtmf", "action_transfer_call"]);
 
 export declare namespace ActionType {
-    type Raw = "action_end_conversation" | "action_dtmf";
+    type Raw = "action_end_conversation" | "action_dtmf" | "action_transfer_call";
 }

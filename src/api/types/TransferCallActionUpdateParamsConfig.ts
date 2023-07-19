@@ -4,4 +4,4 @@
 
 import * as Vocode from "..";
 
-export type EndConversationActionUpdateParamsConfig = Vocode.EmptyActionConfig | Vocode.Undefined;
+export type TransferCallActionUpdateParamsConfig = Vocode.TransferCallConfig | Vocode.Undefined;

@@ -10,10 +10,10 @@ export const EndConversationActionUpdateParamsConfig: core.serialization.Schema<
     serializers.EndConversationActionUpdateParamsConfig.Raw,
     Vocode.EndConversationActionUpdateParamsConfig
 > = core.serialization.undiscriminatedUnion([
-    core.serialization.lazyObject(async () => (await import("..")).ActionConfig),
+    core.serialization.lazyObject(async () => (await import("..")).EmptyActionConfig),
     core.serialization.lazyObject(async () => (await import("..")).Undefined),
 ]);
 
 export declare namespace EndConversationActionUpdateParamsConfig {
-    type Raw = serializers.ActionConfig.Raw | serializers.Undefined.Raw;
+    type Raw = serializers.EmptyActionConfig.Raw | serializers.Undefined.Raw;
 }

@@ -4,7 +4,7 @@
 
 import * as Vocode from "..";
 
-export interface EndConversationActionParams {
+export interface TransferCallActionUpdateParams {
     type: Vocode.ActionType;
-    config?: Vocode.EmptyActionConfig;
+    config?: Vocode.TransferCallActionUpdateParamsConfig;
 }

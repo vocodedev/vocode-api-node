@@ -14,4 +14,6 @@ export interface Call {
     transcript?: string;
     recordingUrl?: string;
     status: Vocode.CallStatus;
+    errorMessage?: string;
+    recordingAvailable?: boolean;
 }

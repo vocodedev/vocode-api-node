@@ -10,10 +10,10 @@ export const DtmfActionUpdateParamsConfig: core.serialization.Schema<
     serializers.DtmfActionUpdateParamsConfig.Raw,
     Vocode.DtmfActionUpdateParamsConfig
 > = core.serialization.undiscriminatedUnion([
-    core.serialization.lazyObject(async () => (await import("..")).ActionConfig),
+    core.serialization.lazyObject(async () => (await import("..")).EmptyActionConfig),
     core.serialization.lazyObject(async () => (await import("..")).Undefined),
 ]);
 
 export declare namespace DtmfActionUpdateParamsConfig {
-    type Raw = serializers.ActionConfig.Raw | serializers.Undefined.Raw;
+    type Raw = serializers.EmptyActionConfig.Raw | serializers.Undefined.Raw;
 }

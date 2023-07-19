@@ -4,4 +4,4 @@
 
 import * as Vocode from "..";
 
-export type GetActionResponse = Vocode.EndConversationAction | Vocode.DtmfAction;
+export type GetActionResponse = Vocode.TransferCallAction | Vocode.EndConversationAction | Vocode.DtmfAction;

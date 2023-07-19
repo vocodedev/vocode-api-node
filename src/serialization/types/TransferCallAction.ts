@@ -6,21 +6,21 @@ import * as serializers from "..";
 import * as Vocode from "../../api";
 import * as core from "../../core";
 
-export const EndConversationAction: core.serialization.ObjectSchema<
-    serializers.EndConversationAction.Raw,
-    Vocode.EndConversationAction
+export const TransferCallAction: core.serialization.ObjectSchema<
+    serializers.TransferCallAction.Raw,
+    Vocode.TransferCallAction
 > = core.serialization.object({
     id: core.serialization.string(),
     userId: core.serialization.property("user_id", core.serialization.string()),
     type: core.serialization.lazy(async () => (await import("..")).ActionType).optional(),
-    config: core.serialization.lazyObject(async () => (await import("..")).EmptyActionConfig).optional(),
+    config: core.serialization.lazyObject(async () => (await import("..")).TransferCallConfig),
 });
 
-export declare namespace EndConversationAction {
+export declare namespace TransferCallAction {
     interface Raw {
         id: string;
         user_id: string;
         type?: serializers.ActionType.Raw | null;
-        config?: serializers.EmptyActionConfig.Raw | null;
+        config: serializers.TransferCallConfig.Raw;
     }
 }

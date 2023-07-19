@@ -4,4 +4,4 @@
 
 import * as Vocode from "..";
 
-export type DtmfActionUpdateParamsConfig = Vocode.ActionConfig | Vocode.Undefined;
+export type DtmfActionUpdateParamsConfig = Vocode.EmptyActionConfig | Vocode.Undefined;

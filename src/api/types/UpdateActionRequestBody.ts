@@ -4,4 +4,7 @@
 
 import * as Vocode from "..";
 
-export type UpdateActionRequestBody = Vocode.EndConversationActionUpdateParams | Vocode.DtmfActionUpdateParams;
+export type UpdateActionRequestBody =
+    | Vocode.TransferCallActionUpdateParams
+    | Vocode.EndConversationActionUpdateParams
+    | Vocode.DtmfActionUpdateParams;

@@ -8,10 +8,11 @@ import * as core from "../../core";
 
 export const GetActionResponse: core.serialization.Schema<serializers.GetActionResponse.Raw, Vocode.GetActionResponse> =
     core.serialization.undiscriminatedUnion([
+        core.serialization.lazyObject(async () => (await import("..")).TransferCallAction),
         core.serialization.lazyObject(async () => (await import("..")).EndConversationAction),
         core.serialization.lazyObject(async () => (await import("..")).DtmfAction),
     ]);
 
 export declare namespace GetActionResponse {
-    type Raw = serializers.EndConversationAction.Raw | serializers.DtmfAction.Raw;
+    type Raw = serializers.TransferCallAction.Raw | serializers.EndConversationAction.Raw | serializers.DtmfAction.Raw;
 }

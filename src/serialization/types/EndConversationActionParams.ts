@@ -11,12 +11,12 @@ export const EndConversationActionParams: core.serialization.ObjectSchema<
     Vocode.EndConversationActionParams
 > = core.serialization.object({
     type: core.serialization.lazy(async () => (await import("..")).ActionType),
-    config: core.serialization.lazyObject(async () => (await import("..")).ActionConfig).optional(),
+    config: core.serialization.lazyObject(async () => (await import("..")).EmptyActionConfig).optional(),
 });
 
 export declare namespace EndConversationActionParams {
     interface Raw {
         type: serializers.ActionType.Raw;
-        config?: serializers.ActionConfig.Raw | null;
+        config?: serializers.EmptyActionConfig.Raw | null;
     }
 }

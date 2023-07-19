@@ -10,10 +10,11 @@ export const CreateActionResponse: core.serialization.Schema<
     serializers.CreateActionResponse.Raw,
     Vocode.CreateActionResponse
 > = core.serialization.undiscriminatedUnion([
+    core.serialization.lazyObject(async () => (await import("..")).TransferCallAction),
     core.serialization.lazyObject(async () => (await import("..")).EndConversationAction),
     core.serialization.lazyObject(async () => (await import("..")).DtmfAction),
 ]);
 
 export declare namespace CreateActionResponse {
-    type Raw = serializers.EndConversationAction.Raw | serializers.DtmfAction.Raw;
+    type Raw = serializers.TransferCallAction.Raw | serializers.EndConversationAction.Raw | serializers.DtmfAction.Raw;
 }

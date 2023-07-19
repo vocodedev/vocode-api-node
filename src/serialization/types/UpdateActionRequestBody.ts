@@ -10,10 +10,14 @@ export const UpdateActionRequestBody: core.serialization.Schema<
     serializers.UpdateActionRequestBody.Raw,
     Vocode.UpdateActionRequestBody
 > = core.serialization.undiscriminatedUnion([
+    core.serialization.lazyObject(async () => (await import("..")).TransferCallActionUpdateParams),
     core.serialization.lazyObject(async () => (await import("..")).EndConversationActionUpdateParams),
     core.serialization.lazyObject(async () => (await import("..")).DtmfActionUpdateParams),
 ]);
 
 export declare namespace UpdateActionRequestBody {
-    type Raw = serializers.EndConversationActionUpdateParams.Raw | serializers.DtmfActionUpdateParams.Raw;
+    type Raw =
+        | serializers.TransferCallActionUpdateParams.Raw
+        | serializers.EndConversationActionUpdateParams.Raw
+        | serializers.DtmfActionUpdateParams.Raw;
 }

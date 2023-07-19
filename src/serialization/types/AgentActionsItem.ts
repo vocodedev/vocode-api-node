@@ -9,10 +9,15 @@ import * as core from "../../core";
 export const AgentActionsItem: core.serialization.Schema<serializers.AgentActionsItem.Raw, Vocode.AgentActionsItem> =
     core.serialization.undiscriminatedUnion([
         core.serialization.string(),
+        core.serialization.lazyObject(async () => (await import("..")).TransferCallAction),
         core.serialization.lazyObject(async () => (await import("..")).EndConversationAction),
         core.serialization.lazyObject(async () => (await import("..")).DtmfAction),
     ]);
 
 export declare namespace AgentActionsItem {
-    type Raw = string | serializers.EndConversationAction.Raw | serializers.DtmfAction.Raw;
+    type Raw =
+        | string
+        | serializers.TransferCallAction.Raw
+        | serializers.EndConversationAction.Raw
+        | serializers.DtmfAction.Raw;
 }

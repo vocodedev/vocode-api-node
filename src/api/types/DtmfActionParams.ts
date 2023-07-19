@@ -6,5 +6,5 @@ import * as Vocode from "..";
 
 export interface DtmfActionParams {
     type: Vocode.ActionType;
-    config?: Vocode.ActionConfig;
+    config?: Vocode.EmptyActionConfig;
 }

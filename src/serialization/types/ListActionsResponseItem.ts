@@ -10,10 +10,11 @@ export const ListActionsResponseItem: core.serialization.Schema<
     serializers.ListActionsResponseItem.Raw,
     Vocode.ListActionsResponseItem
 > = core.serialization.undiscriminatedUnion([
+    core.serialization.lazyObject(async () => (await import("..")).TransferCallAction),
     core.serialization.lazyObject(async () => (await import("..")).EndConversationAction),
     core.serialization.lazyObject(async () => (await import("..")).DtmfAction),
 ]);
 
 export declare namespace ListActionsResponseItem {
-    type Raw = serializers.EndConversationAction.Raw | serializers.DtmfAction.Raw;
+    type Raw = serializers.TransferCallAction.Raw | serializers.EndConversationAction.Raw | serializers.DtmfAction.Raw;
 }

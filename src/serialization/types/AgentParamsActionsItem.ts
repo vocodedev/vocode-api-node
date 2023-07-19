@@ -11,10 +11,15 @@ export const AgentParamsActionsItem: core.serialization.Schema<
     Vocode.AgentParamsActionsItem
 > = core.serialization.undiscriminatedUnion([
     core.serialization.string(),
+    core.serialization.lazyObject(async () => (await import("..")).TransferCallActionUpdateParams),
     core.serialization.lazyObject(async () => (await import("..")).EndConversationActionParams),
     core.serialization.lazyObject(async () => (await import("..")).DtmfActionParams),
 ]);
 
 export declare namespace AgentParamsActionsItem {
-    type Raw = string | serializers.EndConversationActionParams.Raw | serializers.DtmfActionParams.Raw;
+    type Raw =
+        | string
+        | serializers.TransferCallActionUpdateParams.Raw
+        | serializers.EndConversationActionParams.Raw
+        | serializers.DtmfActionParams.Raw;
 }

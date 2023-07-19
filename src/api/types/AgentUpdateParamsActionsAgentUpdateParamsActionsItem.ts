@@ -6,5 +6,6 @@ import * as Vocode from "..";
 
 export type AgentUpdateParamsActionsAgentUpdateParamsActionsItem =
     | string
+    | Vocode.TransferCallActionUpdateParams
     | Vocode.EndConversationActionUpdateParams
     | Vocode.DtmfActionUpdateParams;

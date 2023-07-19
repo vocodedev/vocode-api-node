@@ -5,9 +5,10 @@
 /**
  * An enumeration.
  */
-export type ActionType = "action_end_conversation" | "action_dtmf";
+export type ActionType = "action_end_conversation" | "action_dtmf" | "action_transfer_call";
 
 export const ActionType = {
     ActionEndConversation: "action_end_conversation",
     ActionDtmf: "action_dtmf",
+    ActionTransferCall: "action_transfer_call",
 } as const;

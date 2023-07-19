@@ -1,8 +1,8 @@
 {
-    "name": "@fern-api/vocode",
-    "version": "0.0.4",
+    "name": "@vocode/vocode-api",
+    "version": "0.0.5-alpha.1",
     "private": false,
-    "repository": "https://github.com/fern-vocode/vocode-node",
+    "repository": "https://github.com/vocodedev/vocode-api-node",
     "main": "./index.js",
     "types": "./index.d.ts",
     "scripts": {
