@@ -5,6 +5,6 @@
 import * as Vocode from "..";
 
 export type CreateActionRequest =
-    | Vocode.TransferCallActionUpdateParams
+    | Vocode.TransferCallActionParams
     | Vocode.EndConversationActionParams
     | Vocode.DtmfActionParams;

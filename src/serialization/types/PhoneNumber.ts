@@ -10,20 +10,20 @@ export const PhoneNumber: core.serialization.ObjectSchema<serializers.PhoneNumbe
     core.serialization.object({
         id: core.serialization.string(),
         userId: core.serialization.property("user_id", core.serialization.string()),
-        number: core.serialization.string(),
-        active: core.serialization.boolean(),
+        active: core.serialization.boolean().optional(),
         inboundAgent: core.serialization.property(
             "inbound_agent",
-            core.serialization.lazy(async () => (await import("..")).PhoneNumberInboundAgent)
+            core.serialization.lazyObject(async () => (await import("..")).Agent)
         ),
+        number: core.serialization.string(),
     });
 
 export declare namespace PhoneNumber {
     interface Raw {
         id: string;
         user_id: string;
+        active?: boolean | null;
+        inbound_agent: serializers.Agent.Raw;
         number: string;
-        active: boolean;
-        inbound_agent: serializers.PhoneNumberInboundAgent.Raw;
     }
 }

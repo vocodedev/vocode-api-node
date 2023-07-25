@@ -6,9 +6,13 @@ import * as serializers from "../../..";
 import * as Vocode from "../../../../api";
 import * as core from "../../../../core";
 
-export const Response: core.serialization.Schema<serializers.numbers.listNumbers.Response.Raw, Vocode.PhoneNumber[]> =
-    core.serialization.list(core.serialization.lazyObject(async () => (await import("../../..")).PhoneNumber));
+export const Response: core.serialization.Schema<
+    serializers.numbers.listNumbers.Response.Raw,
+    Vocode.NormalizedPhoneNumber[]
+> = core.serialization.list(
+    core.serialization.lazyObject(async () => (await import("../../..")).NormalizedPhoneNumber)
+);
 
 export declare namespace Response {
-    type Raw = serializers.PhoneNumber.Raw[];
+    type Raw = serializers.NormalizedPhoneNumber.Raw[];
 }

@@ -6,9 +6,9 @@ import * as serializers from "../../..";
 import * as Vocode from "../../../../api";
 import * as core from "../../../../core";
 
-export const Response: core.serialization.Schema<serializers.agents.listAgents.Response.Raw, Vocode.Agent[]> =
-    core.serialization.list(core.serialization.lazyObject(async () => (await import("../../..")).Agent));
+export const Response: core.serialization.Schema<serializers.agents.listAgents.Response.Raw, Vocode.NormalizedAgent[]> =
+    core.serialization.list(core.serialization.lazyObject(async () => (await import("../../..")).NormalizedAgent));
 
 export declare namespace Response {
-    type Raw = serializers.Agent.Raw[];
+    type Raw = serializers.NormalizedAgent.Raw[];
 }

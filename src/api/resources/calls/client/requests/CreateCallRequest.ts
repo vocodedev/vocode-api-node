@@ -7,6 +7,5 @@ import * as Vocode from "../../../..";
 export interface CreateCallRequest {
     fromNumber: string;
     toNumber: string;
-    goal: string;
     agent: Vocode.CreateCallRequestAgent;
 }

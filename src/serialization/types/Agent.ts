@@ -13,7 +13,7 @@ export const Agent: core.serialization.ObjectSchema<serializers.Agent.Raw, Vocod
     actions: core.serialization.list(core.serialization.lazy(async () => (await import("..")).AgentActionsItem)),
     voice: core.serialization.lazy(async () => (await import("..")).AgentVoice),
     initialMessage: core.serialization.property("initial_message", core.serialization.string().optional()),
-    webhook: core.serialization.lazy(async () => (await import("..")).AgentWebhook).optional(),
+    webhook: core.serialization.lazyObject(async () => (await import("..")).Webhook).optional(),
 });
 
 export declare namespace Agent {
@@ -24,6 +24,6 @@ export declare namespace Agent {
         actions: serializers.AgentActionsItem.Raw[];
         voice: serializers.AgentVoice.Raw;
         initial_message?: string | null;
-        webhook?: serializers.AgentWebhook.Raw | null;
+        webhook?: serializers.Webhook.Raw | null;
     }
 }

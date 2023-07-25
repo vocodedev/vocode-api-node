@@ -4,7 +4,7 @@
 
 import * as Vocode from "..";
 
-export interface Call {
+export interface NormalizedCall {
     id: string;
     userId: string;
     status?: Vocode.CallStatus;
@@ -13,5 +13,5 @@ export interface Call {
     transcript?: string;
     toNumber: string;
     fromNumber: string;
-    agent: Vocode.Agent;
+    agent: string;
 }

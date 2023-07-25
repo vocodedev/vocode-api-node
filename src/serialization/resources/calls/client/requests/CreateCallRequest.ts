@@ -10,7 +10,6 @@ export const CreateCallRequest: core.serialization.Schema<serializers.CreateCall
     core.serialization.object({
         fromNumber: core.serialization.property("from_number", core.serialization.string()),
         toNumber: core.serialization.property("to_number", core.serialization.string()),
-        goal: core.serialization.string(),
         agent: core.serialization.lazy(async () => (await import("../../../..")).CreateCallRequestAgent),
     });
 
@@ -18,7 +17,6 @@ export declare namespace CreateCallRequest {
     interface Raw {
         from_number: string;
         to_number: string;
-        goal: string;
         agent: serializers.CreateCallRequestAgent.Raw;
     }
 }

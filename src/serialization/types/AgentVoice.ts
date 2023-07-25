@@ -8,12 +8,11 @@ import * as core from "../../core";
 
 export const AgentVoice: core.serialization.Schema<serializers.AgentVoice.Raw, Vocode.AgentVoice> =
     core.serialization.undiscriminatedUnion([
-        core.serialization.string(),
         core.serialization.lazyObject(async () => (await import("..")).AzureVoice),
         core.serialization.lazyObject(async () => (await import("..")).RimeVoice),
         core.serialization.lazyObject(async () => (await import("..")).ElevenLabsVoice),
     ]);
 
 export declare namespace AgentVoice {
-    type Raw = string | serializers.AzureVoice.Raw | serializers.RimeVoice.Raw | serializers.ElevenLabsVoice.Raw;
+    type Raw = serializers.AzureVoice.Raw | serializers.RimeVoice.Raw | serializers.ElevenLabsVoice.Raw;
 }

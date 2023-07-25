@@ -9,29 +9,25 @@ import * as core from "../../core";
 export const Call: core.serialization.ObjectSchema<serializers.Call.Raw, Vocode.Call> = core.serialization.object({
     id: core.serialization.string(),
     userId: core.serialization.property("user_id", core.serialization.string()),
-    toNumber: core.serialization.property("to_number", core.serialization.string()),
-    fromNumber: core.serialization.property("from_number", core.serialization.string()),
-    agent: core.serialization.lazy(async () => (await import("..")).CallAgent),
-    goal: core.serialization.string().optional(),
-    transcript: core.serialization.string().optional(),
-    recordingUrl: core.serialization.property("recording_url", core.serialization.string().optional()),
-    status: core.serialization.lazy(async () => (await import("..")).CallStatus),
+    status: core.serialization.lazy(async () => (await import("..")).CallStatus).optional(),
     errorMessage: core.serialization.property("error_message", core.serialization.string().optional()),
     recordingAvailable: core.serialization.property("recording_available", core.serialization.boolean().optional()),
+    transcript: core.serialization.string().optional(),
+    toNumber: core.serialization.property("to_number", core.serialization.string()),
+    fromNumber: core.serialization.property("from_number", core.serialization.string()),
+    agent: core.serialization.lazyObject(async () => (await import("..")).Agent),
 });
 
 export declare namespace Call {
     interface Raw {
         id: string;
         user_id: string;
-        to_number: string;
-        from_number: string;
-        agent: serializers.CallAgent.Raw;
-        goal?: string | null;
-        transcript?: string | null;
-        recording_url?: string | null;
-        status: serializers.CallStatus.Raw;
+        status?: serializers.CallStatus.Raw | null;
         error_message?: string | null;
         recording_available?: boolean | null;
+        transcript?: string | null;
+        to_number: string;
+        from_number: string;
+        agent: serializers.Agent.Raw;
     }
 }
