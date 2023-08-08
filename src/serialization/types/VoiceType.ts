@@ -7,8 +7,8 @@ import * as Vocode from "../../api";
 import * as core from "../../core";
 
 export const VoiceType: core.serialization.Schema<serializers.VoiceType.Raw, Vocode.VoiceType> =
-    core.serialization.enum_(["voice_base", "voice_azure", "voice_rime", "voice_eleven_labs"]);
+    core.serialization.enum_(["voice_azure", "voice_rime", "voice_eleven_labs"]);
 
 export declare namespace VoiceType {
-    type Raw = "voice_base" | "voice_azure" | "voice_rime" | "voice_eleven_labs";
+    type Raw = "voice_azure" | "voice_rime" | "voice_eleven_labs";
 }

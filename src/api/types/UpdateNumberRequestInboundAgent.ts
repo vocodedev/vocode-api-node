@@ -4,4 +4,4 @@
 
 import * as Vocode from "..";
 
-export type UpdateNumberRequestInboundAgent = string | Vocode.AgentUpdateParams;
+export type UpdateNumberRequestInboundAgent = string | Vocode.AgentUpdateParams | Vocode.Undefined;

@@ -8,6 +8,7 @@ export interface PhoneNumber {
     id: string;
     userId: string;
     active?: boolean;
+    label?: string;
     inboundAgent: Vocode.Agent;
     number: string;
 }

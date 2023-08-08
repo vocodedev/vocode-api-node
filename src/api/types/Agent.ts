@@ -8,8 +8,11 @@ export interface Agent {
     id: string;
     userId: string;
     prompt: string;
+    language?: Vocode.Language;
     actions: Vocode.AgentActionsItem[];
     voice: Vocode.AgentVoice;
     initialMessage?: string;
     webhook?: Vocode.Webhook;
+    vectorDatabase?: Vocode.PineconeVectorDatabase;
+    interruptSensitivity?: Vocode.InterruptSensitivity;
 }

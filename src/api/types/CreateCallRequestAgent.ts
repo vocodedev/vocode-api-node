@@ -4,4 +4,4 @@
 
 import * as Vocode from "..";
 
-export type CreateCallRequestAgent = string | Vocode.AgentParams;
+export type CreateCallRequestAgent = string | Vocode.CreateCallAgentParams;

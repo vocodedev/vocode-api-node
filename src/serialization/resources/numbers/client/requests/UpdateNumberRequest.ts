@@ -10,14 +10,16 @@ export const UpdateNumberRequest: core.serialization.Schema<
     serializers.UpdateNumberRequest.Raw,
     Omit<Vocode.UpdateNumberRequest, "phoneNumber">
 > = core.serialization.object({
+    label: core.serialization.lazy(async () => (await import("../../../..")).UpdateNumberRequestLabel).optional(),
     inboundAgent: core.serialization.property(
         "inbound_agent",
-        core.serialization.lazy(async () => (await import("../../../..")).UpdateNumberRequestInboundAgent)
+        core.serialization.lazy(async () => (await import("../../../..")).UpdateNumberRequestInboundAgent).optional()
     ),
 });
 
 export declare namespace UpdateNumberRequest {
     interface Raw {
-        inbound_agent: serializers.UpdateNumberRequestInboundAgent.Raw;
+        label?: serializers.UpdateNumberRequestLabel.Raw | null;
+        inbound_agent?: serializers.UpdateNumberRequestInboundAgent.Raw | null;
     }
 }

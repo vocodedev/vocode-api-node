@@ -11,6 +11,7 @@ export const AgentUpdateParams: core.serialization.ObjectSchema<
     Vocode.AgentUpdateParams
 > = core.serialization.object({
     prompt: core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsPrompt).optional(),
+    language: core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsLanguage).optional(),
     actions: core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsActions).optional(),
     voice: core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsVoice).optional(),
     initialMessage: core.serialization.property(
@@ -18,14 +19,25 @@ export const AgentUpdateParams: core.serialization.ObjectSchema<
         core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsInitialMessage).optional()
     ),
     webhook: core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsWebhook).optional(),
+    vectorDatabase: core.serialization.property(
+        "vector_database",
+        core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsVectorDatabase).optional()
+    ),
+    interruptSensitivity: core.serialization.property(
+        "interrupt_sensitivity",
+        core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsInterruptSensitivity).optional()
+    ),
 });
 
 export declare namespace AgentUpdateParams {
     interface Raw {
         prompt?: serializers.AgentUpdateParamsPrompt.Raw | null;
+        language?: serializers.AgentUpdateParamsLanguage.Raw | null;
         actions?: serializers.AgentUpdateParamsActions.Raw | null;
         voice?: serializers.AgentUpdateParamsVoice.Raw | null;
         initial_message?: serializers.AgentUpdateParamsInitialMessage.Raw | null;
         webhook?: serializers.AgentUpdateParamsWebhook.Raw | null;
+        vector_database?: serializers.AgentUpdateParamsVectorDatabase.Raw | null;
+        interrupt_sensitivity?: serializers.AgentUpdateParamsInterruptSensitivity.Raw | null;
     }
 }

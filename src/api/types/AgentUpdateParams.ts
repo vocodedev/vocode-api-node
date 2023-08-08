@@ -6,8 +6,11 @@ import * as Vocode from "..";
 
 export interface AgentUpdateParams {
     prompt?: Vocode.AgentUpdateParamsPrompt;
+    language?: Vocode.AgentUpdateParamsLanguage;
     actions?: Vocode.AgentUpdateParamsActions;
     voice?: Vocode.AgentUpdateParamsVoice;
     initialMessage?: Vocode.AgentUpdateParamsInitialMessage;
     webhook?: Vocode.AgentUpdateParamsWebhook;
+    vectorDatabase?: Vocode.AgentUpdateParamsVectorDatabase;
+    interruptSensitivity?: Vocode.AgentUpdateParamsInterruptSensitivity;
 }

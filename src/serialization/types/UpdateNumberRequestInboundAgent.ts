@@ -12,8 +12,9 @@ export const UpdateNumberRequestInboundAgent: core.serialization.Schema<
 > = core.serialization.undiscriminatedUnion([
     core.serialization.string(),
     core.serialization.lazyObject(async () => (await import("..")).AgentUpdateParams),
+    core.serialization.lazyObject(async () => (await import("..")).Undefined),
 ]);
 
 export declare namespace UpdateNumberRequestInboundAgent {
-    type Raw = string | serializers.AgentUpdateParams.Raw;
+    type Raw = string | serializers.AgentUpdateParams.Raw | serializers.Undefined.Raw;
 }

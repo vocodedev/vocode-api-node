@@ -12,7 +12,7 @@ import * as errors from "../../../../errors";
 export declare namespace Actions {
     interface Options {
         environment: core.Supplier<string>;
-        token: core.Supplier<core.BearerToken>;
+        token?: core.Supplier<core.BearerToken | undefined>;
     }
 }
 
@@ -33,7 +33,7 @@ export class Actions {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5-alpha.5",
+                "X-Fern-SDK-Version": "0.0.5-alpha.6",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -82,7 +82,20 @@ export class Actions {
         }
     }
 
-    public async listActions(): Promise<Vocode.ListActionsResponseItem[]> {
+    /**
+     * @throws {@link Vocode.UnprocessableEntityError}
+     */
+    public async listActions(request: Vocode.ListActionsRequest = {}): Promise<Vocode.Page> {
+        const { page, size } = request;
+        const _queryParams = new URLSearchParams();
+        if (page != null) {
+            _queryParams.append("page", page.toString());
+        }
+
+        if (size != null) {
+            _queryParams.append("size", size.toString());
+        }
+
         const _response = await core.fetcher({
             url: urlJoin(await core.Supplier.get(this._options.environment), "v1/actions/list"),
             method: "GET",
@@ -90,13 +103,14 @@ export class Actions {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5-alpha.5",
+                "X-Fern-SDK-Version": "0.0.5-alpha.6",
             },
             contentType: "application/json",
+            queryParameters: _queryParams,
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.actions.listActions.Response.parseOrThrow(_response.body, {
+            return await serializers.Page.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -105,10 +119,22 @@ export class Actions {
         }
 
         if (_response.error.reason === "status-code") {
-            throw new errors.VocodeError({
-                statusCode: _response.error.statusCode,
-                body: _response.error.body,
-            });
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Vocode.UnprocessableEntityError(
+                        await serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
+                default:
+                    throw new errors.VocodeError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                    });
+            }
         }
 
         switch (_response.error.reason) {
@@ -137,7 +163,7 @@ export class Actions {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5-alpha.5",
+                "X-Fern-SDK-Version": "0.0.5-alpha.6",
             },
             contentType: "application/json",
             body: await serializers.CreateActionRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
@@ -200,7 +226,7 @@ export class Actions {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5-alpha.5",
+                "X-Fern-SDK-Version": "0.0.5-alpha.6",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -251,6 +277,11 @@ export class Actions {
     }
 
     protected async _getAuthorizationHeader() {
-        return `Bearer ${await core.Supplier.get(this._options.token)}`;
+        const bearer = await core.Supplier.get(this._options.token);
+        if (bearer != null) {
+            return `Bearer ${bearer}`;
+        }
+
+        return undefined;
     }
 }

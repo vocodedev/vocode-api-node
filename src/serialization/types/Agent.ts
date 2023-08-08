@@ -10,10 +10,19 @@ export const Agent: core.serialization.ObjectSchema<serializers.Agent.Raw, Vocod
     id: core.serialization.string(),
     userId: core.serialization.property("user_id", core.serialization.string()),
     prompt: core.serialization.string(),
+    language: core.serialization.lazy(async () => (await import("..")).Language).optional(),
     actions: core.serialization.list(core.serialization.lazy(async () => (await import("..")).AgentActionsItem)),
     voice: core.serialization.lazy(async () => (await import("..")).AgentVoice),
     initialMessage: core.serialization.property("initial_message", core.serialization.string().optional()),
     webhook: core.serialization.lazyObject(async () => (await import("..")).Webhook).optional(),
+    vectorDatabase: core.serialization.property(
+        "vector_database",
+        core.serialization.lazyObject(async () => (await import("..")).PineconeVectorDatabase).optional()
+    ),
+    interruptSensitivity: core.serialization.property(
+        "interrupt_sensitivity",
+        core.serialization.lazy(async () => (await import("..")).InterruptSensitivity).optional()
+    ),
 });
 
 export declare namespace Agent {
@@ -21,9 +30,12 @@ export declare namespace Agent {
         id: string;
         user_id: string;
         prompt: string;
+        language?: serializers.Language.Raw | null;
         actions: serializers.AgentActionsItem.Raw[];
         voice: serializers.AgentVoice.Raw;
         initial_message?: string | null;
         webhook?: serializers.Webhook.Raw | null;
+        vector_database?: serializers.PineconeVectorDatabase.Raw | null;
+        interrupt_sensitivity?: serializers.InterruptSensitivity.Raw | null;
     }
 }

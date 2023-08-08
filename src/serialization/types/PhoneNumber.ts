@@ -11,6 +11,7 @@ export const PhoneNumber: core.serialization.ObjectSchema<serializers.PhoneNumbe
         id: core.serialization.string(),
         userId: core.serialization.property("user_id", core.serialization.string()),
         active: core.serialization.boolean().optional(),
+        label: core.serialization.string().optional(),
         inboundAgent: core.serialization.property(
             "inbound_agent",
             core.serialization.lazyObject(async () => (await import("..")).Agent)
@@ -23,6 +24,7 @@ export declare namespace PhoneNumber {
         id: string;
         user_id: string;
         active?: boolean | null;
+        label?: string | null;
         inbound_agent: serializers.Agent.Raw;
         number: string;
     }

@@ -11,9 +11,9 @@ export const CreateCallRequestAgent: core.serialization.Schema<
     Vocode.CreateCallRequestAgent
 > = core.serialization.undiscriminatedUnion([
     core.serialization.string(),
-    core.serialization.lazyObject(async () => (await import("..")).AgentParams),
+    core.serialization.lazyObject(async () => (await import("..")).CreateCallAgentParams),
 ]);
 
 export declare namespace CreateCallRequestAgent {
-    type Raw = string | serializers.AgentParams.Raw;
+    type Raw = string | serializers.CreateCallAgentParams.Raw;
 }
