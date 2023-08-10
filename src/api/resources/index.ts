@@ -5,7 +5,6 @@ export * as actions from "./actions";
 export * as agents from "./agents";
 export * as voices from "./voices";
 export * as webhooks from "./webhooks";
-export * as payment from "./payment";
 export * from "./numbers/client/requests";
 export * from "./calls/client/requests";
 export * from "./actions/client/requests";

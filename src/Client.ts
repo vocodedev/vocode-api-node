@@ -10,12 +10,11 @@ import { Actions } from "./api/resources/actions/client/Client";
 import { Agents } from "./api/resources/agents/client/Client";
 import { Voices } from "./api/resources/voices/client/Client";
 import { Webhooks } from "./api/resources/webhooks/client/Client";
-import { Payment } from "./api/resources/payment/client/Client";
 
 export declare namespace VocodeClient {
     interface Options {
         environment: core.Supplier<string>;
-        token?: core.Supplier<core.BearerToken | undefined>;
+        token: core.Supplier<core.BearerToken>;
     }
 }
 
@@ -62,11 +61,5 @@ export class VocodeClient {
 
     public get webhooks(): Webhooks {
         return (this._webhooks ??= new Webhooks(this._options));
-    }
-
-    protected _payment: Payment | undefined;
-
-    public get payment(): Payment {
-        return (this._payment ??= new Payment(this._options));
     }
 }

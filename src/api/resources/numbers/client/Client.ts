@@ -12,7 +12,7 @@ import * as errors from "../../../../errors";
 export declare namespace Numbers {
     interface Options {
         environment: core.Supplier<string>;
-        token?: core.Supplier<core.BearerToken | undefined>;
+        token: core.Supplier<core.BearerToken>;
     }
 }
 
@@ -43,7 +43,7 @@ export class Numbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5-alpha.6",
+                "X-Fern-SDK-Version": "0.0.5-alpha.7",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -106,7 +106,7 @@ export class Numbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5-alpha.6",
+                "X-Fern-SDK-Version": "0.0.5-alpha.7",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -163,7 +163,7 @@ export class Numbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5-alpha.6",
+                "X-Fern-SDK-Version": "0.0.5-alpha.7",
             },
             contentType: "application/json",
             timeoutMs: 60000,
@@ -213,7 +213,7 @@ export class Numbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5-alpha.6",
+                "X-Fern-SDK-Version": "0.0.5-alpha.7",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -277,7 +277,7 @@ export class Numbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5-alpha.6",
+                "X-Fern-SDK-Version": "0.0.5-alpha.7",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -327,11 +327,6 @@ export class Numbers {
     }
 
     protected async _getAuthorizationHeader() {
-        const bearer = await core.Supplier.get(this._options.token);
-        if (bearer != null) {
-            return `Bearer ${bearer}`;
-        }
-
-        return undefined;
+        return `Bearer ${await core.Supplier.get(this._options.token)}`;
     }
 }
