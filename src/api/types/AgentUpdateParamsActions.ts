@@ -4,4 +4,4 @@
 
 import * as Vocode from "..";
 
-export type AgentUpdateParamsActions = Vocode.AgentUpdateParamsActionsAgentUpdateParamsActionsItem[] | Vocode.Undefined;
+export type AgentUpdateParamsActions = Vocode.AgentUpdateParamsActionsItem[] | Vocode.Undefined;

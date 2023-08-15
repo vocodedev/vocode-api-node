@@ -13,11 +13,13 @@ export const UpdateVoiceRequestBody: core.serialization.Schema<
     core.serialization.lazyObject(async () => (await import("..")).AzureVoiceUpdateParams),
     core.serialization.lazyObject(async () => (await import("..")).RimeVoiceUpdateParams),
     core.serialization.lazyObject(async () => (await import("..")).ElevenLabsVoiceUpdateParams),
+    core.serialization.lazyObject(async () => (await import("..")).PlayHtVoiceUpdateParams),
 ]);
 
 export declare namespace UpdateVoiceRequestBody {
     type Raw =
         | serializers.AzureVoiceUpdateParams.Raw
         | serializers.RimeVoiceUpdateParams.Raw
-        | serializers.ElevenLabsVoiceUpdateParams.Raw;
+        | serializers.ElevenLabsVoiceUpdateParams.Raw
+        | serializers.PlayHtVoiceUpdateParams.Raw;
 }

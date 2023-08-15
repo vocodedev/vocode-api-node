@@ -5,10 +5,11 @@
 /**
  * An enumeration.
  */
-export type VoiceType = "voice_azure" | "voice_rime" | "voice_eleven_labs";
+export type VoiceType = "voice_azure" | "voice_rime" | "voice_eleven_labs" | "voice_play_ht";
 
 export const VoiceType = {
     VoiceAzure: "voice_azure",
     VoiceRime: "voice_rime",
     VoiceElevenLabs: "voice_eleven_labs",
+    VoicePlayHt: "voice_play_ht",
 } as const;

@@ -4,7 +4,7 @@
 
 import * as Vocode from "..";
 
-export type AgentUpdateParamsActionsAgentUpdateParamsActionsItem =
+export type AgentUpdateParamsActionsItem =
     | string
     | Vocode.TransferCallActionUpdateParams
     | Vocode.EndConversationActionUpdateParams

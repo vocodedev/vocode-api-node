@@ -16,6 +16,9 @@ export const Call: core.serialization.ObjectSchema<serializers.Call.Raw, Vocode.
     toNumber: core.serialization.property("to_number", core.serialization.string()),
     fromNumber: core.serialization.property("from_number", core.serialization.string()),
     agent: core.serialization.lazyObject(async () => (await import("..")).Agent),
+    agentPhoneNumber: core.serialization.property("agent_phone_number", core.serialization.string()),
+    startTime: core.serialization.property("start_time", core.serialization.date().optional()),
+    endTime: core.serialization.property("end_time", core.serialization.date().optional()),
 });
 
 export declare namespace Call {
@@ -29,5 +32,8 @@ export declare namespace Call {
         to_number: string;
         from_number: string;
         agent: serializers.Agent.Raw;
+        agent_phone_number: string;
+        start_time?: string | null;
+        end_time?: string | null;
     }
 }

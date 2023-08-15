@@ -6,9 +6,9 @@ import * as serializers from "..";
 import * as Vocode from "../../api";
 import * as core from "../../core";
 
-export const AgentUpdateParamsActionsAgentUpdateParamsActionsItem: core.serialization.Schema<
-    serializers.AgentUpdateParamsActionsAgentUpdateParamsActionsItem.Raw,
-    Vocode.AgentUpdateParamsActionsAgentUpdateParamsActionsItem
+export const AgentUpdateParamsActionsItem: core.serialization.Schema<
+    serializers.AgentUpdateParamsActionsItem.Raw,
+    Vocode.AgentUpdateParamsActionsItem
 > = core.serialization.undiscriminatedUnion([
     core.serialization.string(),
     core.serialization.lazyObject(async () => (await import("..")).TransferCallActionUpdateParams),
@@ -16,7 +16,7 @@ export const AgentUpdateParamsActionsAgentUpdateParamsActionsItem: core.serializ
     core.serialization.lazyObject(async () => (await import("..")).DtmfActionUpdateParams),
 ]);
 
-export declare namespace AgentUpdateParamsActionsAgentUpdateParamsActionsItem {
+export declare namespace AgentUpdateParamsActionsItem {
     type Raw =
         | string
         | serializers.TransferCallActionUpdateParams.Raw

@@ -14,6 +14,7 @@ export const AgentUpdateParamsVoice: core.serialization.Schema<
     core.serialization.lazyObject(async () => (await import("..")).AzureVoiceUpdateParams),
     core.serialization.lazyObject(async () => (await import("..")).RimeVoiceUpdateParams),
     core.serialization.lazyObject(async () => (await import("..")).ElevenLabsVoiceUpdateParams),
+    core.serialization.lazyObject(async () => (await import("..")).PlayHtVoiceUpdateParams),
     core.serialization.lazyObject(async () => (await import("..")).Undefined),
 ]);
 
@@ -23,5 +24,6 @@ export declare namespace AgentUpdateParamsVoice {
         | serializers.AzureVoiceUpdateParams.Raw
         | serializers.RimeVoiceUpdateParams.Raw
         | serializers.ElevenLabsVoiceUpdateParams.Raw
+        | serializers.PlayHtVoiceUpdateParams.Raw
         | serializers.Undefined.Raw;
 }

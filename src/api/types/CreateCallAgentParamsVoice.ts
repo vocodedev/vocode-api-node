@@ -8,4 +8,5 @@ export type CreateCallAgentParamsVoice =
     | string
     | Vocode.AzureVoiceParams
     | Vocode.RimeVoiceParams
-    | Vocode.ElevenLabsVoiceParams;
+    | Vocode.ElevenLabsVoiceParams
+    | Vocode.PlayHtVoiceParams;

@@ -4,4 +4,8 @@
 
 import * as Vocode from "..";
 
-export type CreateVoiceRequest = Vocode.AzureVoiceParams | Vocode.RimeVoiceParams | Vocode.ElevenLabsVoiceParams;
+export type CreateVoiceRequest =
+    | Vocode.AzureVoiceParams
+    | Vocode.RimeVoiceParams
+    | Vocode.ElevenLabsVoiceParams
+    | Vocode.PlayHtVoiceParams;

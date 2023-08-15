@@ -10,12 +10,10 @@ export const AgentUpdateParamsActions: core.serialization.Schema<
     serializers.AgentUpdateParamsActions.Raw,
     Vocode.AgentUpdateParamsActions
 > = core.serialization.undiscriminatedUnion([
-    core.serialization.list(
-        core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsActionsAgentUpdateParamsActionsItem)
-    ),
+    core.serialization.list(core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsActionsItem)),
     core.serialization.lazyObject(async () => (await import("..")).Undefined),
 ]);
 
 export declare namespace AgentUpdateParamsActions {
-    type Raw = serializers.AgentUpdateParamsActionsAgentUpdateParamsActionsItem.Raw[] | serializers.Undefined.Raw;
+    type Raw = serializers.AgentUpdateParamsActionsItem.Raw[] | serializers.Undefined.Raw;
 }

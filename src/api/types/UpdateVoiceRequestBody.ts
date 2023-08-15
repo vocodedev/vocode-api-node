@@ -7,4 +7,5 @@ import * as Vocode from "..";
 export type UpdateVoiceRequestBody =
     | Vocode.AzureVoiceUpdateParams
     | Vocode.RimeVoiceUpdateParams
-    | Vocode.ElevenLabsVoiceUpdateParams;
+    | Vocode.ElevenLabsVoiceUpdateParams
+    | Vocode.PlayHtVoiceUpdateParams;

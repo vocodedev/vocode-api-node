@@ -14,4 +14,7 @@ export interface Call {
     toNumber: string;
     fromNumber: string;
     agent: Vocode.Agent;
+    agentPhoneNumber: string;
+    startTime?: Date;
+    endTime?: Date;
 }

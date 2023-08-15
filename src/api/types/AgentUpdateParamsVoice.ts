@@ -9,4 +9,5 @@ export type AgentUpdateParamsVoice =
     | Vocode.AzureVoiceUpdateParams
     | Vocode.RimeVoiceUpdateParams
     | Vocode.ElevenLabsVoiceUpdateParams
+    | Vocode.PlayHtVoiceUpdateParams
     | Vocode.Undefined;

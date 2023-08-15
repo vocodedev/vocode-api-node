@@ -25,7 +25,7 @@ export class Calls {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async listCalls(request: Vocode.ListCallsRequest = {}): Promise<Vocode.Page> {
+    public async listCalls(request: Vocode.ListCallsRequest = {}): Promise<Vocode.CallPage> {
         const { page, size } = request;
         const _queryParams = new URLSearchParams();
         if (page != null) {
@@ -43,14 +43,14 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5",
+                "X-Fern-SDK-Version": "0.0.6-alpha.1",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.Page.parseOrThrow(_response.body, {
+            return await serializers.CallPage.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -106,7 +106,7 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5",
+                "X-Fern-SDK-Version": "0.0.6-alpha.1",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -169,7 +169,7 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5",
+                "X-Fern-SDK-Version": "0.0.6-alpha.1",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -229,7 +229,7 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5",
+                "X-Fern-SDK-Version": "0.0.6-alpha.1",
             },
             contentType: "application/json",
             body: await serializers.CreateCallRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
@@ -292,7 +292,7 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5",
+                "X-Fern-SDK-Version": "0.0.6-alpha.1",
             },
             contentType: "application/json",
             queryParameters: _queryParams,

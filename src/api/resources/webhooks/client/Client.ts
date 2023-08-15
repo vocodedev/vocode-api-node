@@ -33,7 +33,7 @@ export class Webhooks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5",
+                "X-Fern-SDK-Version": "0.0.6-alpha.1",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -85,7 +85,7 @@ export class Webhooks {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async listWebhooks(request: Vocode.ListWebhooksRequest = {}): Promise<Vocode.Page> {
+    public async listWebhooks(request: Vocode.ListWebhooksRequest = {}): Promise<Vocode.WebhookPage> {
         const { page, size } = request;
         const _queryParams = new URLSearchParams();
         if (page != null) {
@@ -103,14 +103,14 @@ export class Webhooks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5",
+                "X-Fern-SDK-Version": "0.0.6-alpha.1",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.Page.parseOrThrow(_response.body, {
+            return await serializers.WebhookPage.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -163,7 +163,7 @@ export class Webhooks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5",
+                "X-Fern-SDK-Version": "0.0.6-alpha.1",
             },
             contentType: "application/json",
             body: await serializers.WebhookParams.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
@@ -226,7 +226,7 @@ export class Webhooks {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5",
+                "X-Fern-SDK-Version": "0.0.6-alpha.1",
             },
             contentType: "application/json",
             queryParameters: _queryParams,

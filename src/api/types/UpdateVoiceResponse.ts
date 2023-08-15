@@ -4,4 +4,4 @@
 
 import * as Vocode from "..";
 
-export type UpdateVoiceResponse = Vocode.AzureVoice | Vocode.RimeVoice | Vocode.ElevenLabsVoice;
+export type UpdateVoiceResponse = Vocode.AzureVoice | Vocode.RimeVoice | Vocode.ElevenLabsVoice | Vocode.PlayHtVoice;

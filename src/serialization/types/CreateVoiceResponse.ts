@@ -13,8 +13,13 @@ export const CreateVoiceResponse: core.serialization.Schema<
     core.serialization.lazyObject(async () => (await import("..")).AzureVoice),
     core.serialization.lazyObject(async () => (await import("..")).RimeVoice),
     core.serialization.lazyObject(async () => (await import("..")).ElevenLabsVoice),
+    core.serialization.lazyObject(async () => (await import("..")).PlayHtVoice),
 ]);
 
 export declare namespace CreateVoiceResponse {
-    type Raw = serializers.AzureVoice.Raw | serializers.RimeVoice.Raw | serializers.ElevenLabsVoice.Raw;
+    type Raw =
+        | serializers.AzureVoice.Raw
+        | serializers.RimeVoice.Raw
+        | serializers.ElevenLabsVoice.Raw
+        | serializers.PlayHtVoice.Raw;
 }

@@ -33,7 +33,7 @@ export class Agents {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5",
+                "X-Fern-SDK-Version": "0.0.6-alpha.1",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -85,7 +85,7 @@ export class Agents {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async listAgents(request: Vocode.ListAgentsRequest = {}): Promise<Vocode.Page> {
+    public async listAgents(request: Vocode.ListAgentsRequest = {}): Promise<Vocode.AgentPage> {
         const { page, size } = request;
         const _queryParams = new URLSearchParams();
         if (page != null) {
@@ -103,14 +103,14 @@ export class Agents {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5",
+                "X-Fern-SDK-Version": "0.0.6-alpha.1",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.Page.parseOrThrow(_response.body, {
+            return await serializers.AgentPage.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -163,7 +163,7 @@ export class Agents {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5",
+                "X-Fern-SDK-Version": "0.0.6-alpha.1",
             },
             contentType: "application/json",
             body: await serializers.AgentParams.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
@@ -226,7 +226,7 @@ export class Agents {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.5",
+                "X-Fern-SDK-Version": "0.0.6-alpha.1",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
