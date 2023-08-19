@@ -10,7 +10,6 @@ export const EndConversationActionUpdateParams: core.serialization.ObjectSchema<
     serializers.EndConversationActionUpdateParams.Raw,
     Vocode.EndConversationActionUpdateParams
 > = core.serialization.object({
-    type: core.serialization.lazy(async () => (await import("..")).ActionType),
     config: core.serialization
         .lazy(async () => (await import("..")).EndConversationActionUpdateParamsConfig)
         .optional(),
@@ -18,7 +17,6 @@ export const EndConversationActionUpdateParams: core.serialization.ObjectSchema<
 
 export declare namespace EndConversationActionUpdateParams {
     interface Raw {
-        type: serializers.ActionType.Raw;
         config?: serializers.EndConversationActionUpdateParamsConfig.Raw | null;
     }
 }

@@ -8,13 +8,11 @@ import * as core from "../../core";
 
 export const RimeVoiceParams: core.serialization.ObjectSchema<serializers.RimeVoiceParams.Raw, Vocode.RimeVoiceParams> =
     core.serialization.object({
-        type: core.serialization.lazy(async () => (await import("..")).VoiceType),
         speaker: core.serialization.string(),
     });
 
 export declare namespace RimeVoiceParams {
     interface Raw {
-        type: serializers.VoiceType.Raw;
         speaker: string;
     }
 }

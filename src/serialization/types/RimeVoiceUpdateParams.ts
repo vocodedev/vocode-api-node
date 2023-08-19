@@ -10,13 +10,11 @@ export const RimeVoiceUpdateParams: core.serialization.ObjectSchema<
     serializers.RimeVoiceUpdateParams.Raw,
     Vocode.RimeVoiceUpdateParams
 > = core.serialization.object({
-    type: core.serialization.lazy(async () => (await import("..")).VoiceType),
     speaker: core.serialization.lazy(async () => (await import("..")).RimeVoiceUpdateParamsSpeaker).optional(),
 });
 
 export declare namespace RimeVoiceUpdateParams {
     interface Raw {
-        type: serializers.VoiceType.Raw;
         speaker?: serializers.RimeVoiceUpdateParamsSpeaker.Raw | null;
     }
 }

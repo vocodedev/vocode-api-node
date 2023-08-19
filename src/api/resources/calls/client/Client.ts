@@ -43,7 +43,7 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.6-alpha.1",
+                "X-Fern-SDK-Version": "0.0.6-alpha.2",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -106,7 +106,7 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.6-alpha.1",
+                "X-Fern-SDK-Version": "0.0.6-alpha.2",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -169,7 +169,7 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.6-alpha.1",
+                "X-Fern-SDK-Version": "0.0.6-alpha.2",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -229,7 +229,7 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.6-alpha.1",
+                "X-Fern-SDK-Version": "0.0.6-alpha.2",
             },
             contentType: "application/json",
             body: await serializers.CreateCallRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
@@ -281,7 +281,7 @@ export class Calls {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async recording(request: Vocode.RecordingRequest): Promise<unknown> {
+    public async getRecording(request: Vocode.GetRecordingRequest): Promise<unknown> {
         const { id } = request;
         const _queryParams = new URLSearchParams();
         _queryParams.append("id", id);
@@ -292,7 +292,7 @@ export class Calls {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.6-alpha.1",
+                "X-Fern-SDK-Version": "0.0.6-alpha.2",
             },
             contentType: "application/json",
             queryParameters: _queryParams,

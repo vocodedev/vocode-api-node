@@ -15,4 +15,5 @@ export interface NormalizedAgent {
     webhook?: string;
     vectorDatabase?: Vocode.NormalizedAgentVectorDatabase;
     interruptSensitivity?: Vocode.InterruptSensitivity;
+    contextEndpoint?: string;
 }

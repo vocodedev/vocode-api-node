@@ -10,7 +10,6 @@ export const AzureVoice: core.serialization.ObjectSchema<serializers.AzureVoice.
     core.serialization.object({
         id: core.serialization.string(),
         userId: core.serialization.property("user_id", core.serialization.string()),
-        type: core.serialization.lazy(async () => (await import("..")).VoiceType).optional(),
         voiceName: core.serialization.property("voice_name", core.serialization.string()),
         pitch: core.serialization.number().optional(),
         rate: core.serialization.number().optional(),
@@ -20,7 +19,6 @@ export declare namespace AzureVoice {
     interface Raw {
         id: string;
         user_id: string;
-        type?: serializers.VoiceType.Raw | null;
         voice_name: string;
         pitch?: number | null;
         rate?: number | null;

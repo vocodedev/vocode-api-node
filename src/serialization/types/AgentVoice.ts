@@ -6,18 +6,34 @@ import * as serializers from "..";
 import * as Vocode from "../../api";
 import * as core from "../../core";
 
-export const AgentVoice: core.serialization.Schema<serializers.AgentVoice.Raw, Vocode.AgentVoice> =
-    core.serialization.undiscriminatedUnion([
-        core.serialization.lazyObject(async () => (await import("..")).AzureVoice),
-        core.serialization.lazyObject(async () => (await import("..")).RimeVoice),
-        core.serialization.lazyObject(async () => (await import("..")).ElevenLabsVoice),
-        core.serialization.lazyObject(async () => (await import("..")).PlayHtVoice),
-    ]);
+export const AgentVoice: core.serialization.Schema<serializers.AgentVoice.Raw, Vocode.AgentVoice> = core.serialization
+    .union("type", {
+        voice_azure: core.serialization.lazyObject(async () => (await import("..")).AzureVoice),
+        voice_rime: core.serialization.lazyObject(async () => (await import("..")).RimeVoice),
+        voice_eleven_labs: core.serialization.lazyObject(async () => (await import("..")).ElevenLabsVoice),
+        voice_play_ht: core.serialization.lazyObject(async () => (await import("..")).PlayHtVoice),
+    })
+    .transform<Vocode.AgentVoice>({
+        transform: (value) => value,
+        untransform: (value) => value,
+    });
 
 export declare namespace AgentVoice {
-    type Raw =
-        | serializers.AzureVoice.Raw
-        | serializers.RimeVoice.Raw
-        | serializers.ElevenLabsVoice.Raw
-        | serializers.PlayHtVoice.Raw;
+    type Raw = AgentVoice.VoiceAzure | AgentVoice.VoiceRime | AgentVoice.VoiceElevenLabs | AgentVoice.VoicePlayHt;
+
+    interface VoiceAzure extends serializers.AzureVoice.Raw {
+        type: "voice_azure";
+    }
+
+    interface VoiceRime extends serializers.RimeVoice.Raw {
+        type: "voice_rime";
+    }
+
+    interface VoiceElevenLabs extends serializers.ElevenLabsVoice.Raw {
+        type: "voice_eleven_labs";
+    }
+
+    interface VoicePlayHt extends serializers.PlayHtVoice.Raw {
+        type: "voice_play_ht";
+    }
 }

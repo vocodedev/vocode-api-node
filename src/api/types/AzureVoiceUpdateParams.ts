@@ -5,7 +5,6 @@
 import * as Vocode from "..";
 
 export interface AzureVoiceUpdateParams {
-    type: Vocode.VoiceType;
     voiceName?: Vocode.AzureVoiceUpdateParamsVoiceName;
     pitch?: Vocode.AzureVoiceUpdateParamsPitch;
     rate?: Vocode.AzureVoiceUpdateParamsRate;

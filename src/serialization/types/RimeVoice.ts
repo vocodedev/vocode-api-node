@@ -10,7 +10,6 @@ export const RimeVoice: core.serialization.ObjectSchema<serializers.RimeVoice.Ra
     core.serialization.object({
         id: core.serialization.string(),
         userId: core.serialization.property("user_id", core.serialization.string()),
-        type: core.serialization.lazy(async () => (await import("..")).VoiceType).optional(),
         speaker: core.serialization.string(),
     });
 
@@ -18,7 +17,6 @@ export declare namespace RimeVoice {
     interface Raw {
         id: string;
         user_id: string;
-        type?: serializers.VoiceType.Raw | null;
         speaker: string;
     }
 }

@@ -4,4 +4,21 @@
 
 import * as Vocode from "..";
 
-export type AgentActionsItem = Vocode.TransferCallAction | Vocode.EndConversationAction | Vocode.DtmfAction;
+export type AgentActionsItem =
+    | Vocode.AgentActionsItem.ActionTransferCall
+    | Vocode.AgentActionsItem.ActionEndConversation
+    | Vocode.AgentActionsItem.ActionDtmf;
+
+export declare namespace AgentActionsItem {
+    interface ActionTransferCall extends Vocode.TransferCallAction {
+        type: "action_transfer_call";
+    }
+
+    interface ActionEndConversation extends Vocode.EndConversationAction {
+        type: "action_end_conversation";
+    }
+
+    interface ActionDtmf extends Vocode.DtmfAction {
+        type: "action_dtmf";
+    }
+}

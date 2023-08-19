@@ -10,7 +10,6 @@ export const ElevenLabsVoiceParams: core.serialization.ObjectSchema<
     serializers.ElevenLabsVoiceParams.Raw,
     Vocode.ElevenLabsVoiceParams
 > = core.serialization.object({
-    type: core.serialization.lazy(async () => (await import("..")).VoiceType),
     voiceId: core.serialization.property("voice_id", core.serialization.string()),
     stability: core.serialization.number().optional(),
     similarityBoost: core.serialization.property("similarity_boost", core.serialization.number().optional()),
@@ -19,7 +18,6 @@ export const ElevenLabsVoiceParams: core.serialization.ObjectSchema<
 
 export declare namespace ElevenLabsVoiceParams {
     interface Raw {
-        type: serializers.VoiceType.Raw;
         voice_id: string;
         stability?: number | null;
         similarity_boost?: number | null;

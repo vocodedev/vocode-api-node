@@ -10,13 +10,11 @@ export const DtmfActionUpdateParams: core.serialization.ObjectSchema<
     serializers.DtmfActionUpdateParams.Raw,
     Vocode.DtmfActionUpdateParams
 > = core.serialization.object({
-    type: core.serialization.lazy(async () => (await import("..")).ActionType),
     config: core.serialization.lazy(async () => (await import("..")).DtmfActionUpdateParamsConfig).optional(),
 });
 
 export declare namespace DtmfActionUpdateParams {
     interface Raw {
-        type: serializers.ActionType.Raw;
         config?: serializers.DtmfActionUpdateParamsConfig.Raw | null;
     }
 }

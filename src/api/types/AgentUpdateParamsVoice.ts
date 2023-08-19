@@ -4,10 +4,4 @@
 
 import * as Vocode from "..";
 
-export type AgentUpdateParamsVoice =
-    | string
-    | Vocode.AzureVoiceUpdateParams
-    | Vocode.RimeVoiceUpdateParams
-    | Vocode.ElevenLabsVoiceUpdateParams
-    | Vocode.PlayHtVoiceUpdateParams
-    | Vocode.Undefined;
+export type AgentUpdateParamsVoice = string | Vocode.AgentUpdateParamsVoiceOne | Vocode.Undefined;

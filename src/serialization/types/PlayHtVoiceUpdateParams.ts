@@ -10,7 +10,6 @@ export const PlayHtVoiceUpdateParams: core.serialization.ObjectSchema<
     serializers.PlayHtVoiceUpdateParams.Raw,
     Vocode.PlayHtVoiceUpdateParams
 > = core.serialization.object({
-    type: core.serialization.lazy(async () => (await import("..")).VoiceType),
     voiceId: core.serialization.property(
         "voice_id",
         core.serialization.lazy(async () => (await import("..")).PlayHtVoiceUpdateParamsVoiceId).optional()
@@ -27,7 +26,6 @@ export const PlayHtVoiceUpdateParams: core.serialization.ObjectSchema<
 
 export declare namespace PlayHtVoiceUpdateParams {
     interface Raw {
-        type: serializers.VoiceType.Raw;
         voice_id?: serializers.PlayHtVoiceUpdateParamsVoiceId.Raw | null;
         api_user_id?: serializers.PlayHtVoiceUpdateParamsApiUserId.Raw | null;
         api_key?: serializers.PlayHtVoiceUpdateParamsApiKey.Raw | null;

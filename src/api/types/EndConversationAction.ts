@@ -7,6 +7,5 @@ import * as Vocode from "..";
 export interface EndConversationAction {
     id: string;
     userId: string;
-    type?: Vocode.ActionType;
     config?: Vocode.EmptyActionConfig;
 }

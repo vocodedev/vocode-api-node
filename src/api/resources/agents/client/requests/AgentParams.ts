@@ -13,4 +13,5 @@ export interface AgentParams {
     webhook?: Vocode.AgentParamsWebhook;
     vectorDatabase?: Vocode.AgentParamsVectorDatabase;
     interruptSensitivity?: Vocode.InterruptSensitivity;
+    contextEndpoint?: string;
 }

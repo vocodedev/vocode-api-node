@@ -6,5 +6,5 @@ import * as Vocode from "../../../..";
 
 export interface UpdateVoiceRequest {
     id: string;
-    body: Vocode.UpdateVoiceRequestBody;
+    body: Vocode.VoiceUpdateParamsRequest;
 }

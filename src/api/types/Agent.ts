@@ -15,4 +15,5 @@ export interface Agent {
     webhook?: Vocode.Webhook;
     vectorDatabase?: Vocode.PineconeVectorDatabase;
     interruptSensitivity?: Vocode.InterruptSensitivity;
+    contextEndpoint?: string;
 }

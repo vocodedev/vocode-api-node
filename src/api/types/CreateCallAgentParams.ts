@@ -13,4 +13,5 @@ export interface CreateCallAgentParams {
     webhook?: Vocode.CreateCallAgentParamsWebhook;
     vectorDatabase?: Vocode.CreateCallAgentParamsVectorDatabase;
     interruptSensitivity?: Vocode.InterruptSensitivity;
+    contextEndpoint?: string;
 }

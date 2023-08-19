@@ -5,7 +5,7 @@
 import * as Vocode from "..";
 
 export interface PineconeVectorDatabaseUpdateParams {
-    type: Vocode.VectorDatabaseType;
+    type: "vector_database_pinecone";
     index?: Vocode.PineconeVectorDatabaseUpdateParamsIndex;
     apiKey?: Vocode.PineconeVectorDatabaseUpdateParamsApiKey;
     apiEnvironment?: Vocode.PineconeVectorDatabaseUpdateParamsApiEnvironment;

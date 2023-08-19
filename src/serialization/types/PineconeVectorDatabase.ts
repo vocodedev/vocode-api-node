@@ -12,7 +12,7 @@ export const PineconeVectorDatabase: core.serialization.ObjectSchema<
 > = core.serialization.object({
     id: core.serialization.string(),
     userId: core.serialization.property("user_id", core.serialization.string()),
-    type: core.serialization.lazy(async () => (await import("..")).VectorDatabaseType).optional(),
+    type: core.serialization.stringLiteral("vector_database_pinecone"),
     index: core.serialization.string(),
     apiKey: core.serialization.property("api_key", core.serialization.string()),
     apiEnvironment: core.serialization.property("api_environment", core.serialization.string()),
@@ -22,7 +22,7 @@ export declare namespace PineconeVectorDatabase {
     interface Raw {
         id: string;
         user_id: string;
-        type?: serializers.VectorDatabaseType.Raw | null;
+        type: "vector_database_pinecone";
         index: string;
         api_key: string;
         api_environment: string;

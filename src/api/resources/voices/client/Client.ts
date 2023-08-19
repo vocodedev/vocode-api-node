@@ -22,7 +22,7 @@ export class Voices {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async getVoice(request: Vocode.GetVoiceRequest): Promise<Vocode.GetVoiceResponse> {
+    public async getVoice(request: Vocode.GetVoiceRequest): Promise<Vocode.VoiceResponseModel> {
         const { id } = request;
         const _queryParams = new URLSearchParams();
         _queryParams.append("id", id);
@@ -33,14 +33,14 @@ export class Voices {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.6-alpha.1",
+                "X-Fern-SDK-Version": "0.0.6-alpha.2",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.GetVoiceResponse.parseOrThrow(_response.body, {
+            return await serializers.VoiceResponseModel.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -103,7 +103,7 @@ export class Voices {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.6-alpha.1",
+                "X-Fern-SDK-Version": "0.0.6-alpha.2",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -155,7 +155,7 @@ export class Voices {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async createVoice(request: Vocode.CreateVoiceRequest): Promise<Vocode.CreateVoiceResponse> {
+    public async createVoice(request: Vocode.VoiceParamsRequest): Promise<Vocode.VoiceResponseModel> {
         const _response = await core.fetcher({
             url: urlJoin(await core.Supplier.get(this._options.environment), "v1/voices/create"),
             method: "POST",
@@ -163,14 +163,14 @@ export class Voices {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.6-alpha.1",
+                "X-Fern-SDK-Version": "0.0.6-alpha.2",
             },
             contentType: "application/json",
-            body: await serializers.CreateVoiceRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            body: await serializers.VoiceParamsRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.CreateVoiceResponse.parseOrThrow(_response.body, {
+            return await serializers.VoiceResponseModel.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -215,7 +215,7 @@ export class Voices {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async updateVoice(request: Vocode.UpdateVoiceRequest): Promise<Vocode.UpdateVoiceResponse> {
+    public async updateVoice(request: Vocode.UpdateVoiceRequest): Promise<Vocode.VoiceResponseModel> {
         const { id, body: _body } = request;
         const _queryParams = new URLSearchParams();
         _queryParams.append("id", id);
@@ -226,15 +226,15 @@ export class Voices {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.6-alpha.1",
+                "X-Fern-SDK-Version": "0.0.6-alpha.2",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
-            body: await serializers.UpdateVoiceRequestBody.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: await serializers.VoiceUpdateParamsRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.UpdateVoiceResponse.parseOrThrow(_response.body, {
+            return await serializers.VoiceResponseModel.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,

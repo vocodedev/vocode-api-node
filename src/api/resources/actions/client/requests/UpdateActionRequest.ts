@@ -6,5 +6,5 @@ import * as Vocode from "../../../..";
 
 export interface UpdateActionRequest {
     id: string;
-    body: Vocode.UpdateActionRequestBody;
+    body: Vocode.ActionUpdateParamsRequest;
 }

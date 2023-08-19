@@ -5,10 +5,10 @@
 /**
  * An enumeration.
  */
-export type PlanType = "free" | "developer" | "enterprise";
+export type PlanType = "plan_free" | "plan_developer" | "plan_enterprise";
 
 export const PlanType = {
-    Free: "free",
-    Developer: "developer",
-    Enterprise: "enterprise",
+    PlanFree: "plan_free",
+    PlanDeveloper: "plan_developer",
+    PlanEnterprise: "plan_enterprise",
 } as const;

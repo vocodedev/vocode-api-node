@@ -10,7 +10,6 @@ export const DtmfAction: core.serialization.ObjectSchema<serializers.DtmfAction.
     core.serialization.object({
         id: core.serialization.string(),
         userId: core.serialization.property("user_id", core.serialization.string()),
-        type: core.serialization.lazy(async () => (await import("..")).ActionType).optional(),
         config: core.serialization.lazyObject(async () => (await import("..")).EmptyActionConfig).optional(),
     });
 
@@ -18,7 +17,6 @@ export declare namespace DtmfAction {
     interface Raw {
         id: string;
         user_id: string;
-        type?: serializers.ActionType.Raw | null;
         config?: serializers.EmptyActionConfig.Raw | null;
     }
 }

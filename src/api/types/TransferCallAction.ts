@@ -7,6 +7,5 @@ import * as Vocode from "..";
 export interface TransferCallAction {
     id: string;
     userId: string;
-    type?: Vocode.ActionType;
     config: Vocode.TransferCallConfig;
 }

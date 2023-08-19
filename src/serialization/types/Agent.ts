@@ -23,6 +23,7 @@ export const Agent: core.serialization.ObjectSchema<serializers.Agent.Raw, Vocod
         "interrupt_sensitivity",
         core.serialization.lazy(async () => (await import("..")).InterruptSensitivity).optional()
     ),
+    contextEndpoint: core.serialization.property("context_endpoint", core.serialization.string().optional()),
 });
 
 export declare namespace Agent {
@@ -37,5 +38,6 @@ export declare namespace Agent {
         webhook?: serializers.Webhook.Raw | null;
         vector_database?: serializers.PineconeVectorDatabase.Raw | null;
         interrupt_sensitivity?: serializers.InterruptSensitivity.Raw | null;
+        context_endpoint?: string | null;
     }
 }

@@ -11,19 +11,10 @@ export const AgentUpdateParamsVoice: core.serialization.Schema<
     Vocode.AgentUpdateParamsVoice
 > = core.serialization.undiscriminatedUnion([
     core.serialization.string(),
-    core.serialization.lazyObject(async () => (await import("..")).AzureVoiceUpdateParams),
-    core.serialization.lazyObject(async () => (await import("..")).RimeVoiceUpdateParams),
-    core.serialization.lazyObject(async () => (await import("..")).ElevenLabsVoiceUpdateParams),
-    core.serialization.lazyObject(async () => (await import("..")).PlayHtVoiceUpdateParams),
+    core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsVoiceOne),
     core.serialization.lazyObject(async () => (await import("..")).Undefined),
 ]);
 
 export declare namespace AgentUpdateParamsVoice {
-    type Raw =
-        | string
-        | serializers.AzureVoiceUpdateParams.Raw
-        | serializers.RimeVoiceUpdateParams.Raw
-        | serializers.ElevenLabsVoiceUpdateParams.Raw
-        | serializers.PlayHtVoiceUpdateParams.Raw
-        | serializers.Undefined.Raw;
+    type Raw = string | serializers.AgentUpdateParamsVoiceOne.Raw | serializers.Undefined.Raw;
 }

@@ -5,6 +5,5 @@
 import * as Vocode from "..";
 
 export interface RimeVoiceUpdateParams {
-    type: Vocode.VoiceType;
     speaker?: Vocode.RimeVoiceUpdateParamsSpeaker;
 }

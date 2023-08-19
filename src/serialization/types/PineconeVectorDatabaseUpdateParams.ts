@@ -10,7 +10,7 @@ export const PineconeVectorDatabaseUpdateParams: core.serialization.ObjectSchema
     serializers.PineconeVectorDatabaseUpdateParams.Raw,
     Vocode.PineconeVectorDatabaseUpdateParams
 > = core.serialization.object({
-    type: core.serialization.lazy(async () => (await import("..")).VectorDatabaseType),
+    type: core.serialization.stringLiteral("vector_database_pinecone"),
     index: core.serialization.lazy(async () => (await import("..")).PineconeVectorDatabaseUpdateParamsIndex).optional(),
     apiKey: core.serialization.property(
         "api_key",
@@ -26,7 +26,7 @@ export const PineconeVectorDatabaseUpdateParams: core.serialization.ObjectSchema
 
 export declare namespace PineconeVectorDatabaseUpdateParams {
     interface Raw {
-        type: serializers.VectorDatabaseType.Raw;
+        type: "vector_database_pinecone";
         index?: serializers.PineconeVectorDatabaseUpdateParamsIndex.Raw | null;
         api_key?: serializers.PineconeVectorDatabaseUpdateParamsApiKey.Raw | null;
         api_environment?: serializers.PineconeVectorDatabaseUpdateParamsApiEnvironment.Raw | null;

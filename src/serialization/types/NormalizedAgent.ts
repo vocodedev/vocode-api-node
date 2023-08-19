@@ -24,6 +24,7 @@ export const NormalizedAgent: core.serialization.ObjectSchema<serializers.Normal
             "interrupt_sensitivity",
             core.serialization.lazy(async () => (await import("..")).InterruptSensitivity).optional()
         ),
+        contextEndpoint: core.serialization.property("context_endpoint", core.serialization.string().optional()),
     });
 
 export declare namespace NormalizedAgent {
@@ -38,5 +39,6 @@ export declare namespace NormalizedAgent {
         webhook?: string | null;
         vector_database?: serializers.NormalizedAgentVectorDatabase.Raw | null;
         interrupt_sensitivity?: serializers.InterruptSensitivity.Raw | null;
+        context_endpoint?: string | null;
     }
 }

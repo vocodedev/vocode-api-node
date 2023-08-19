@@ -5,6 +5,5 @@
 import * as Vocode from "..";
 
 export interface EndConversationActionParams {
-    type: Vocode.ActionType;
     config?: Vocode.EmptyActionConfig;
 }

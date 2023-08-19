@@ -7,12 +7,34 @@ import * as Vocode from "../../api";
 import * as core from "../../core";
 
 export const AgentActionsItem: core.serialization.Schema<serializers.AgentActionsItem.Raw, Vocode.AgentActionsItem> =
-    core.serialization.undiscriminatedUnion([
-        core.serialization.lazyObject(async () => (await import("..")).TransferCallAction),
-        core.serialization.lazyObject(async () => (await import("..")).EndConversationAction),
-        core.serialization.lazyObject(async () => (await import("..")).DtmfAction),
-    ]);
+    core.serialization
+        .union("type", {
+            action_transfer_call: core.serialization.lazyObject(async () => (await import("..")).TransferCallAction),
+            action_end_conversation: core.serialization.lazyObject(
+                async () => (await import("..")).EndConversationAction
+            ),
+            action_dtmf: core.serialization.lazyObject(async () => (await import("..")).DtmfAction),
+        })
+        .transform<Vocode.AgentActionsItem>({
+            transform: (value) => value,
+            untransform: (value) => value,
+        });
 
 export declare namespace AgentActionsItem {
-    type Raw = serializers.TransferCallAction.Raw | serializers.EndConversationAction.Raw | serializers.DtmfAction.Raw;
+    type Raw =
+        | AgentActionsItem.ActionTransferCall
+        | AgentActionsItem.ActionEndConversation
+        | AgentActionsItem.ActionDtmf;
+
+    interface ActionTransferCall extends serializers.TransferCallAction.Raw {
+        type: "action_transfer_call";
+    }
+
+    interface ActionEndConversation extends serializers.EndConversationAction.Raw {
+        type: "action_end_conversation";
+    }
+
+    interface ActionDtmf extends serializers.DtmfAction.Raw {
+        type: "action_dtmf";
+    }
 }

@@ -27,6 +27,10 @@ export const AgentUpdateParams: core.serialization.ObjectSchema<
         "interrupt_sensitivity",
         core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsInterruptSensitivity).optional()
     ),
+    contextEndpoint: core.serialization.property(
+        "context_endpoint",
+        core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsContextEndpoint).optional()
+    ),
 });
 
 export declare namespace AgentUpdateParams {
@@ -39,5 +43,6 @@ export declare namespace AgentUpdateParams {
         webhook?: serializers.AgentUpdateParamsWebhook.Raw | null;
         vector_database?: serializers.AgentUpdateParamsVectorDatabase.Raw | null;
         interrupt_sensitivity?: serializers.AgentUpdateParamsInterruptSensitivity.Raw | null;
+        context_endpoint?: serializers.AgentUpdateParamsContextEndpoint.Raw | null;
     }
 }

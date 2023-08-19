@@ -10,7 +10,6 @@ export const AzureVoiceUpdateParams: core.serialization.ObjectSchema<
     serializers.AzureVoiceUpdateParams.Raw,
     Vocode.AzureVoiceUpdateParams
 > = core.serialization.object({
-    type: core.serialization.lazy(async () => (await import("..")).VoiceType),
     voiceName: core.serialization.property(
         "voice_name",
         core.serialization.lazy(async () => (await import("..")).AzureVoiceUpdateParamsVoiceName).optional()
@@ -21,7 +20,6 @@ export const AzureVoiceUpdateParams: core.serialization.ObjectSchema<
 
 export declare namespace AzureVoiceUpdateParams {
     interface Raw {
-        type: serializers.VoiceType.Raw;
         voice_name?: serializers.AzureVoiceUpdateParamsVoiceName.Raw | null;
         pitch?: serializers.AzureVoiceUpdateParamsPitch.Raw | null;
         rate?: serializers.AzureVoiceUpdateParamsRate.Raw | null;

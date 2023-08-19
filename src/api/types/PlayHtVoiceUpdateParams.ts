@@ -5,7 +5,6 @@
 import * as Vocode from "..";
 
 export interface PlayHtVoiceUpdateParams {
-    type: Vocode.VoiceType;
     voiceId?: Vocode.PlayHtVoiceUpdateParamsVoiceId;
     apiUserId?: Vocode.PlayHtVoiceUpdateParamsApiUserId;
     apiKey?: Vocode.PlayHtVoiceUpdateParamsApiKey;

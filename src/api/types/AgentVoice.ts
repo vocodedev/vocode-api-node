@@ -4,4 +4,26 @@
 
 import * as Vocode from "..";
 
-export type AgentVoice = Vocode.AzureVoice | Vocode.RimeVoice | Vocode.ElevenLabsVoice | Vocode.PlayHtVoice;
+export type AgentVoice =
+    | Vocode.AgentVoice.VoiceAzure
+    | Vocode.AgentVoice.VoiceRime
+    | Vocode.AgentVoice.VoiceElevenLabs
+    | Vocode.AgentVoice.VoicePlayHt;
+
+export declare namespace AgentVoice {
+    interface VoiceAzure extends Vocode.AzureVoice {
+        type: "voice_azure";
+    }
+
+    interface VoiceRime extends Vocode.RimeVoice {
+        type: "voice_rime";
+    }
+
+    interface VoiceElevenLabs extends Vocode.ElevenLabsVoice {
+        type: "voice_eleven_labs";
+    }
+
+    interface VoicePlayHt extends Vocode.PlayHtVoice {
+        type: "voice_play_ht";
+    }
+}

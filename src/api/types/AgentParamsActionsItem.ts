@@ -4,8 +4,4 @@
 
 import * as Vocode from "..";
 
-export type AgentParamsActionsItem =
-    | string
-    | Vocode.TransferCallActionParams
-    | Vocode.EndConversationActionParams
-    | Vocode.DtmfActionParams;
+export type AgentParamsActionsItem = string | Vocode.AgentParamsActionsItemOne;

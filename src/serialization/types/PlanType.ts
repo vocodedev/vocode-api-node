@@ -7,11 +7,11 @@ import * as Vocode from "../../api";
 import * as core from "../../core";
 
 export const PlanType: core.serialization.Schema<serializers.PlanType.Raw, Vocode.PlanType> = core.serialization.enum_([
-    "free",
-    "developer",
-    "enterprise",
+    "plan_free",
+    "plan_developer",
+    "plan_enterprise",
 ]);
 
 export declare namespace PlanType {
-    type Raw = "free" | "developer" | "enterprise";
+    type Raw = "plan_free" | "plan_developer" | "plan_enterprise";
 }

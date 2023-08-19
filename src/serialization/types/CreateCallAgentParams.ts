@@ -26,6 +26,7 @@ export const CreateCallAgentParams: core.serialization.ObjectSchema<
         "interrupt_sensitivity",
         core.serialization.lazy(async () => (await import("..")).InterruptSensitivity).optional()
     ),
+    contextEndpoint: core.serialization.property("context_endpoint", core.serialization.string().optional()),
 });
 
 export declare namespace CreateCallAgentParams {
@@ -38,5 +39,6 @@ export declare namespace CreateCallAgentParams {
         webhook?: serializers.CreateCallAgentParamsWebhook.Raw | null;
         vector_database?: serializers.CreateCallAgentParamsVectorDatabase.Raw | null;
         interrupt_sensitivity?: serializers.InterruptSensitivity.Raw | null;
+        context_endpoint?: string | null;
     }
 }

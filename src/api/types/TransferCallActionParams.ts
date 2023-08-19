@@ -5,6 +5,5 @@
 import * as Vocode from "..";
 
 export interface TransferCallActionParams {
-    type: Vocode.ActionType;
     config: Vocode.TransferCallConfig;
 }

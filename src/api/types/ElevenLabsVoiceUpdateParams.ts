@@ -5,7 +5,6 @@
 import * as Vocode from "..";
 
 export interface ElevenLabsVoiceUpdateParams {
-    type: Vocode.VoiceType;
     voiceId?: Vocode.ElevenLabsVoiceUpdateParamsVoiceId;
     stability?: Vocode.ElevenLabsVoiceUpdateParamsStability;
     similarityBoost?: Vocode.ElevenLabsVoiceUpdateParamsSimilarityBoost;

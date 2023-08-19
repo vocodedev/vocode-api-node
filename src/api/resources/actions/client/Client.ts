@@ -22,7 +22,7 @@ export class Actions {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async getAction(request: Vocode.GetActionRequest): Promise<Vocode.GetActionResponse> {
+    public async getAction(request: Vocode.GetActionRequest): Promise<Vocode.ActionResponseModel> {
         const { id } = request;
         const _queryParams = new URLSearchParams();
         _queryParams.append("id", id);
@@ -33,14 +33,14 @@ export class Actions {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.6-alpha.1",
+                "X-Fern-SDK-Version": "0.0.6-alpha.2",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.GetActionResponse.parseOrThrow(_response.body, {
+            return await serializers.ActionResponseModel.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -103,7 +103,7 @@ export class Actions {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.6-alpha.1",
+                "X-Fern-SDK-Version": "0.0.6-alpha.2",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -155,7 +155,7 @@ export class Actions {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async createAction(request: Vocode.CreateActionRequest): Promise<Vocode.CreateActionResponse> {
+    public async createAction(request: Vocode.ActionParamsRequest): Promise<Vocode.ActionResponseModel> {
         const _response = await core.fetcher({
             url: urlJoin(await core.Supplier.get(this._options.environment), "v1/actions/create"),
             method: "POST",
@@ -163,14 +163,14 @@ export class Actions {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.6-alpha.1",
+                "X-Fern-SDK-Version": "0.0.6-alpha.2",
             },
             contentType: "application/json",
-            body: await serializers.CreateActionRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            body: await serializers.ActionParamsRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.CreateActionResponse.parseOrThrow(_response.body, {
+            return await serializers.ActionResponseModel.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -215,7 +215,7 @@ export class Actions {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async updateAction(request: Vocode.UpdateActionRequest): Promise<Vocode.UpdateActionResponse> {
+    public async updateAction(request: Vocode.UpdateActionRequest): Promise<Vocode.ActionResponseModel> {
         const { id, body: _body } = request;
         const _queryParams = new URLSearchParams();
         _queryParams.append("id", id);
@@ -226,15 +226,15 @@ export class Actions {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.6-alpha.1",
+                "X-Fern-SDK-Version": "0.0.6-alpha.2",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
-            body: await serializers.UpdateActionRequestBody.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: await serializers.ActionUpdateParamsRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.UpdateActionResponse.parseOrThrow(_response.body, {
+            return await serializers.ActionResponseModel.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,

@@ -9,17 +9,9 @@ import * as core from "../../core";
 export const AgentParamsVoice: core.serialization.Schema<serializers.AgentParamsVoice.Raw, Vocode.AgentParamsVoice> =
     core.serialization.undiscriminatedUnion([
         core.serialization.string(),
-        core.serialization.lazyObject(async () => (await import("..")).AzureVoiceParams),
-        core.serialization.lazyObject(async () => (await import("..")).RimeVoiceParams),
-        core.serialization.lazyObject(async () => (await import("..")).ElevenLabsVoiceParams),
-        core.serialization.lazyObject(async () => (await import("..")).PlayHtVoiceParams),
+        core.serialization.lazy(async () => (await import("..")).AgentParamsVoiceOne),
     ]);
 
 export declare namespace AgentParamsVoice {
-    type Raw =
-        | string
-        | serializers.AzureVoiceParams.Raw
-        | serializers.RimeVoiceParams.Raw
-        | serializers.ElevenLabsVoiceParams.Raw
-        | serializers.PlayHtVoiceParams.Raw;
+    type Raw = string | serializers.AgentParamsVoiceOne.Raw;
 }
