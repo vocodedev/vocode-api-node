@@ -22,7 +22,7 @@ yarn add @vocode/vocode-api
 [![Try it out](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/typescript-example-using-sdk-built-with-fern-nuefzg?file=app.ts)
 
 ```typescript
-import { VocodeClient } from '@fern-api/vocode';
+import { VocodeClient } from '@vocode/vocode-api';
 
 const vocode = new VocodeClient({
   token: 'YOUR_TOKEN',
