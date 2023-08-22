@@ -1,6 +1,6 @@
 # Vocode Node Library
 
-[![npm shield](https://img.shields.io/npm/v/@fern-api/vocode)](https://www.npmjs.com/package/@fern-api/vocode)
+[![npm shield](https://img.shields.io/npm/v/@vocode/vocode-api)](https://www.npmjs.com/package/@vocode/vocode-api)
 [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-SDK%20generated%20by%20Fern-brightgreen)](https://github.com/fern-api/fern)
 
 The Vocode Node.js library provides access to the Vocode API from JavaScript/TypeScript.
