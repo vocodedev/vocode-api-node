@@ -12,9 +12,9 @@ API reference documentation is available [here](https://docs.vocode.dev/).
 ## Installation
 
 ```
-npm install --save @fern-api/vocode
+npm install --save @vocode/vocode-api
 # or
-yarn add @fern-api/vocode
+yarn add @vocode/vocode-api
 ```
 
 ## Usage
