@@ -12,6 +12,7 @@ import { Agents } from "./api/resources/agents/client/Client";
 import { Voices } from "./api/resources/voices/client/Client";
 import { Webhooks } from "./api/resources/webhooks/client/Client";
 import { Prompts } from "./api/resources/prompts/client/Client";
+import { VectorDatabases } from "./api/resources/vectorDatabases/client/Client";
 
 export declare namespace VocodeClient {
     interface Options {
@@ -69,5 +70,11 @@ export class VocodeClient {
 
     public get prompts(): Prompts {
         return (this._prompts ??= new Prompts(this._options));
+    }
+
+    protected _vectorDatabases: VectorDatabases | undefined;
+
+    public get vectorDatabases(): VectorDatabases {
+        return (this._vectorDatabases ??= new VectorDatabases(this._options));
     }
 }

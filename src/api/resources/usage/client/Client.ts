@@ -30,7 +30,7 @@ export class Usage {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.17",
+                "X-Fern-SDK-Version": "0.0.18",
             },
             contentType: "application/json",
             timeoutMs: 60000,

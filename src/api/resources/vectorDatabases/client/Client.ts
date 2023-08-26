@@ -10,27 +10,27 @@ import urlJoin from "url-join";
 import * as serializers from "../../../../serialization";
 import * as errors from "../../../../errors";
 
-export declare namespace Agents {
+export declare namespace VectorDatabases {
     interface Options {
         environment?: core.Supplier<environments.VocodeEnvironment | string>;
         token: core.Supplier<core.BearerToken>;
     }
 }
 
-export class Agents {
-    constructor(protected readonly _options: Agents.Options) {}
+export class VectorDatabases {
+    constructor(protected readonly _options: VectorDatabases.Options) {}
 
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async getAgent(request: Vocode.GetAgentRequest): Promise<Vocode.Agent> {
+    public async getVectorDatabase(request: Vocode.GetVectorDatabaseRequest): Promise<Vocode.PineconeVectorDatabase> {
         const { id } = request;
         const _queryParams = new URLSearchParams();
         _queryParams.append("id", id);
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VocodeEnvironment.Production,
-                "v1/agents"
+                "v1/vector_databases"
             ),
             method: "GET",
             headers: {
@@ -44,7 +44,7 @@ export class Agents {
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.Agent.parseOrThrow(_response.body, {
+            return await serializers.PineconeVectorDatabase.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -89,7 +89,9 @@ export class Agents {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async listAgents(request: Vocode.ListAgentsRequest = {}): Promise<Vocode.AgentPage> {
+    public async listVectorDatabases(
+        request: Vocode.ListVectorDatabasesRequest = {}
+    ): Promise<Vocode.VectorDatabasePage> {
         const { page, size } = request;
         const _queryParams = new URLSearchParams();
         if (page != null) {
@@ -103,7 +105,7 @@ export class Agents {
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VocodeEnvironment.Production,
-                "v1/agents/list"
+                "v1/vector_databases/list"
             ),
             method: "GET",
             headers: {
@@ -117,7 +119,7 @@ export class Agents {
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.AgentPage.parseOrThrow(_response.body, {
+            return await serializers.VectorDatabasePage.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -162,11 +164,13 @@ export class Agents {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async createAgent(request: Vocode.AgentParams): Promise<Vocode.Agent> {
+    public async createVectorDatabase(
+        request: Vocode.PineconeVectorDatabaseParams
+    ): Promise<Vocode.PineconeVectorDatabase> {
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VocodeEnvironment.Production,
-                "v1/agents/create"
+                "v1/vector_databases/create"
             ),
             method: "POST",
             headers: {
@@ -176,11 +180,13 @@ export class Agents {
                 "X-Fern-SDK-Version": "0.0.18",
             },
             contentType: "application/json",
-            body: await serializers.AgentParams.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            body: await serializers.PineconeVectorDatabaseParams.jsonOrThrow(request, {
+                unrecognizedObjectKeys: "strip",
+            }),
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.Agent.parseOrThrow(_response.body, {
+            return await serializers.PineconeVectorDatabase.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -225,14 +231,16 @@ export class Agents {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async updateAgent(request: Vocode.UpdateAgentRequest): Promise<Vocode.Agent> {
+    public async updateVectorDatabase(
+        request: Vocode.UpdateVectorDatabaseRequest
+    ): Promise<Vocode.PineconeVectorDatabase> {
         const { id, body: _body } = request;
         const _queryParams = new URLSearchParams();
         _queryParams.append("id", id);
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VocodeEnvironment.Production,
-                "v1/agents/update"
+                "v1/vector_databases/update"
             ),
             method: "POST",
             headers: {
@@ -243,11 +251,13 @@ export class Agents {
             },
             contentType: "application/json",
             queryParameters: _queryParams,
-            body: await serializers.AgentUpdateParams.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: await serializers.PineconeVectorDatabaseUpdateParams.jsonOrThrow(_body, {
+                unrecognizedObjectKeys: "strip",
+            }),
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.Agent.parseOrThrow(_response.body, {
+            return await serializers.PineconeVectorDatabase.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
