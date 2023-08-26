@@ -5,7 +5,7 @@
 import * as Vocode from "../../../..";
 
 export interface AgentParams {
-    prompt: string;
+    prompt: Vocode.AgentParamsPrompt;
     language?: Vocode.Language;
     actions?: Vocode.AgentParamsActionsItem[];
     voice: Vocode.AgentParamsVoice;

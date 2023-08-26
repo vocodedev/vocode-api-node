@@ -5,7 +5,7 @@
 import * as Vocode from "..";
 
 export interface CreateCallAgentParams {
-    prompt: string;
+    prompt: Vocode.CreateCallAgentParamsPrompt;
     language?: Vocode.Language;
     actions?: Vocode.CreateCallAgentParamsActionsItem[];
     voice?: Vocode.CreateCallAgentParamsVoice;

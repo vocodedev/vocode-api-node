@@ -10,7 +10,7 @@ export const NormalizedAgent: core.serialization.ObjectSchema<serializers.Normal
     core.serialization.object({
         id: core.serialization.string(),
         userId: core.serialization.property("user_id", core.serialization.string()),
-        prompt: core.serialization.string(),
+        prompt: core.serialization.lazy(async () => (await import("..")).NormalizedAgentPrompt),
         language: core.serialization.lazy(async () => (await import("..")).Language).optional(),
         actions: core.serialization.list(core.serialization.string()),
         voice: core.serialization.string(),
@@ -31,7 +31,7 @@ export declare namespace NormalizedAgent {
     interface Raw {
         id: string;
         user_id: string;
-        prompt: string;
+        prompt: serializers.NormalizedAgentPrompt.Raw;
         language?: serializers.Language.Raw | null;
         actions: string[];
         voice: string;

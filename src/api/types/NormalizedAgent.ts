@@ -7,7 +7,7 @@ import * as Vocode from "..";
 export interface NormalizedAgent {
     id: string;
     userId: string;
-    prompt: string;
+    prompt: Vocode.NormalizedAgentPrompt;
     language?: Vocode.Language;
     actions: string[];
     voice: string;

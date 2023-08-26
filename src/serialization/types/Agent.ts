@@ -9,7 +9,7 @@ import * as core from "../../core";
 export const Agent: core.serialization.ObjectSchema<serializers.Agent.Raw, Vocode.Agent> = core.serialization.object({
     id: core.serialization.string(),
     userId: core.serialization.property("user_id", core.serialization.string()),
-    prompt: core.serialization.string(),
+    prompt: core.serialization.lazyObject(async () => (await import("..")).Prompt),
     language: core.serialization.lazy(async () => (await import("..")).Language).optional(),
     actions: core.serialization.list(core.serialization.lazy(async () => (await import("..")).AgentActionsItem)),
     voice: core.serialization.lazy(async () => (await import("..")).AgentVoice),
@@ -30,7 +30,7 @@ export declare namespace Agent {
     interface Raw {
         id: string;
         user_id: string;
-        prompt: string;
+        prompt: serializers.Prompt.Raw;
         language?: serializers.Language.Raw | null;
         actions: serializers.AgentActionsItem.Raw[];
         voice: serializers.AgentVoice.Raw;

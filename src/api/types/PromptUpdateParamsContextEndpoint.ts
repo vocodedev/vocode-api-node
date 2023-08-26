@@ -4,4 +4,4 @@
 
 import * as Vocode from "..";
 
-export type AgentUpdateParamsPrompt = string | Vocode.PromptUpdateParams | Vocode.Undefined;
+export type PromptUpdateParamsContextEndpoint = string | Vocode.Undefined;

@@ -11,9 +11,10 @@ export const AgentUpdateParamsPrompt: core.serialization.Schema<
     Vocode.AgentUpdateParamsPrompt
 > = core.serialization.undiscriminatedUnion([
     core.serialization.string(),
+    core.serialization.lazyObject(async () => (await import("..")).PromptUpdateParams),
     core.serialization.lazyObject(async () => (await import("..")).Undefined),
 ]);
 
 export declare namespace AgentUpdateParamsPrompt {
-    type Raw = string | serializers.Undefined.Raw;
+    type Raw = string | serializers.PromptUpdateParams.Raw | serializers.Undefined.Raw;
 }
