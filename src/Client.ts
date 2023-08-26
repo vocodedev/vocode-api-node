@@ -11,6 +11,7 @@ import { Actions } from "./api/resources/actions/client/Client";
 import { Agents } from "./api/resources/agents/client/Client";
 import { Voices } from "./api/resources/voices/client/Client";
 import { Webhooks } from "./api/resources/webhooks/client/Client";
+import { Prompts } from "./api/resources/prompts/client/Client";
 
 export declare namespace VocodeClient {
     interface Options {
@@ -62,5 +63,11 @@ export class VocodeClient {
 
     public get webhooks(): Webhooks {
         return (this._webhooks ??= new Webhooks(this._options));
+    }
+
+    protected _prompts: Prompts | undefined;
+
+    public get prompts(): Prompts {
+        return (this._prompts ??= new Prompts(this._options));
     }
 }

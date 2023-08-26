@@ -10,27 +10,27 @@ import urlJoin from "url-join";
 import * as serializers from "../../../../serialization";
 import * as errors from "../../../../errors";
 
-export declare namespace Voices {
+export declare namespace Prompts {
     interface Options {
         environment?: core.Supplier<environments.VocodeEnvironment | string>;
         token: core.Supplier<core.BearerToken>;
     }
 }
 
-export class Voices {
-    constructor(protected readonly _options: Voices.Options) {}
+export class Prompts {
+    constructor(protected readonly _options: Prompts.Options) {}
 
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async getVoice(request: Vocode.GetVoiceRequest): Promise<Vocode.VoiceResponseModel> {
+    public async getPrompt(request: Vocode.GetPromptRequest): Promise<Vocode.Prompt> {
         const { id } = request;
         const _queryParams = new URLSearchParams();
         _queryParams.append("id", id);
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VocodeEnvironment.Production,
-                "v1/voices"
+                "v1/prompts"
             ),
             method: "GET",
             headers: {
@@ -44,7 +44,7 @@ export class Voices {
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.VoiceResponseModel.parseOrThrow(_response.body, {
+            return await serializers.Prompt.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -89,7 +89,7 @@ export class Voices {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async listVoices(request: Vocode.ListVoicesRequest = {}): Promise<Vocode.VoicePage> {
+    public async listPrompts(request: Vocode.ListPromptsRequest = {}): Promise<Vocode.PromptPage> {
         const { page, size } = request;
         const _queryParams = new URLSearchParams();
         if (page != null) {
@@ -103,7 +103,7 @@ export class Voices {
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VocodeEnvironment.Production,
-                "v1/voices/list"
+                "v1/prompts/list"
             ),
             method: "GET",
             headers: {
@@ -117,7 +117,7 @@ export class Voices {
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.VoicePage.parseOrThrow(_response.body, {
+            return await serializers.PromptPage.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -162,11 +162,11 @@ export class Voices {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async createVoice(request: Vocode.VoiceParamsRequest): Promise<Vocode.VoiceResponseModel> {
+    public async createPrompt(request: Vocode.PromptParams): Promise<Vocode.Prompt> {
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VocodeEnvironment.Production,
-                "v1/voices/create"
+                "v1/prompts/create"
             ),
             method: "POST",
             headers: {
@@ -176,11 +176,11 @@ export class Voices {
                 "X-Fern-SDK-Version": "0.0.17",
             },
             contentType: "application/json",
-            body: await serializers.VoiceParamsRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            body: await serializers.PromptParams.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.VoiceResponseModel.parseOrThrow(_response.body, {
+            return await serializers.Prompt.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -225,14 +225,14 @@ export class Voices {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async updateVoice(request: Vocode.UpdateVoiceRequest): Promise<Vocode.VoiceResponseModel> {
+    public async updatePrompt(request: Vocode.UpdatePromptRequest): Promise<Vocode.Prompt> {
         const { id, body: _body } = request;
         const _queryParams = new URLSearchParams();
         _queryParams.append("id", id);
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VocodeEnvironment.Production,
-                "v1/voices/update"
+                "v1/prompts/update"
             ),
             method: "POST",
             headers: {
@@ -243,11 +243,11 @@ export class Voices {
             },
             contentType: "application/json",
             queryParameters: _queryParams,
-            body: await serializers.VoiceUpdateParamsRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: await serializers.PromptUpdateParams.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.VoiceResponseModel.parseOrThrow(_response.body, {
+            return await serializers.Prompt.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
