@@ -11,6 +11,7 @@ export interface NormalizedCall {
     errorMessage?: string;
     recordingAvailable?: boolean;
     transcript?: string;
+    machineDetectionResult?: Vocode.NormalizedCallMachineDetectionResult;
     toNumber: string;
     fromNumber: string;
     agent: string;

@@ -6,5 +6,5 @@ export interface ElevenLabsVoiceParams {
     voiceId: string;
     stability?: number;
     similarityBoost?: number;
-    apiKey: string;
+    apiKey?: string;
 }

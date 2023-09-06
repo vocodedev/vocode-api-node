@@ -11,6 +11,7 @@ export interface Call {
     errorMessage?: string;
     recordingAvailable?: boolean;
     transcript?: string;
+    machineDetectionResult?: Vocode.CallMachineDetectionResult;
     toNumber: string;
     fromNumber: string;
     agent: Vocode.Agent;

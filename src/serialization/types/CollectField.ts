@@ -8,10 +8,7 @@ import * as core from "../../core";
 
 export const CollectField: core.serialization.ObjectSchema<serializers.CollectField.Raw, Vocode.CollectField> =
     core.serialization.object({
-        fieldType: core.serialization.property(
-            "field_type",
-            core.serialization.lazy(async () => (await import("..")).CollectFieldFieldType)
-        ),
+        fieldType: core.serialization.property("field_type", core.serialization.stringLiteral("field_type_email")),
         label: core.serialization.string(),
         name: core.serialization.string(),
         description: core.serialization.string().optional(),
@@ -19,7 +16,7 @@ export const CollectField: core.serialization.ObjectSchema<serializers.CollectFi
 
 export declare namespace CollectField {
     interface Raw {
-        field_type: serializers.CollectFieldFieldType.Raw;
+        field_type: "field_type_email";
         label: string;
         name: string;
         description?: string | null;

@@ -16,4 +16,6 @@ export interface Agent {
     vectorDatabase?: Vocode.PineconeVectorDatabase;
     interruptSensitivity?: Vocode.InterruptSensitivity;
     contextEndpoint?: string;
+    noiseSuppression?: boolean;
+    endpointingSensitivity?: Vocode.AgentEndpointingSensitivity;
 }

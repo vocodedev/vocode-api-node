@@ -14,6 +14,7 @@ export const EventType: core.serialization.Schema<serializers.EventType.Raw, Voc
         "event_phone_call_ended",
         "event_transcript",
         "event_recording",
+        "event_machine_detection",
     ]);
 
 export declare namespace EventType {
@@ -23,5 +24,6 @@ export declare namespace EventType {
         | "event_phone_call_connected"
         | "event_phone_call_ended"
         | "event_transcript"
-        | "event_recording";
+        | "event_recording"
+        | "event_machine_detection";
 }

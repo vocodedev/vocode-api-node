@@ -25,6 +25,13 @@ export const AgentParams: core.serialization.Schema<serializers.AgentParams.Raw,
             core.serialization.lazy(async () => (await import("../../../..")).InterruptSensitivity).optional()
         ),
         contextEndpoint: core.serialization.property("context_endpoint", core.serialization.string().optional()),
+        noiseSuppression: core.serialization.property("noise_suppression", core.serialization.boolean().optional()),
+        endpointingSensitivity: core.serialization.property(
+            "endpointing_sensitivity",
+            core.serialization
+                .lazy(async () => (await import("../../../..")).AgentParamsEndpointingSensitivity)
+                .optional()
+        ),
     });
 
 export declare namespace AgentParams {
@@ -38,5 +45,7 @@ export declare namespace AgentParams {
         vector_database?: serializers.AgentParamsVectorDatabase.Raw | null;
         interrupt_sensitivity?: serializers.InterruptSensitivity.Raw | null;
         context_endpoint?: string | null;
+        noise_suppression?: boolean | null;
+        endpointing_sensitivity?: serializers.AgentParamsEndpointingSensitivity.Raw | null;
     }
 }

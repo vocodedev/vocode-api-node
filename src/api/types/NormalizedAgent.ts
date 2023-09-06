@@ -16,4 +16,6 @@ export interface NormalizedAgent {
     vectorDatabase?: Vocode.NormalizedAgentVectorDatabase;
     interruptSensitivity?: Vocode.InterruptSensitivity;
     contextEndpoint?: string;
+    noiseSuppression?: boolean;
+    endpointingSensitivity?: Vocode.NormalizedAgentEndpointingSensitivity;
 }

@@ -14,4 +14,6 @@ export interface AgentParams {
     vectorDatabase?: Vocode.AgentParamsVectorDatabase;
     interruptSensitivity?: Vocode.InterruptSensitivity;
     contextEndpoint?: string;
+    noiseSuppression?: boolean;
+    endpointingSensitivity?: Vocode.AgentParamsEndpointingSensitivity;
 }

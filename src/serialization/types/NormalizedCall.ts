@@ -14,6 +14,10 @@ export const NormalizedCall: core.serialization.ObjectSchema<serializers.Normali
         errorMessage: core.serialization.property("error_message", core.serialization.string().optional()),
         recordingAvailable: core.serialization.property("recording_available", core.serialization.boolean().optional()),
         transcript: core.serialization.string().optional(),
+        machineDetectionResult: core.serialization.property(
+            "machine_detection_result",
+            core.serialization.lazy(async () => (await import("..")).NormalizedCallMachineDetectionResult).optional()
+        ),
         toNumber: core.serialization.property("to_number", core.serialization.string()),
         fromNumber: core.serialization.property("from_number", core.serialization.string()),
         agent: core.serialization.string(),
@@ -30,6 +34,7 @@ export declare namespace NormalizedCall {
         error_message?: string | null;
         recording_available?: boolean | null;
         transcript?: string | null;
+        machine_detection_result?: serializers.NormalizedCallMachineDetectionResult.Raw | null;
         to_number: string;
         from_number: string;
         agent: string;

@@ -31,6 +31,14 @@ export const AgentUpdateParams: core.serialization.ObjectSchema<
         "context_endpoint",
         core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsContextEndpoint).optional()
     ),
+    noiseSuppression: core.serialization.property(
+        "noise_suppression",
+        core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsNoiseSuppression).optional()
+    ),
+    endpointingSensitivity: core.serialization.property(
+        "endpointing_sensitivity",
+        core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsEndpointingSensitivity).optional()
+    ),
 });
 
 export declare namespace AgentUpdateParams {
@@ -44,5 +52,7 @@ export declare namespace AgentUpdateParams {
         vector_database?: serializers.AgentUpdateParamsVectorDatabase.Raw | null;
         interrupt_sensitivity?: serializers.AgentUpdateParamsInterruptSensitivity.Raw | null;
         context_endpoint?: serializers.AgentUpdateParamsContextEndpoint.Raw | null;
+        noise_suppression?: serializers.AgentUpdateParamsNoiseSuppression.Raw | null;
+        endpointing_sensitivity?: serializers.AgentUpdateParamsEndpointingSensitivity.Raw | null;
     }
 }

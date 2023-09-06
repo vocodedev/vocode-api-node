@@ -14,4 +14,6 @@ export interface CreateCallAgentParams {
     vectorDatabase?: Vocode.CreateCallAgentParamsVectorDatabase;
     interruptSensitivity?: Vocode.InterruptSensitivity;
     contextEndpoint?: string;
+    noiseSuppression?: boolean;
+    endpointingSensitivity?: Vocode.CreateCallAgentParamsEndpointingSensitivity;
 }

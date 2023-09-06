@@ -13,7 +13,7 @@ export const ElevenLabsVoice: core.serialization.ObjectSchema<serializers.Eleven
         voiceId: core.serialization.property("voice_id", core.serialization.string()),
         stability: core.serialization.number().optional(),
         similarityBoost: core.serialization.property("similarity_boost", core.serialization.number().optional()),
-        apiKey: core.serialization.property("api_key", core.serialization.string()),
+        apiKey: core.serialization.property("api_key", core.serialization.string().optional()),
     });
 
 export declare namespace ElevenLabsVoice {
@@ -23,6 +23,6 @@ export declare namespace ElevenLabsVoice {
         voice_id: string;
         stability?: number | null;
         similarity_boost?: number | null;
-        api_key: string;
+        api_key?: string | null;
     }
 }

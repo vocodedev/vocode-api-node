@@ -11,6 +11,12 @@ export const CreateCallRequest: core.serialization.Schema<serializers.CreateCall
         fromNumber: core.serialization.property("from_number", core.serialization.string()),
         toNumber: core.serialization.property("to_number", core.serialization.string()),
         agent: core.serialization.lazy(async () => (await import("../../../..")).CreateCallRequestAgent),
+        onMachineAnswer: core.serialization.property(
+            "on_machine_answer",
+            core.serialization
+                .lazy(async () => (await import("../../../..")).CreateCallRequestOnMachineAnswer)
+                .optional()
+        ),
     });
 
 export declare namespace CreateCallRequest {
@@ -18,5 +24,6 @@ export declare namespace CreateCallRequest {
         from_number: string;
         to_number: string;
         agent: serializers.CreateCallRequestAgent.Raw;
+        on_machine_answer?: serializers.CreateCallRequestOnMachineAnswer.Raw | null;
     }
 }

@@ -8,4 +8,5 @@ export interface CreateCallRequest {
     fromNumber: string;
     toNumber: string;
     agent: Vocode.CreateCallRequestAgent;
+    onMachineAnswer?: Vocode.CreateCallRequestOnMachineAnswer;
 }
