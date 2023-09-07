@@ -30,6 +30,10 @@ export const NormalizedAgent: core.serialization.ObjectSchema<serializers.Normal
             "endpointing_sensitivity",
             core.serialization.lazy(async () => (await import("..")).NormalizedAgentEndpointingSensitivity).optional()
         ),
+        ivrNavigationMode: core.serialization.property(
+            "ivr_navigation_mode",
+            core.serialization.lazy(async () => (await import("..")).NormalizedAgentIvrNavigationMode).optional()
+        ),
     });
 
 export declare namespace NormalizedAgent {
@@ -47,5 +51,6 @@ export declare namespace NormalizedAgent {
         context_endpoint?: string | null;
         noise_suppression?: boolean | null;
         endpointing_sensitivity?: serializers.NormalizedAgentEndpointingSensitivity.Raw | null;
+        ivr_navigation_mode?: serializers.NormalizedAgentIvrNavigationMode.Raw | null;
     }
 }

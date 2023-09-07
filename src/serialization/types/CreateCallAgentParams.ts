@@ -32,6 +32,10 @@ export const CreateCallAgentParams: core.serialization.ObjectSchema<
         "endpointing_sensitivity",
         core.serialization.lazy(async () => (await import("..")).CreateCallAgentParamsEndpointingSensitivity).optional()
     ),
+    ivrNavigationMode: core.serialization.property(
+        "ivr_navigation_mode",
+        core.serialization.lazy(async () => (await import("..")).CreateCallAgentParamsIvrNavigationMode).optional()
+    ),
 });
 
 export declare namespace CreateCallAgentParams {
@@ -47,5 +51,6 @@ export declare namespace CreateCallAgentParams {
         context_endpoint?: string | null;
         noise_suppression?: boolean | null;
         endpointing_sensitivity?: serializers.CreateCallAgentParamsEndpointingSensitivity.Raw | null;
+        ivr_navigation_mode?: serializers.CreateCallAgentParamsIvrNavigationMode.Raw | null;
     }
 }

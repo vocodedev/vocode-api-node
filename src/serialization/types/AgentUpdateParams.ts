@@ -39,6 +39,10 @@ export const AgentUpdateParams: core.serialization.ObjectSchema<
         "endpointing_sensitivity",
         core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsEndpointingSensitivity).optional()
     ),
+    ivrNavigationMode: core.serialization.property(
+        "ivr_navigation_mode",
+        core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsIvrNavigationMode).optional()
+    ),
 });
 
 export declare namespace AgentUpdateParams {
@@ -54,5 +58,6 @@ export declare namespace AgentUpdateParams {
         context_endpoint?: serializers.AgentUpdateParamsContextEndpoint.Raw | null;
         noise_suppression?: serializers.AgentUpdateParamsNoiseSuppression.Raw | null;
         endpointing_sensitivity?: serializers.AgentUpdateParamsEndpointingSensitivity.Raw | null;
+        ivr_navigation_mode?: serializers.AgentUpdateParamsIvrNavigationMode.Raw | null;
     }
 }

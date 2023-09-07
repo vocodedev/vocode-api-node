@@ -9,10 +9,12 @@ import * as core from "../../core";
 export const RimeVoiceParams: core.serialization.ObjectSchema<serializers.RimeVoiceParams.Raw, Vocode.RimeVoiceParams> =
     core.serialization.object({
         speaker: core.serialization.string(),
+        speedAlpha: core.serialization.property("speed_alpha", core.serialization.number().optional()),
     });
 
 export declare namespace RimeVoiceParams {
     interface Raw {
         speaker: string;
+        speed_alpha?: number | null;
     }
 }

@@ -4,4 +4,5 @@
 
 export interface RimeVoiceParams {
     speaker: string;
+    speedAlpha?: number;
 }

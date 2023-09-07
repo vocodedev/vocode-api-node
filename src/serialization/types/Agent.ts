@@ -29,6 +29,10 @@ export const Agent: core.serialization.ObjectSchema<serializers.Agent.Raw, Vocod
         "endpointing_sensitivity",
         core.serialization.lazy(async () => (await import("..")).AgentEndpointingSensitivity).optional()
     ),
+    ivrNavigationMode: core.serialization.property(
+        "ivr_navigation_mode",
+        core.serialization.lazy(async () => (await import("..")).AgentIvrNavigationMode).optional()
+    ),
 });
 
 export declare namespace Agent {
@@ -46,5 +50,6 @@ export declare namespace Agent {
         context_endpoint?: string | null;
         noise_suppression?: boolean | null;
         endpointing_sensitivity?: serializers.AgentEndpointingSensitivity.Raw | null;
+        ivr_navigation_mode?: serializers.AgentIvrNavigationMode.Raw | null;
     }
 }

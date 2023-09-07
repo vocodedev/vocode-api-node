@@ -6,4 +6,5 @@ export interface RimeVoice {
     id: string;
     userId: string;
     speaker: string;
+    speedAlpha?: number;
 }
