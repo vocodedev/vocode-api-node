@@ -23,6 +23,7 @@ export const Call: core.serialization.ObjectSchema<serializers.Call.Raw, Vocode.
     agentPhoneNumber: core.serialization.property("agent_phone_number", core.serialization.string()),
     startTime: core.serialization.property("start_time", core.serialization.date().optional()),
     endTime: core.serialization.property("end_time", core.serialization.date().optional()),
+    hipaaCompliant: core.serialization.property("hipaa_compliant", core.serialization.boolean().optional()),
 });
 
 export declare namespace Call {
@@ -40,5 +41,6 @@ export declare namespace Call {
         agent_phone_number: string;
         start_time?: string | null;
         end_time?: string | null;
+        hipaa_compliant?: boolean | null;
     }
 }

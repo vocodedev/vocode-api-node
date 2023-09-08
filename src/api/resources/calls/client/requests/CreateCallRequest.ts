@@ -9,4 +9,5 @@ export interface CreateCallRequest {
     toNumber: string;
     agent: Vocode.CreateCallRequestAgent;
     onMachineAnswer?: Vocode.CreateCallRequestOnMachineAnswer;
+    hipaaCompliant?: boolean;
 }

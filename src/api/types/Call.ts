@@ -18,4 +18,5 @@ export interface Call {
     agentPhoneNumber: string;
     startTime?: Date;
     endTime?: Date;
+    hipaaCompliant?: boolean;
 }

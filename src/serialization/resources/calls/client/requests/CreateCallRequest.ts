@@ -17,6 +17,7 @@ export const CreateCallRequest: core.serialization.Schema<serializers.CreateCall
                 .lazy(async () => (await import("../../../..")).CreateCallRequestOnMachineAnswer)
                 .optional()
         ),
+        hipaaCompliant: core.serialization.property("hipaa_compliant", core.serialization.boolean().optional()),
     });
 
 export declare namespace CreateCallRequest {
@@ -25,5 +26,6 @@ export declare namespace CreateCallRequest {
         to_number: string;
         agent: serializers.CreateCallRequestAgent.Raw;
         on_machine_answer?: serializers.CreateCallRequestOnMachineAnswer.Raw | null;
+        hipaa_compliant?: boolean | null;
     }
 }

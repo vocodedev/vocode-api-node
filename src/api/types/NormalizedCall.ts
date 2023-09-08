@@ -18,4 +18,5 @@ export interface NormalizedCall {
     agentPhoneNumber: string;
     startTime?: Date;
     endTime?: Date;
+    hipaaCompliant?: boolean;
 }

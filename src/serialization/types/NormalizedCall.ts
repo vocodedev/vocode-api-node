@@ -24,6 +24,7 @@ export const NormalizedCall: core.serialization.ObjectSchema<serializers.Normali
         agentPhoneNumber: core.serialization.property("agent_phone_number", core.serialization.string()),
         startTime: core.serialization.property("start_time", core.serialization.date().optional()),
         endTime: core.serialization.property("end_time", core.serialization.date().optional()),
+        hipaaCompliant: core.serialization.property("hipaa_compliant", core.serialization.boolean().optional()),
     });
 
 export declare namespace NormalizedCall {
@@ -41,5 +42,6 @@ export declare namespace NormalizedCall {
         agent_phone_number: string;
         start_time?: string | null;
         end_time?: string | null;
+        hipaa_compliant?: boolean | null;
     }
 }
