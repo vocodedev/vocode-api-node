@@ -17,4 +17,5 @@ export interface CreateCallAgentParams {
     noiseSuppression?: boolean;
     endpointingSensitivity?: Vocode.CreateCallAgentParamsEndpointingSensitivity;
     ivrNavigationMode?: Vocode.CreateCallAgentParamsIvrNavigationMode;
+    conversationSpeed?: number;
 }

@@ -36,6 +36,7 @@ export const CreateCallAgentParams: core.serialization.ObjectSchema<
         "ivr_navigation_mode",
         core.serialization.lazy(async () => (await import("..")).CreateCallAgentParamsIvrNavigationMode).optional()
     ),
+    conversationSpeed: core.serialization.property("conversation_speed", core.serialization.number().optional()),
 });
 
 export declare namespace CreateCallAgentParams {
@@ -52,5 +53,6 @@ export declare namespace CreateCallAgentParams {
         noise_suppression?: boolean | null;
         endpointing_sensitivity?: serializers.CreateCallAgentParamsEndpointingSensitivity.Raw | null;
         ivr_navigation_mode?: serializers.CreateCallAgentParamsIvrNavigationMode.Raw | null;
+        conversation_speed?: number | null;
     }
 }

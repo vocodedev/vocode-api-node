@@ -29,6 +29,7 @@ export * from "./AgentUpdateParamsContextEndpoint";
 export * from "./AgentUpdateParamsNoiseSuppression";
 export * from "./AgentUpdateParamsEndpointingSensitivity";
 export * from "./AgentUpdateParamsIvrNavigationMode";
+export * from "./AgentUpdateParamsConversationSpeed";
 export * from "./VoiceParamsRequest";
 export * from "./VoiceUpdateParamsRequest";
 export * from "./WebhookParams";

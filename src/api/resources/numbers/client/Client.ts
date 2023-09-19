@@ -47,7 +47,7 @@ export class Numbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.21",
+                "X-Fern-SDK-Version": "0.0.22",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -113,7 +113,7 @@ export class Numbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.21",
+                "X-Fern-SDK-Version": "0.0.22",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -162,7 +162,10 @@ export class Numbers {
         }
     }
 
-    public async buyNumber(): Promise<Vocode.PhoneNumber> {
+    /**
+     * @throws {@link Vocode.UnprocessableEntityError}
+     */
+    public async buyNumber(request: Vocode.BuyPhoneNumberRequest = {}): Promise<Vocode.PhoneNumber> {
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VocodeEnvironment.Production,
@@ -173,9 +176,10 @@ export class Numbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.21",
+                "X-Fern-SDK-Version": "0.0.22",
             },
             contentType: "application/json",
+            body: await serializers.BuyPhoneNumberRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: 60000,
         });
         if (_response.ok) {
@@ -188,10 +192,22 @@ export class Numbers {
         }
 
         if (_response.error.reason === "status-code") {
-            throw new errors.VocodeError({
-                statusCode: _response.error.statusCode,
-                body: _response.error.body,
-            });
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Vocode.UnprocessableEntityError(
+                        await serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
+                default:
+                    throw new errors.VocodeError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                    });
+            }
         }
 
         switch (_response.error.reason) {
@@ -226,7 +242,7 @@ export class Numbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.21",
+                "X-Fern-SDK-Version": "0.0.22",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -293,7 +309,7 @@ export class Numbers {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.21",
+                "X-Fern-SDK-Version": "0.0.22",
             },
             contentType: "application/json",
             queryParameters: _queryParams,

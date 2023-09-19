@@ -17,4 +17,5 @@ export interface AgentUpdateParams {
     noiseSuppression?: Vocode.AgentUpdateParamsNoiseSuppression;
     endpointingSensitivity?: Vocode.AgentUpdateParamsEndpointingSensitivity;
     ivrNavigationMode?: Vocode.AgentUpdateParamsIvrNavigationMode;
+    conversationSpeed?: Vocode.AgentUpdateParamsConversationSpeed;
 }

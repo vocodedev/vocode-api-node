@@ -19,4 +19,5 @@ export interface NormalizedAgent {
     noiseSuppression?: boolean;
     endpointingSensitivity?: Vocode.NormalizedAgentEndpointingSensitivity;
     ivrNavigationMode?: Vocode.NormalizedAgentIvrNavigationMode;
+    conversationSpeed?: number;
 }
