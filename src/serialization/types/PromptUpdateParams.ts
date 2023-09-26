@@ -19,6 +19,10 @@ export const PromptUpdateParams: core.serialization.ObjectSchema<
         "context_endpoint",
         core.serialization.lazy(async () => (await import("..")).PromptUpdateParamsContextEndpoint).optional()
     ),
+    promptTemplate: core.serialization.property(
+        "prompt_template",
+        core.serialization.lazy(async () => (await import("..")).PromptUpdateParamsPromptTemplate).optional()
+    ),
 });
 
 export declare namespace PromptUpdateParams {
@@ -26,5 +30,6 @@ export declare namespace PromptUpdateParams {
         content?: serializers.PromptUpdateParamsContent.Raw | null;
         collect_fields?: serializers.PromptUpdateParamsCollectFields.Raw | null;
         context_endpoint?: serializers.PromptUpdateParamsContextEndpoint.Raw | null;
+        prompt_template?: serializers.PromptUpdateParamsPromptTemplate.Raw | null;
     }
 }

@@ -5,7 +5,8 @@
 import * as Vocode from "..";
 
 export interface PromptParams {
-    content: string;
+    content?: string;
     collectFields?: Vocode.CollectField[];
     contextEndpoint?: string;
+    promptTemplate?: Vocode.PromptParamsPromptTemplate;
 }

@@ -8,5 +8,5 @@ export interface Usage {
     userId: string;
     planType: Vocode.PlanType;
     monthlyUsageMinutes: number;
-    monthlyUsageLimitMinutes: number;
+    monthlyUsageLimitMinutes?: number;
 }

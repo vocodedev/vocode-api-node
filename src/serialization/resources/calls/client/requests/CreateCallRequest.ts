@@ -18,6 +18,7 @@ export const CreateCallRequest: core.serialization.Schema<serializers.CreateCall
                 .optional()
         ),
         hipaaCompliant: core.serialization.property("hipaa_compliant", core.serialization.boolean().optional()),
+        context: core.serialization.record(core.serialization.string(), core.serialization.string()).optional(),
     });
 
 export declare namespace CreateCallRequest {
@@ -27,5 +28,6 @@ export declare namespace CreateCallRequest {
         agent: serializers.CreateCallRequestAgent.Raw;
         on_machine_answer?: serializers.CreateCallRequestOnMachineAnswer.Raw | null;
         hipaa_compliant?: boolean | null;
+        context?: Record<string, string> | null;
     }
 }

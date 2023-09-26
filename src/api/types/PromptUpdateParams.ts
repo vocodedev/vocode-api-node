@@ -8,4 +8,5 @@ export interface PromptUpdateParams {
     content?: Vocode.PromptUpdateParamsContent;
     collectFields?: Vocode.PromptUpdateParamsCollectFields;
     contextEndpoint?: Vocode.PromptUpdateParamsContextEndpoint;
+    promptTemplate?: Vocode.PromptUpdateParamsPromptTemplate;
 }

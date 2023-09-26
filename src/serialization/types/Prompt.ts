@@ -10,7 +10,7 @@ export const Prompt: core.serialization.ObjectSchema<serializers.Prompt.Raw, Voc
     {
         id: core.serialization.string(),
         userId: core.serialization.property("user_id", core.serialization.string()),
-        content: core.serialization.string(),
+        content: core.serialization.string().optional(),
         collectFields: core.serialization.property(
             "collect_fields",
             core.serialization
@@ -18,6 +18,10 @@ export const Prompt: core.serialization.ObjectSchema<serializers.Prompt.Raw, Voc
                 .optional()
         ),
         contextEndpoint: core.serialization.property("context_endpoint", core.serialization.string().optional()),
+        promptTemplate: core.serialization.property(
+            "prompt_template",
+            core.serialization.lazyObject(async () => (await import("..")).PromptTemplate).optional()
+        ),
     }
 );
 
@@ -25,8 +29,9 @@ export declare namespace Prompt {
     interface Raw {
         id: string;
         user_id: string;
-        content: string;
+        content?: string | null;
         collect_fields?: serializers.CollectField.Raw[] | null;
         context_endpoint?: string | null;
+        prompt_template?: serializers.PromptTemplate.Raw | null;
     }
 }

@@ -8,7 +8,7 @@ import * as core from "../../core";
 
 export const PromptParams: core.serialization.ObjectSchema<serializers.PromptParams.Raw, Vocode.PromptParams> =
     core.serialization.object({
-        content: core.serialization.string(),
+        content: core.serialization.string().optional(),
         collectFields: core.serialization.property(
             "collect_fields",
             core.serialization
@@ -16,12 +16,17 @@ export const PromptParams: core.serialization.ObjectSchema<serializers.PromptPar
                 .optional()
         ),
         contextEndpoint: core.serialization.property("context_endpoint", core.serialization.string().optional()),
+        promptTemplate: core.serialization.property(
+            "prompt_template",
+            core.serialization.lazy(async () => (await import("..")).PromptParamsPromptTemplate).optional()
+        ),
     });
 
 export declare namespace PromptParams {
     interface Raw {
-        content: string;
+        content?: string | null;
         collect_fields?: serializers.CollectField.Raw[] | null;
         context_endpoint?: string | null;
+        prompt_template?: serializers.PromptParamsPromptTemplate.Raw | null;
     }
 }

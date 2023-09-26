@@ -13,7 +13,10 @@ export const Usage: core.serialization.ObjectSchema<serializers.Usage.Raw, Vocod
         core.serialization.lazy(async () => (await import("..")).PlanType)
     ),
     monthlyUsageMinutes: core.serialization.property("monthly_usage_minutes", core.serialization.number()),
-    monthlyUsageLimitMinutes: core.serialization.property("monthly_usage_limit_minutes", core.serialization.number()),
+    monthlyUsageLimitMinutes: core.serialization.property(
+        "monthly_usage_limit_minutes",
+        core.serialization.number().optional()
+    ),
 });
 
 export declare namespace Usage {
@@ -21,6 +24,6 @@ export declare namespace Usage {
         user_id: string;
         plan_type: serializers.PlanType.Raw;
         monthly_usage_minutes: number;
-        monthly_usage_limit_minutes: number;
+        monthly_usage_limit_minutes?: number | null;
     }
 }

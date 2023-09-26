@@ -10,8 +10,9 @@ export const PlanType: core.serialization.Schema<serializers.PlanType.Raw, Vocod
     "plan_free",
     "plan_developer",
     "plan_enterprise",
+    "plan_unlimited",
 ]);
 
 export declare namespace PlanType {
-    type Raw = "plan_free" | "plan_developer" | "plan_enterprise";
+    type Raw = "plan_free" | "plan_developer" | "plan_enterprise" | "plan_unlimited";
 }

@@ -5,7 +5,7 @@
 import * as Vocode from "..";
 
 export interface PromptPage {
-    items: Vocode.Prompt[];
+    items: Vocode.NormalizedPrompt[];
     page: number;
     size: number;
     hasMore: boolean;

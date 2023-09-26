@@ -4,11 +4,11 @@
 
 import * as Vocode from "..";
 
-export interface Prompt {
+export interface NormalizedPrompt {
     id: string;
     userId: string;
     content?: string;
     collectFields?: Vocode.CollectField[];
     contextEndpoint?: string;
-    promptTemplate?: Vocode.PromptTemplate;
+    promptTemplate?: string;
 }

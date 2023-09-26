@@ -8,7 +8,9 @@ import * as core from "../../core";
 
 export const PromptPage: core.serialization.ObjectSchema<serializers.PromptPage.Raw, Vocode.PromptPage> =
     core.serialization.object({
-        items: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Prompt)),
+        items: core.serialization.list(
+            core.serialization.lazyObject(async () => (await import("..")).NormalizedPrompt)
+        ),
         page: core.serialization.number(),
         size: core.serialization.number(),
         hasMore: core.serialization.property("has_more", core.serialization.boolean()),
@@ -16,7 +18,7 @@ export const PromptPage: core.serialization.ObjectSchema<serializers.PromptPage.
 
 export declare namespace PromptPage {
     interface Raw {
-        items: serializers.Prompt.Raw[];
+        items: serializers.NormalizedPrompt.Raw[];
         page: number;
         size: number;
         has_more: boolean;

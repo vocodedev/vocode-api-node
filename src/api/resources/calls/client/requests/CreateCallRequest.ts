@@ -10,4 +10,5 @@ export interface CreateCallRequest {
     agent: Vocode.CreateCallRequestAgent;
     onMachineAnswer?: Vocode.CreateCallRequestOnMachineAnswer;
     hipaaCompliant?: boolean;
+    context?: Record<string, string>;
 }
