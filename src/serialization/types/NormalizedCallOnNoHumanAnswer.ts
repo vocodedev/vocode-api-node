@@ -6,11 +6,11 @@ import * as serializers from "..";
 import * as Vocode from "../../api";
 import * as core from "../../core";
 
-export const CreateCallRequestOnMachineAnswer: core.serialization.Schema<
-    serializers.CreateCallRequestOnMachineAnswer.Raw,
-    Vocode.CreateCallRequestOnMachineAnswer
+export const NormalizedCallOnNoHumanAnswer: core.serialization.Schema<
+    serializers.NormalizedCallOnNoHumanAnswer.Raw,
+    Vocode.NormalizedCallOnNoHumanAnswer
 > = core.serialization.enum_(["continue", "hangup"]);
 
-export declare namespace CreateCallRequestOnMachineAnswer {
+export declare namespace NormalizedCallOnNoHumanAnswer {
     type Raw = "continue" | "hangup";
 }

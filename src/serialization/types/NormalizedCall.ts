@@ -14,9 +14,9 @@ export const NormalizedCall: core.serialization.ObjectSchema<serializers.Normali
         errorMessage: core.serialization.property("error_message", core.serialization.string().optional()),
         recordingAvailable: core.serialization.property("recording_available", core.serialization.boolean().optional()),
         transcript: core.serialization.string().optional(),
-        machineDetectionResult: core.serialization.property(
-            "machine_detection_result",
-            core.serialization.lazy(async () => (await import("..")).NormalizedCallMachineDetectionResult).optional()
+        humanDetectionResult: core.serialization.property(
+            "human_detection_result",
+            core.serialization.lazy(async () => (await import("..")).NormalizedCallHumanDetectionResult).optional()
         ),
         toNumber: core.serialization.property("to_number", core.serialization.string()),
         fromNumber: core.serialization.property("from_number", core.serialization.string()),
@@ -25,6 +25,10 @@ export const NormalizedCall: core.serialization.ObjectSchema<serializers.Normali
         startTime: core.serialization.property("start_time", core.serialization.date().optional()),
         endTime: core.serialization.property("end_time", core.serialization.date().optional()),
         hipaaCompliant: core.serialization.property("hipaa_compliant", core.serialization.boolean().optional()),
+        onNoHumanAnswer: core.serialization.property(
+            "on_no_human_answer",
+            core.serialization.lazy(async () => (await import("..")).NormalizedCallOnNoHumanAnswer).optional()
+        ),
     });
 
 export declare namespace NormalizedCall {
@@ -35,7 +39,7 @@ export declare namespace NormalizedCall {
         error_message?: string | null;
         recording_available?: boolean | null;
         transcript?: string | null;
-        machine_detection_result?: serializers.NormalizedCallMachineDetectionResult.Raw | null;
+        human_detection_result?: serializers.NormalizedCallHumanDetectionResult.Raw | null;
         to_number: string;
         from_number: string;
         agent: string;
@@ -43,5 +47,6 @@ export declare namespace NormalizedCall {
         start_time?: string | null;
         end_time?: string | null;
         hipaa_compliant?: boolean | null;
+        on_no_human_answer?: serializers.NormalizedCallOnNoHumanAnswer.Raw | null;
     }
 }

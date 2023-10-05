@@ -12,7 +12,7 @@ export type EventType =
     | "event_phone_call_ended"
     | "event_transcript"
     | "event_recording"
-    | "event_machine_detection";
+    | "event_human_detection";
 
 export const EventType = {
     EventMessage: "event_message",
@@ -21,5 +21,5 @@ export const EventType = {
     EventPhoneCallEnded: "event_phone_call_ended",
     EventTranscript: "event_transcript",
     EventRecording: "event_recording",
-    EventMachineDetection: "event_machine_detection",
+    EventHumanDetection: "event_human_detection",
 } as const;

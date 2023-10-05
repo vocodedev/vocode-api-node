@@ -10,5 +10,6 @@ export interface PhoneNumber {
     active?: boolean;
     label?: string;
     inboundAgent: Vocode.Agent;
+    outboundOnly?: boolean;
     number: string;
 }

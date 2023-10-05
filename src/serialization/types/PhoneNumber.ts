@@ -16,6 +16,7 @@ export const PhoneNumber: core.serialization.ObjectSchema<serializers.PhoneNumbe
             "inbound_agent",
             core.serialization.lazyObject(async () => (await import("..")).Agent)
         ),
+        outboundOnly: core.serialization.property("outbound_only", core.serialization.boolean().optional()),
         number: core.serialization.string(),
     });
 
@@ -26,6 +27,7 @@ export declare namespace PhoneNumber {
         active?: boolean | null;
         label?: string | null;
         inbound_agent: serializers.Agent.Raw;
+        outbound_only?: boolean | null;
         number: string;
     }
 }

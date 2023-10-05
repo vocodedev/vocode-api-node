@@ -15,6 +15,7 @@ export const NormalizedPhoneNumber: core.serialization.ObjectSchema<
     active: core.serialization.boolean().optional(),
     label: core.serialization.string().optional(),
     inboundAgent: core.serialization.property("inbound_agent", core.serialization.string()),
+    outboundOnly: core.serialization.property("outbound_only", core.serialization.boolean().optional()),
     number: core.serialization.string(),
 });
 
@@ -25,6 +26,7 @@ export declare namespace NormalizedPhoneNumber {
         active?: boolean | null;
         label?: string | null;
         inbound_agent: string;
+        outbound_only?: boolean | null;
         number: string;
     }
 }

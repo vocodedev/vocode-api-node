@@ -8,5 +8,6 @@ export interface NormalizedPhoneNumber {
     active?: boolean;
     label?: string;
     inboundAgent: string;
+    outboundOnly?: boolean;
     number: string;
 }

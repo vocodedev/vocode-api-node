@@ -11,7 +11,7 @@ export interface Call {
     errorMessage?: string;
     recordingAvailable?: boolean;
     transcript?: string;
-    machineDetectionResult?: Vocode.CallMachineDetectionResult;
+    humanDetectionResult?: Vocode.CallHumanDetectionResult;
     toNumber: string;
     fromNumber: string;
     agent: Vocode.Agent;
@@ -19,4 +19,5 @@ export interface Call {
     startTime?: Date;
     endTime?: Date;
     hipaaCompliant?: boolean;
+    onNoHumanAnswer?: Vocode.CallOnNoHumanAnswer;
 }
