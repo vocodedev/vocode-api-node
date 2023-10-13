@@ -9,5 +9,6 @@ export interface NormalizedPhoneNumber {
     label?: string;
     inboundAgent: string;
     outboundOnly?: boolean;
+    exampleContext?: Record<string, string>;
     number: string;
 }

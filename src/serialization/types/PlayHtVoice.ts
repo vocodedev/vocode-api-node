@@ -11,8 +11,9 @@ export const PlayHtVoice: core.serialization.ObjectSchema<serializers.PlayHtVoic
         id: core.serialization.string(),
         userId: core.serialization.property("user_id", core.serialization.string()),
         voiceId: core.serialization.property("voice_id", core.serialization.string()),
-        apiUserId: core.serialization.property("api_user_id", core.serialization.string()),
-        apiKey: core.serialization.property("api_key", core.serialization.string()),
+        apiUserId: core.serialization.property("api_user_id", core.serialization.string().optional()),
+        apiKey: core.serialization.property("api_key", core.serialization.string().optional()),
+        version: core.serialization.lazy(async () => (await import("..")).PlayHtVoiceVersion).optional(),
     });
 
 export declare namespace PlayHtVoice {
@@ -20,7 +21,8 @@ export declare namespace PlayHtVoice {
         id: string;
         user_id: string;
         voice_id: string;
-        api_user_id: string;
-        api_key: string;
+        api_user_id?: string | null;
+        api_key?: string | null;
+        version?: serializers.PlayHtVoiceVersion.Raw | null;
     }
 }

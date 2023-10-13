@@ -11,14 +11,16 @@ export const PlayHtVoiceParams: core.serialization.ObjectSchema<
     Vocode.PlayHtVoiceParams
 > = core.serialization.object({
     voiceId: core.serialization.property("voice_id", core.serialization.string()),
-    apiUserId: core.serialization.property("api_user_id", core.serialization.string()),
-    apiKey: core.serialization.property("api_key", core.serialization.string()),
+    apiUserId: core.serialization.property("api_user_id", core.serialization.string().optional()),
+    apiKey: core.serialization.property("api_key", core.serialization.string().optional()),
+    version: core.serialization.lazy(async () => (await import("..")).PlayHtVoiceParamsVersion).optional(),
 });
 
 export declare namespace PlayHtVoiceParams {
     interface Raw {
         voice_id: string;
-        api_user_id: string;
-        api_key: string;
+        api_user_id?: string | null;
+        api_key?: string | null;
+        version?: serializers.PlayHtVoiceParamsVersion.Raw | null;
     }
 }

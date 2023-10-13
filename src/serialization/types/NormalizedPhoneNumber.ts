@@ -16,6 +16,10 @@ export const NormalizedPhoneNumber: core.serialization.ObjectSchema<
     label: core.serialization.string().optional(),
     inboundAgent: core.serialization.property("inbound_agent", core.serialization.string()),
     outboundOnly: core.serialization.property("outbound_only", core.serialization.boolean().optional()),
+    exampleContext: core.serialization.property(
+        "example_context",
+        core.serialization.record(core.serialization.string(), core.serialization.string()).optional()
+    ),
     number: core.serialization.string(),
 });
 
@@ -27,6 +31,7 @@ export declare namespace NormalizedPhoneNumber {
         label?: string | null;
         inbound_agent: string;
         outbound_only?: boolean | null;
+        example_context?: Record<string, string> | null;
         number: string;
     }
 }

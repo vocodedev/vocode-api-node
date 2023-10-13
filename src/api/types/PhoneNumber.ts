@@ -11,5 +11,6 @@ export interface PhoneNumber {
     label?: string;
     inboundAgent: Vocode.Agent;
     outboundOnly?: boolean;
+    exampleContext?: Record<string, string>;
     number: string;
 }
