@@ -9,4 +9,5 @@ export interface PlayHtVoiceParams {
     apiUserId?: string;
     apiKey?: string;
     version?: Vocode.PlayHtVoiceParamsVersion;
+    speed?: number;
 }

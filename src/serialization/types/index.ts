@@ -124,6 +124,7 @@ export * from "./PlayHtVoiceUpdateParamsVoiceId";
 export * from "./PlayHtVoiceUpdateParamsApiUserId";
 export * from "./PlayHtVoiceUpdateParamsApiKey";
 export * from "./PlayHtVoiceUpdateParamsVersion";
+export * from "./PlayHtVoiceUpdateParamsSpeed";
 export * from "./Prompt";
 export * from "./PromptPage";
 export * from "./PromptTemplate";

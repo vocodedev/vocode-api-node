@@ -23,6 +23,7 @@ export const PlayHtVoiceUpdateParams: core.serialization.ObjectSchema<
         core.serialization.lazy(async () => (await import("..")).PlayHtVoiceUpdateParamsApiKey).optional()
     ),
     version: core.serialization.lazy(async () => (await import("..")).PlayHtVoiceUpdateParamsVersion).optional(),
+    speed: core.serialization.lazy(async () => (await import("..")).PlayHtVoiceUpdateParamsSpeed).optional(),
 });
 
 export declare namespace PlayHtVoiceUpdateParams {
@@ -31,5 +32,6 @@ export declare namespace PlayHtVoiceUpdateParams {
         api_user_id?: serializers.PlayHtVoiceUpdateParamsApiUserId.Raw | null;
         api_key?: serializers.PlayHtVoiceUpdateParamsApiKey.Raw | null;
         version?: serializers.PlayHtVoiceUpdateParamsVersion.Raw | null;
+        speed?: serializers.PlayHtVoiceUpdateParamsSpeed.Raw | null;
     }
 }

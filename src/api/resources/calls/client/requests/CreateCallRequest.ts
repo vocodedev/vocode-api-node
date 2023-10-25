@@ -9,6 +9,7 @@ export interface CreateCallRequest {
     toNumber: string;
     agent: Vocode.CreateCallRequestAgent;
     onNoHumanAnswer?: Vocode.CreateCallRequestOnNoHumanAnswer;
+    runDoNotCallDetection?: boolean;
     hipaaCompliant?: boolean;
     context?: Record<string, string>;
 }

@@ -17,6 +17,7 @@ export const Call: core.serialization.ObjectSchema<serializers.Call.Raw, Vocode.
         "human_detection_result",
         core.serialization.lazy(async () => (await import("..")).CallHumanDetectionResult).optional()
     ),
+    doNotCallResult: core.serialization.property("do_not_call_result", core.serialization.boolean().optional()),
     toNumber: core.serialization.property("to_number", core.serialization.string()),
     fromNumber: core.serialization.property("from_number", core.serialization.string()),
     agent: core.serialization.lazyObject(async () => (await import("..")).Agent),
@@ -27,6 +28,11 @@ export const Call: core.serialization.ObjectSchema<serializers.Call.Raw, Vocode.
     onNoHumanAnswer: core.serialization.property(
         "on_no_human_answer",
         core.serialization.lazy(async () => (await import("..")).CallOnNoHumanAnswer).optional()
+    ),
+    context: core.serialization.record(core.serialization.string(), core.serialization.string()).optional(),
+    runDoNotCallDetection: core.serialization.property(
+        "run_do_not_call_detection",
+        core.serialization.boolean().optional()
     ),
 });
 
@@ -39,6 +45,7 @@ export declare namespace Call {
         recording_available?: boolean | null;
         transcript?: string | null;
         human_detection_result?: serializers.CallHumanDetectionResult.Raw | null;
+        do_not_call_result?: boolean | null;
         to_number: string;
         from_number: string;
         agent: serializers.Agent.Raw;
@@ -47,5 +54,7 @@ export declare namespace Call {
         end_time?: string | null;
         hipaa_compliant?: boolean | null;
         on_no_human_answer?: serializers.CallOnNoHumanAnswer.Raw | null;
+        context?: Record<string, string> | null;
+        run_do_not_call_detection?: boolean | null;
     }
 }

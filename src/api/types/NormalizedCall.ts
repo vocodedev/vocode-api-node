@@ -12,6 +12,7 @@ export interface NormalizedCall {
     recordingAvailable?: boolean;
     transcript?: string;
     humanDetectionResult?: Vocode.NormalizedCallHumanDetectionResult;
+    doNotCallResult?: boolean;
     toNumber: string;
     fromNumber: string;
     agent: string;
@@ -20,4 +21,6 @@ export interface NormalizedCall {
     endTime?: Date;
     hipaaCompliant?: boolean;
     onNoHumanAnswer?: Vocode.NormalizedCallOnNoHumanAnswer;
+    context?: Record<string, string>;
+    runDoNotCallDetection?: boolean;
 }

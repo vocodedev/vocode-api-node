@@ -14,6 +14,7 @@ export const PlayHtVoice: core.serialization.ObjectSchema<serializers.PlayHtVoic
         apiUserId: core.serialization.property("api_user_id", core.serialization.string().optional()),
         apiKey: core.serialization.property("api_key", core.serialization.string().optional()),
         version: core.serialization.lazy(async () => (await import("..")).PlayHtVoiceVersion).optional(),
+        speed: core.serialization.number().optional(),
     });
 
 export declare namespace PlayHtVoice {
@@ -24,5 +25,6 @@ export declare namespace PlayHtVoice {
         api_user_id?: string | null;
         api_key?: string | null;
         version?: serializers.PlayHtVoiceVersion.Raw | null;
+        speed?: number | null;
     }
 }

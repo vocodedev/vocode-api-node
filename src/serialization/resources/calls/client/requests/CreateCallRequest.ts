@@ -17,6 +17,10 @@ export const CreateCallRequest: core.serialization.Schema<serializers.CreateCall
                 .lazy(async () => (await import("../../../..")).CreateCallRequestOnNoHumanAnswer)
                 .optional()
         ),
+        runDoNotCallDetection: core.serialization.property(
+            "run_do_not_call_detection",
+            core.serialization.boolean().optional()
+        ),
         hipaaCompliant: core.serialization.property("hipaa_compliant", core.serialization.boolean().optional()),
         context: core.serialization.record(core.serialization.string(), core.serialization.string()).optional(),
     });
@@ -27,6 +31,7 @@ export declare namespace CreateCallRequest {
         to_number: string;
         agent: serializers.CreateCallRequestAgent.Raw;
         on_no_human_answer?: serializers.CreateCallRequestOnNoHumanAnswer.Raw | null;
+        run_do_not_call_detection?: boolean | null;
         hipaa_compliant?: boolean | null;
         context?: Record<string, string> | null;
     }

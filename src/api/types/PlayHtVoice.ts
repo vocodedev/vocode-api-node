@@ -11,4 +11,5 @@ export interface PlayHtVoice {
     apiUserId?: string;
     apiKey?: string;
     version?: Vocode.PlayHtVoiceVersion;
+    speed?: number;
 }

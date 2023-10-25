@@ -18,6 +18,7 @@ export const NormalizedCall: core.serialization.ObjectSchema<serializers.Normali
             "human_detection_result",
             core.serialization.lazy(async () => (await import("..")).NormalizedCallHumanDetectionResult).optional()
         ),
+        doNotCallResult: core.serialization.property("do_not_call_result", core.serialization.boolean().optional()),
         toNumber: core.serialization.property("to_number", core.serialization.string()),
         fromNumber: core.serialization.property("from_number", core.serialization.string()),
         agent: core.serialization.string(),
@@ -28,6 +29,11 @@ export const NormalizedCall: core.serialization.ObjectSchema<serializers.Normali
         onNoHumanAnswer: core.serialization.property(
             "on_no_human_answer",
             core.serialization.lazy(async () => (await import("..")).NormalizedCallOnNoHumanAnswer).optional()
+        ),
+        context: core.serialization.record(core.serialization.string(), core.serialization.string()).optional(),
+        runDoNotCallDetection: core.serialization.property(
+            "run_do_not_call_detection",
+            core.serialization.boolean().optional()
         ),
     });
 
@@ -40,6 +46,7 @@ export declare namespace NormalizedCall {
         recording_available?: boolean | null;
         transcript?: string | null;
         human_detection_result?: serializers.NormalizedCallHumanDetectionResult.Raw | null;
+        do_not_call_result?: boolean | null;
         to_number: string;
         from_number: string;
         agent: string;
@@ -48,5 +55,7 @@ export declare namespace NormalizedCall {
         end_time?: string | null;
         hipaa_compliant?: boolean | null;
         on_no_human_answer?: serializers.NormalizedCallOnNoHumanAnswer.Raw | null;
+        context?: Record<string, string> | null;
+        run_do_not_call_detection?: boolean | null;
     }
 }
