@@ -21,6 +21,16 @@ export const NormalizedPhoneNumber: core.serialization.ObjectSchema<
         core.serialization.record(core.serialization.string(), core.serialization.string()).optional()
     ),
     number: core.serialization.string(),
+    telephonyProvider: core.serialization.property(
+        "telephony_provider",
+        core.serialization.lazy(async () => (await import("..")).NormalizedPhoneNumberTelephonyProvider).optional()
+    ),
+    telephonyAccountConnection: core.serialization.property(
+        "telephony_account_connection",
+        core.serialization
+            .lazy(async () => (await import("..")).NormalizedPhoneNumberTelephonyAccountConnection)
+            .optional()
+    ),
 });
 
 export declare namespace NormalizedPhoneNumber {
@@ -33,5 +43,7 @@ export declare namespace NormalizedPhoneNumber {
         outbound_only?: boolean | null;
         example_context?: Record<string, string> | null;
         number: string;
+        telephony_provider?: serializers.NormalizedPhoneNumberTelephonyProvider.Raw | null;
+        telephony_account_connection?: serializers.NormalizedPhoneNumberTelephonyAccountConnection.Raw | null;
     }
 }

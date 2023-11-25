@@ -47,6 +47,10 @@ export const AgentUpdateParams: core.serialization.ObjectSchema<
         "conversation_speed",
         core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsConversationSpeed).optional()
     ),
+    initialMessageDelay: core.serialization.property(
+        "initial_message_delay",
+        core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsInitialMessageDelay).optional()
+    ),
 });
 
 export declare namespace AgentUpdateParams {
@@ -64,5 +68,6 @@ export declare namespace AgentUpdateParams {
         endpointing_sensitivity?: serializers.AgentUpdateParamsEndpointingSensitivity.Raw | null;
         ivr_navigation_mode?: serializers.AgentUpdateParamsIvrNavigationMode.Raw | null;
         conversation_speed?: serializers.AgentUpdateParamsConversationSpeed.Raw | null;
+        initial_message_delay?: serializers.AgentUpdateParamsInitialMessageDelay.Raw | null;
     }
 }

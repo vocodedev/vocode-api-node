@@ -18,4 +18,5 @@ export interface AgentUpdateParams {
     endpointingSensitivity?: Vocode.AgentUpdateParamsEndpointingSensitivity;
     ivrNavigationMode?: Vocode.AgentUpdateParamsIvrNavigationMode;
     conversationSpeed?: Vocode.AgentUpdateParamsConversationSpeed;
+    initialMessageDelay?: Vocode.AgentUpdateParamsInitialMessageDelay;
 }

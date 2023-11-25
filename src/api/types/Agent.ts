@@ -20,4 +20,5 @@ export interface Agent {
     endpointingSensitivity?: Vocode.AgentEndpointingSensitivity;
     ivrNavigationMode?: Vocode.AgentIvrNavigationMode;
     conversationSpeed?: number;
+    initialMessageDelay?: number;
 }

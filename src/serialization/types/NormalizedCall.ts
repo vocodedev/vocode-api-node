@@ -19,9 +19,14 @@ export const NormalizedCall: core.serialization.ObjectSchema<serializers.Normali
             core.serialization.lazy(async () => (await import("..")).NormalizedCallHumanDetectionResult).optional()
         ),
         doNotCallResult: core.serialization.property("do_not_call_result", core.serialization.boolean().optional()),
+        telephonyId: core.serialization.property("telephony_id", core.serialization.string().optional()),
         toNumber: core.serialization.property("to_number", core.serialization.string()),
         fromNumber: core.serialization.property("from_number", core.serialization.string()),
         agent: core.serialization.string(),
+        telephonyProvider: core.serialization.property(
+            "telephony_provider",
+            core.serialization.lazy(async () => (await import("..")).NormalizedCallTelephonyProvider)
+        ),
         agentPhoneNumber: core.serialization.property("agent_phone_number", core.serialization.string()),
         startTime: core.serialization.property("start_time", core.serialization.date().optional()),
         endTime: core.serialization.property("end_time", core.serialization.date().optional()),
@@ -47,9 +52,11 @@ export declare namespace NormalizedCall {
         transcript?: string | null;
         human_detection_result?: serializers.NormalizedCallHumanDetectionResult.Raw | null;
         do_not_call_result?: boolean | null;
+        telephony_id?: string | null;
         to_number: string;
         from_number: string;
         agent: string;
+        telephony_provider: serializers.NormalizedCallTelephonyProvider.Raw;
         agent_phone_number: string;
         start_time?: string | null;
         end_time?: string | null;

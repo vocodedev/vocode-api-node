@@ -9,4 +9,6 @@ export interface ElevenLabsVoiceUpdateParams {
     stability?: Vocode.ElevenLabsVoiceUpdateParamsStability;
     similarityBoost?: Vocode.ElevenLabsVoiceUpdateParamsSimilarityBoost;
     apiKey?: Vocode.ElevenLabsVoiceUpdateParamsApiKey;
+    optimizeStreamingLatency?: Vocode.ElevenLabsVoiceUpdateParamsOptimizeStreamingLatency;
+    modelId?: Vocode.ElevenLabsVoiceUpdateParamsModelId;
 }

@@ -13,9 +13,11 @@ export interface Call {
     transcript?: string;
     humanDetectionResult?: Vocode.CallHumanDetectionResult;
     doNotCallResult?: boolean;
+    telephonyId?: string;
     toNumber: string;
     fromNumber: string;
     agent: Vocode.Agent;
+    telephonyProvider: Vocode.CallTelephonyProvider;
     agentPhoneNumber: string;
     startTime?: Date;
     endTime?: Date;

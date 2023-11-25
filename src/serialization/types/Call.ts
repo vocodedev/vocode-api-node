@@ -18,9 +18,14 @@ export const Call: core.serialization.ObjectSchema<serializers.Call.Raw, Vocode.
         core.serialization.lazy(async () => (await import("..")).CallHumanDetectionResult).optional()
     ),
     doNotCallResult: core.serialization.property("do_not_call_result", core.serialization.boolean().optional()),
+    telephonyId: core.serialization.property("telephony_id", core.serialization.string().optional()),
     toNumber: core.serialization.property("to_number", core.serialization.string()),
     fromNumber: core.serialization.property("from_number", core.serialization.string()),
     agent: core.serialization.lazyObject(async () => (await import("..")).Agent),
+    telephonyProvider: core.serialization.property(
+        "telephony_provider",
+        core.serialization.lazy(async () => (await import("..")).CallTelephonyProvider)
+    ),
     agentPhoneNumber: core.serialization.property("agent_phone_number", core.serialization.string()),
     startTime: core.serialization.property("start_time", core.serialization.date().optional()),
     endTime: core.serialization.property("end_time", core.serialization.date().optional()),
@@ -46,9 +51,11 @@ export declare namespace Call {
         transcript?: string | null;
         human_detection_result?: serializers.CallHumanDetectionResult.Raw | null;
         do_not_call_result?: boolean | null;
+        telephony_id?: string | null;
         to_number: string;
         from_number: string;
         agent: serializers.Agent.Raw;
+        telephony_provider: serializers.CallTelephonyProvider.Raw;
         agent_phone_number: string;
         start_time?: string | null;
         end_time?: string | null;

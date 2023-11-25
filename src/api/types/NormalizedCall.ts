@@ -13,9 +13,11 @@ export interface NormalizedCall {
     transcript?: string;
     humanDetectionResult?: Vocode.NormalizedCallHumanDetectionResult;
     doNotCallResult?: boolean;
+    telephonyId?: string;
     toNumber: string;
     fromNumber: string;
     agent: string;
+    telephonyProvider: Vocode.NormalizedCallTelephonyProvider;
     agentPhoneNumber: string;
     startTime?: Date;
     endTime?: Date;

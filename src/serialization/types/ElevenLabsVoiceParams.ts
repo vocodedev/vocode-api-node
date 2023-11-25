@@ -14,6 +14,11 @@ export const ElevenLabsVoiceParams: core.serialization.ObjectSchema<
     stability: core.serialization.number().optional(),
     similarityBoost: core.serialization.property("similarity_boost", core.serialization.number().optional()),
     apiKey: core.serialization.property("api_key", core.serialization.string().optional()),
+    optimizeStreamingLatency: core.serialization.property(
+        "optimize_streaming_latency",
+        core.serialization.number().optional()
+    ),
+    modelId: core.serialization.property("model_id", core.serialization.string().optional()),
 });
 
 export declare namespace ElevenLabsVoiceParams {
@@ -22,5 +27,7 @@ export declare namespace ElevenLabsVoiceParams {
         stability?: number | null;
         similarity_boost?: number | null;
         api_key?: string | null;
+        optimize_streaming_latency?: number | null;
+        model_id?: string | null;
     }
 }

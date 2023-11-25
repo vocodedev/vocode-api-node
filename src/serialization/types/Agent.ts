@@ -34,6 +34,7 @@ export const Agent: core.serialization.ObjectSchema<serializers.Agent.Raw, Vocod
         core.serialization.lazy(async () => (await import("..")).AgentIvrNavigationMode).optional()
     ),
     conversationSpeed: core.serialization.property("conversation_speed", core.serialization.number().optional()),
+    initialMessageDelay: core.serialization.property("initial_message_delay", core.serialization.number().optional()),
 });
 
 export declare namespace Agent {
@@ -53,5 +54,6 @@ export declare namespace Agent {
         endpointing_sensitivity?: serializers.AgentEndpointingSensitivity.Raw | null;
         ivr_navigation_mode?: serializers.AgentIvrNavigationMode.Raw | null;
         conversation_speed?: number | null;
+        initial_message_delay?: number | null;
     }
 }

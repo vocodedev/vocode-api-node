@@ -7,4 +7,6 @@ export interface ElevenLabsVoiceParams {
     stability?: number;
     similarityBoost?: number;
     apiKey?: string;
+    optimizeStreamingLatency?: number;
+    modelId?: string;
 }

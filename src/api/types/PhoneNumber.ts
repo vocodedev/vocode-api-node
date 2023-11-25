@@ -13,4 +13,6 @@ export interface PhoneNumber {
     outboundOnly?: boolean;
     exampleContext?: Record<string, string>;
     number: string;
+    telephonyProvider?: Vocode.PhoneNumberTelephonyProvider;
+    telephonyAccountConnection?: Vocode.TwilioAccountConnection;
 }
