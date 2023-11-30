@@ -10,6 +10,10 @@ export const UpdateNumberRequest: core.serialization.Schema<
     serializers.UpdateNumberRequest.Raw,
     Omit<Vocode.UpdateNumberRequest, "phoneNumber">
 > = core.serialization.object({
+    outboundOnly: core.serialization.property(
+        "outbound_only",
+        core.serialization.lazy(async () => (await import("../../../..")).UpdateNumberRequestOutboundOnly).optional()
+    ),
     label: core.serialization.lazy(async () => (await import("../../../..")).UpdateNumberRequestLabel).optional(),
     inboundAgent: core.serialization.property(
         "inbound_agent",
@@ -19,6 +23,7 @@ export const UpdateNumberRequest: core.serialization.Schema<
 
 export declare namespace UpdateNumberRequest {
     interface Raw {
+        outbound_only?: serializers.UpdateNumberRequestOutboundOnly.Raw | null;
         label?: serializers.UpdateNumberRequestLabel.Raw | null;
         inbound_agent?: serializers.UpdateNumberRequestInboundAgent.Raw | null;
     }

@@ -51,6 +51,14 @@ export const AgentUpdateParams: core.serialization.ObjectSchema<
         "initial_message_delay",
         core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsInitialMessageDelay).optional()
     ),
+    openaiModelNameOverride: core.serialization.property(
+        "openai_model_name_override",
+        core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsOpenaiModelNameOverride).optional()
+    ),
+    openaiAccountConnection: core.serialization.property(
+        "openai_account_connection",
+        core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsOpenaiAccountConnection).optional()
+    ),
 });
 
 export declare namespace AgentUpdateParams {
@@ -69,5 +77,7 @@ export declare namespace AgentUpdateParams {
         ivr_navigation_mode?: serializers.AgentUpdateParamsIvrNavigationMode.Raw | null;
         conversation_speed?: serializers.AgentUpdateParamsConversationSpeed.Raw | null;
         initial_message_delay?: serializers.AgentUpdateParamsInitialMessageDelay.Raw | null;
+        openai_model_name_override?: serializers.AgentUpdateParamsOpenaiModelNameOverride.Raw | null;
+        openai_account_connection?: serializers.AgentUpdateParamsOpenaiAccountConnection.Raw | null;
     }
 }

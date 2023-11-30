@@ -38,6 +38,16 @@ export const CreateCallAgentParams: core.serialization.ObjectSchema<
     ),
     conversationSpeed: core.serialization.property("conversation_speed", core.serialization.number().optional()),
     initialMessageDelay: core.serialization.property("initial_message_delay", core.serialization.number().optional()),
+    openaiModelNameOverride: core.serialization.property(
+        "openai_model_name_override",
+        core.serialization.string().optional()
+    ),
+    openaiAccountConnection: core.serialization.property(
+        "openai_account_connection",
+        core.serialization
+            .lazy(async () => (await import("..")).CreateCallAgentParamsOpenaiAccountConnection)
+            .optional()
+    ),
 });
 
 export declare namespace CreateCallAgentParams {
@@ -56,5 +66,7 @@ export declare namespace CreateCallAgentParams {
         ivr_navigation_mode?: serializers.CreateCallAgentParamsIvrNavigationMode.Raw | null;
         conversation_speed?: number | null;
         initial_message_delay?: number | null;
+        openai_model_name_override?: string | null;
+        openai_account_connection?: serializers.CreateCallAgentParamsOpenaiAccountConnection.Raw | null;
     }
 }

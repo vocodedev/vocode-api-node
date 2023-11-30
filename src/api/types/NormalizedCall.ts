@@ -25,4 +25,5 @@ export interface NormalizedCall {
     onNoHumanAnswer?: Vocode.NormalizedCallOnNoHumanAnswer;
     context?: Record<string, string>;
     runDoNotCallDetection?: boolean;
+    telephonyAccountConnection?: Vocode.NormalizedCallTelephonyAccountConnection;
 }

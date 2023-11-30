@@ -39,6 +39,14 @@ export const NormalizedAgent: core.serialization.ObjectSchema<serializers.Normal
             "initial_message_delay",
             core.serialization.number().optional()
         ),
+        openaiModelNameOverride: core.serialization.property(
+            "openai_model_name_override",
+            core.serialization.string().optional()
+        ),
+        openaiAccountConnection: core.serialization.property(
+            "openai_account_connection",
+            core.serialization.lazy(async () => (await import("..")).NormalizedAgentOpenaiAccountConnection).optional()
+        ),
     });
 
 export declare namespace NormalizedAgent {
@@ -59,5 +67,7 @@ export declare namespace NormalizedAgent {
         ivr_navigation_mode?: serializers.NormalizedAgentIvrNavigationMode.Raw | null;
         conversation_speed?: number | null;
         initial_message_delay?: number | null;
+        openai_model_name_override?: string | null;
+        openai_account_connection?: serializers.NormalizedAgentOpenaiAccountConnection.Raw | null;
     }
 }

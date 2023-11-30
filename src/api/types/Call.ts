@@ -25,4 +25,5 @@ export interface Call {
     onNoHumanAnswer?: Vocode.CallOnNoHumanAnswer;
     context?: Record<string, string>;
     runDoNotCallDetection?: boolean;
+    telephonyAccountConnection?: Vocode.TwilioAccountConnection;
 }

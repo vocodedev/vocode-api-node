@@ -35,6 +35,14 @@ export const Agent: core.serialization.ObjectSchema<serializers.Agent.Raw, Vocod
     ),
     conversationSpeed: core.serialization.property("conversation_speed", core.serialization.number().optional()),
     initialMessageDelay: core.serialization.property("initial_message_delay", core.serialization.number().optional()),
+    openaiModelNameOverride: core.serialization.property(
+        "openai_model_name_override",
+        core.serialization.string().optional()
+    ),
+    openaiAccountConnection: core.serialization.property(
+        "openai_account_connection",
+        core.serialization.lazyObject(async () => (await import("..")).OpenAiAccountConnection).optional()
+    ),
 });
 
 export declare namespace Agent {
@@ -55,5 +63,7 @@ export declare namespace Agent {
         ivr_navigation_mode?: serializers.AgentIvrNavigationMode.Raw | null;
         conversation_speed?: number | null;
         initial_message_delay?: number | null;
+        openai_model_name_override?: string | null;
+        openai_account_connection?: serializers.OpenAiAccountConnection.Raw | null;
     }
 }

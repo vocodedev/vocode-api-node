@@ -40,6 +40,12 @@ export const NormalizedCall: core.serialization.ObjectSchema<serializers.Normali
             "run_do_not_call_detection",
             core.serialization.boolean().optional()
         ),
+        telephonyAccountConnection: core.serialization.property(
+            "telephony_account_connection",
+            core.serialization
+                .lazy(async () => (await import("..")).NormalizedCallTelephonyAccountConnection)
+                .optional()
+        ),
     });
 
 export declare namespace NormalizedCall {
@@ -64,5 +70,6 @@ export declare namespace NormalizedCall {
         on_no_human_answer?: serializers.NormalizedCallOnNoHumanAnswer.Raw | null;
         context?: Record<string, string> | null;
         run_do_not_call_detection?: boolean | null;
+        telephony_account_connection?: serializers.NormalizedCallTelephonyAccountConnection.Raw | null;
     }
 }

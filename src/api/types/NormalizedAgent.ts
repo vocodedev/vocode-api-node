@@ -21,4 +21,6 @@ export interface NormalizedAgent {
     ivrNavigationMode?: Vocode.NormalizedAgentIvrNavigationMode;
     conversationSpeed?: number;
     initialMessageDelay?: number;
+    openaiModelNameOverride?: string;
+    openaiAccountConnection?: Vocode.NormalizedAgentOpenaiAccountConnection;
 }

@@ -21,4 +21,6 @@ export interface Agent {
     ivrNavigationMode?: Vocode.AgentIvrNavigationMode;
     conversationSpeed?: number;
     initialMessageDelay?: number;
+    openaiModelNameOverride?: string;
+    openaiAccountConnection?: Vocode.OpenAiAccountConnection;
 }

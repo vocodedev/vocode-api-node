@@ -6,6 +6,7 @@ import * as Vocode from "../../../..";
 
 export interface UpdateNumberRequest {
     phoneNumber: string;
+    outboundOnly?: Vocode.UpdateNumberRequestOutboundOnly;
     label?: Vocode.UpdateNumberRequestLabel;
     inboundAgent?: Vocode.UpdateNumberRequestInboundAgent;
 }
