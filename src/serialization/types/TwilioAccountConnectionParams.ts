@@ -6,19 +6,15 @@ import * as serializers from "..";
 import * as Vocode from "../../api";
 import * as core from "../../core";
 
-export const TwilioAccountConnection: core.serialization.ObjectSchema<
-    serializers.TwilioAccountConnection.Raw,
-    Vocode.TwilioAccountConnection
+export const TwilioAccountConnectionParams: core.serialization.ObjectSchema<
+    serializers.TwilioAccountConnectionParams.Raw,
+    Vocode.TwilioAccountConnectionParams
 > = core.serialization.object({
-    id: core.serialization.string(),
-    userId: core.serialization.property("user_id", core.serialization.string()),
     credentials: core.serialization.lazyObject(async () => (await import("..")).TwilioCredentials),
 });
 
-export declare namespace TwilioAccountConnection {
+export declare namespace TwilioAccountConnectionParams {
     interface Raw {
-        id: string;
-        user_id: string;
         credentials: serializers.TwilioCredentials.Raw;
     }
 }

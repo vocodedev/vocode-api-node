@@ -10,27 +10,29 @@ import urlJoin from "url-join";
 import * as serializers from "../../../../serialization";
 import * as errors from "../../../../errors";
 
-export declare namespace Prompts {
+export declare namespace AccountConnections {
     interface Options {
         environment?: core.Supplier<environments.VocodeEnvironment | string>;
         token: core.Supplier<core.BearerToken>;
     }
 }
 
-export class Prompts {
-    constructor(protected readonly _options: Prompts.Options) {}
+export class AccountConnections {
+    constructor(protected readonly _options: AccountConnections.Options) {}
 
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async getPrompt(request: Vocode.GetPromptRequest): Promise<Vocode.Prompt> {
+    public async getAccountConnection(
+        request: Vocode.GetAccountConnectionRequest
+    ): Promise<Vocode.AccountConnectionResponseModel> {
         const { id } = request;
         const _queryParams = new URLSearchParams();
         _queryParams.append("id", id);
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VocodeEnvironment.Production,
-                "v1/prompts"
+                "v1/account_connections"
             ),
             method: "GET",
             headers: {
@@ -44,7 +46,7 @@ export class Prompts {
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.Prompt.parseOrThrow(_response.body, {
+            return await serializers.AccountConnectionResponseModel.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -89,7 +91,9 @@ export class Prompts {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async listPrompts(request: Vocode.ListPromptsRequest = {}): Promise<Vocode.PromptPage> {
+    public async listAccountConnections(
+        request: Vocode.ListAccountConnectionsRequest = {}
+    ): Promise<Vocode.AccountConnectionPage> {
         const { page, size } = request;
         const _queryParams = new URLSearchParams();
         if (page != null) {
@@ -103,7 +107,7 @@ export class Prompts {
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VocodeEnvironment.Production,
-                "v1/prompts/list"
+                "v1/account_connections/list"
             ),
             method: "GET",
             headers: {
@@ -117,7 +121,7 @@ export class Prompts {
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.PromptPage.parseOrThrow(_response.body, {
+            return await serializers.AccountConnectionPage.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -162,11 +166,13 @@ export class Prompts {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async createPrompt(request: Vocode.PromptParams): Promise<Vocode.Prompt> {
+    public async createAccountConnection(
+        request: Vocode.AccountConnectionParamsRequest
+    ): Promise<Vocode.AccountConnectionResponseModel> {
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VocodeEnvironment.Production,
-                "v1/prompts/create"
+                "v1/account_connections/create"
             ),
             method: "POST",
             headers: {
@@ -176,11 +182,13 @@ export class Prompts {
                 "X-Fern-SDK-Version": "0.0.29",
             },
             contentType: "application/json",
-            body: await serializers.PromptParams.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            body: await serializers.AccountConnectionParamsRequest.jsonOrThrow(request, {
+                unrecognizedObjectKeys: "strip",
+            }),
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.Prompt.parseOrThrow(_response.body, {
+            return await serializers.AccountConnectionResponseModel.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,
@@ -225,14 +233,16 @@ export class Prompts {
     /**
      * @throws {@link Vocode.UnprocessableEntityError}
      */
-    public async updatePrompt(request: Vocode.UpdatePromptRequest): Promise<Vocode.Prompt> {
+    public async updateAccountConnection(
+        request: Vocode.UpdateAccountConnectionRequest
+    ): Promise<Vocode.AccountConnectionResponseModel> {
         const { id, body: _body } = request;
         const _queryParams = new URLSearchParams();
         _queryParams.append("id", id);
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.VocodeEnvironment.Production,
-                "v1/prompts/update"
+                "v1/account_connections/update"
             ),
             method: "POST",
             headers: {
@@ -243,11 +253,13 @@ export class Prompts {
             },
             contentType: "application/json",
             queryParameters: _queryParams,
-            body: await serializers.PromptUpdateParams.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: await serializers.AccountConnectionUpdateParamsRequest.jsonOrThrow(_body, {
+                unrecognizedObjectKeys: "strip",
+            }),
             timeoutMs: 60000,
         });
         if (_response.ok) {
-            return await serializers.Prompt.parseOrThrow(_response.body, {
+            return await serializers.AccountConnectionResponseModel.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,

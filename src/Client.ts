@@ -13,6 +13,7 @@ import { Voices } from "./api/resources/voices/client/Client";
 import { Webhooks } from "./api/resources/webhooks/client/Client";
 import { Prompts } from "./api/resources/prompts/client/Client";
 import { VectorDatabases } from "./api/resources/vectorDatabases/client/Client";
+import { AccountConnections } from "./api/resources/accountConnections/client/Client";
 
 export declare namespace VocodeClient {
     interface Options {
@@ -76,5 +77,11 @@ export class VocodeClient {
 
     public get vectorDatabases(): VectorDatabases {
         return (this._vectorDatabases ??= new VectorDatabases(this._options));
+    }
+
+    protected _accountConnections: AccountConnections | undefined;
+
+    public get accountConnections(): AccountConnections {
+        return (this._accountConnections ??= new AccountConnections(this._options));
     }
 }

@@ -4,8 +4,6 @@
 
 import * as Vocode from "..";
 
-export interface OpenAiAccountConnection {
-    id: string;
-    userId: string;
+export interface OpenAiAccountConnectionParams {
     credentials: Vocode.OpenAiCredentials;
 }

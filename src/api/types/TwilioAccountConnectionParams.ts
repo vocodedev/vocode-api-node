@@ -4,8 +4,6 @@
 
 import * as Vocode from "..";
 
-export interface TwilioAccountConnection {
-    id: string;
-    userId: string;
+export interface TwilioAccountConnectionParams {
     credentials: Vocode.TwilioCredentials;
 }
