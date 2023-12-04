@@ -37,6 +37,7 @@ export * from "./AgentUpdateParamsConversationSpeed";
 export * from "./AgentUpdateParamsInitialMessageDelay";
 export * from "./AgentUpdateParamsOpenaiModelNameOverride";
 export * from "./AgentUpdateParamsOpenaiAccountConnection";
+export * from "./AgentUpdateParamsRunDoNotCallDetection";
 export * from "./VoiceParamsRequest";
 export * from "./VoiceUpdateParamsRequest";
 export * from "./WebhookParams";

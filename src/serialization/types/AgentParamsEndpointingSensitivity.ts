@@ -9,8 +9,8 @@ import * as core from "../../core";
 export const AgentParamsEndpointingSensitivity: core.serialization.Schema<
     serializers.AgentParamsEndpointingSensitivity.Raw,
     Vocode.AgentParamsEndpointingSensitivity
-> = core.serialization.enum_(["auto", "relaxed"]);
+> = core.serialization.enum_(["auto", "relaxed", "sensitive"]);
 
 export declare namespace AgentParamsEndpointingSensitivity {
-    type Raw = "auto" | "relaxed";
+    type Raw = "auto" | "relaxed" | "sensitive";
 }

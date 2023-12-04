@@ -23,4 +23,5 @@ export interface Agent {
     initialMessageDelay?: number;
     openaiModelNameOverride?: string;
     openaiAccountConnection?: Vocode.OpenAiAccountConnection;
+    runDoNotCallDetection?: boolean;
 }

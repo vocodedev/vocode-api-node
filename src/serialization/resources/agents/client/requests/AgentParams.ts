@@ -51,6 +51,10 @@ export const AgentParams: core.serialization.Schema<serializers.AgentParams.Raw,
                 .lazy(async () => (await import("../../../..")).AgentParamsOpenaiAccountConnection)
                 .optional()
         ),
+        runDoNotCallDetection: core.serialization.property(
+            "run_do_not_call_detection",
+            core.serialization.boolean().optional()
+        ),
     });
 
 export declare namespace AgentParams {
@@ -71,5 +75,6 @@ export declare namespace AgentParams {
         initial_message_delay?: number | null;
         openai_model_name_override?: string | null;
         openai_account_connection?: serializers.AgentParamsOpenaiAccountConnection.Raw | null;
+        run_do_not_call_detection?: boolean | null;
     }
 }

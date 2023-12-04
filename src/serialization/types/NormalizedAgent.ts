@@ -47,6 +47,10 @@ export const NormalizedAgent: core.serialization.ObjectSchema<serializers.Normal
             "openai_account_connection",
             core.serialization.lazy(async () => (await import("..")).NormalizedAgentOpenaiAccountConnection).optional()
         ),
+        runDoNotCallDetection: core.serialization.property(
+            "run_do_not_call_detection",
+            core.serialization.boolean().optional()
+        ),
     });
 
 export declare namespace NormalizedAgent {
@@ -69,5 +73,6 @@ export declare namespace NormalizedAgent {
         initial_message_delay?: number | null;
         openai_model_name_override?: string | null;
         openai_account_connection?: serializers.NormalizedAgentOpenaiAccountConnection.Raw | null;
+        run_do_not_call_detection?: boolean | null;
     }
 }

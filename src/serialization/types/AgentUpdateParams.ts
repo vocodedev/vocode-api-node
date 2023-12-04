@@ -59,6 +59,10 @@ export const AgentUpdateParams: core.serialization.ObjectSchema<
         "openai_account_connection",
         core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsOpenaiAccountConnection).optional()
     ),
+    runDoNotCallDetection: core.serialization.property(
+        "run_do_not_call_detection",
+        core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsRunDoNotCallDetection).optional()
+    ),
 });
 
 export declare namespace AgentUpdateParams {
@@ -79,5 +83,6 @@ export declare namespace AgentUpdateParams {
         initial_message_delay?: serializers.AgentUpdateParamsInitialMessageDelay.Raw | null;
         openai_model_name_override?: serializers.AgentUpdateParamsOpenaiModelNameOverride.Raw | null;
         openai_account_connection?: serializers.AgentUpdateParamsOpenaiAccountConnection.Raw | null;
+        run_do_not_call_detection?: serializers.AgentUpdateParamsRunDoNotCallDetection.Raw | null;
     }
 }

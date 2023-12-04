@@ -43,6 +43,10 @@ export const Agent: core.serialization.ObjectSchema<serializers.Agent.Raw, Vocod
         "openai_account_connection",
         core.serialization.lazyObject(async () => (await import("..")).OpenAiAccountConnection).optional()
     ),
+    runDoNotCallDetection: core.serialization.property(
+        "run_do_not_call_detection",
+        core.serialization.boolean().optional()
+    ),
 });
 
 export declare namespace Agent {
@@ -65,5 +69,6 @@ export declare namespace Agent {
         initial_message_delay?: number | null;
         openai_model_name_override?: string | null;
         openai_account_connection?: serializers.OpenAiAccountConnection.Raw | null;
+        run_do_not_call_detection?: boolean | null;
     }
 }

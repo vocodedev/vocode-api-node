@@ -48,6 +48,10 @@ export const CreateCallAgentParams: core.serialization.ObjectSchema<
             .lazy(async () => (await import("..")).CreateCallAgentParamsOpenaiAccountConnection)
             .optional()
     ),
+    runDoNotCallDetection: core.serialization.property(
+        "run_do_not_call_detection",
+        core.serialization.boolean().optional()
+    ),
 });
 
 export declare namespace CreateCallAgentParams {
@@ -68,5 +72,6 @@ export declare namespace CreateCallAgentParams {
         initial_message_delay?: number | null;
         openai_model_name_override?: string | null;
         openai_account_connection?: serializers.CreateCallAgentParamsOpenaiAccountConnection.Raw | null;
+        run_do_not_call_detection?: boolean | null;
     }
 }

@@ -23,4 +23,5 @@ export interface NormalizedAgent {
     initialMessageDelay?: number;
     openaiModelNameOverride?: string;
     openaiAccountConnection?: Vocode.NormalizedAgentOpenaiAccountConnection;
+    runDoNotCallDetection?: boolean;
 }
