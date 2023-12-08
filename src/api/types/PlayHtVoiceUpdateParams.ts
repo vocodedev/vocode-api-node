@@ -10,4 +10,6 @@ export interface PlayHtVoiceUpdateParams {
     apiKey?: Vocode.PlayHtVoiceUpdateParamsApiKey;
     version?: Vocode.PlayHtVoiceUpdateParamsVersion;
     speed?: Vocode.PlayHtVoiceUpdateParamsSpeed;
+    quality?: Vocode.PlayHtVoiceUpdateParamsQuality;
+    temperature?: Vocode.PlayHtVoiceUpdateParamsTemperature;
 }

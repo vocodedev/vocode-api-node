@@ -12,4 +12,6 @@ export interface PlayHtVoice {
     apiKey?: string;
     version?: Vocode.PlayHtVoiceVersion;
     speed?: number;
+    quality?: Vocode.PlayHtVoiceQuality;
+    temperature?: number;
 }
