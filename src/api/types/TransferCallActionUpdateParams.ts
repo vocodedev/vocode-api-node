@@ -6,4 +6,5 @@ import * as Vocode from "..";
 
 export interface TransferCallActionUpdateParams {
     config?: Vocode.TransferCallActionUpdateParamsConfig;
+    actionTrigger?: Vocode.TransferCallActionUpdateParamsActionTrigger;
 }

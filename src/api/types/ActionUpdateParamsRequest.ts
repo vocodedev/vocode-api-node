@@ -7,7 +7,9 @@ import * as Vocode from "..";
 export type ActionUpdateParamsRequest =
     | Vocode.ActionUpdateParamsRequest.ActionTransferCall
     | Vocode.ActionUpdateParamsRequest.ActionEndConversation
-    | Vocode.ActionUpdateParamsRequest.ActionDtmf;
+    | Vocode.ActionUpdateParamsRequest.ActionDtmf
+    | Vocode.ActionUpdateParamsRequest.ActionAddToConference
+    | Vocode.ActionUpdateParamsRequest.ActionSetHold;
 
 export declare namespace ActionUpdateParamsRequest {
     interface ActionTransferCall extends Vocode.TransferCallActionUpdateParams {
@@ -20,5 +22,13 @@ export declare namespace ActionUpdateParamsRequest {
 
     interface ActionDtmf extends Vocode.DtmfActionUpdateParams {
         type: "action_dtmf";
+    }
+
+    interface ActionAddToConference extends Vocode.AddToConferenceActionUpdateParams {
+        type: "action_add_to_conference";
+    }
+
+    interface ActionSetHold extends Vocode.SetHoldActionUpdateParams {
+        type: "action_set_hold";
     }
 }

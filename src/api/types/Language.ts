@@ -5,10 +5,18 @@
 /**
  * An enumeration.
  */
-export type Language = "en" | "es" | "de";
+export type Language = "en" | "es" | "de" | "hi" | "pt" | "fr" | "nl" | "id" | "it" | "ja" | "ko";
 
 export const Language = {
     En: "en",
     Es: "es",
     De: "de",
+    Hi: "hi",
+    Pt: "pt",
+    Fr: "fr",
+    Nl: "nl",
+    Id: "id",
+    It: "it",
+    Ja: "ja",
+    Ko: "ko",
 } as const;

@@ -55,6 +55,10 @@ export const AgentUpdateParams: core.serialization.ObjectSchema<
         "openai_model_name_override",
         core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsOpenaiModelNameOverride).optional()
     ),
+    askIfHumanPresentOnIdle: core.serialization.property(
+        "ask_if_human_present_on_idle",
+        core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsAskIfHumanPresentOnIdle).optional()
+    ),
     openaiAccountConnection: core.serialization.property(
         "openai_account_connection",
         core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsOpenaiAccountConnection).optional()
@@ -82,6 +86,7 @@ export declare namespace AgentUpdateParams {
         conversation_speed?: serializers.AgentUpdateParamsConversationSpeed.Raw | null;
         initial_message_delay?: serializers.AgentUpdateParamsInitialMessageDelay.Raw | null;
         openai_model_name_override?: serializers.AgentUpdateParamsOpenaiModelNameOverride.Raw | null;
+        ask_if_human_present_on_idle?: serializers.AgentUpdateParamsAskIfHumanPresentOnIdle.Raw | null;
         openai_account_connection?: serializers.AgentUpdateParamsOpenaiAccountConnection.Raw | null;
         run_do_not_call_detection?: serializers.AgentUpdateParamsRunDoNotCallDetection.Raw | null;
     }

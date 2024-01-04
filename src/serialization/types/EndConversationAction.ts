@@ -13,6 +13,10 @@ export const EndConversationAction: core.serialization.ObjectSchema<
     id: core.serialization.string(),
     userId: core.serialization.property("user_id", core.serialization.string()),
     config: core.serialization.lazyObject(async () => (await import("..")).EmptyActionConfig).optional(),
+    actionTrigger: core.serialization.property(
+        "action_trigger",
+        core.serialization.lazy(async () => (await import("..")).EndConversationActionActionTrigger).optional()
+    ),
 });
 
 export declare namespace EndConversationAction {
@@ -20,5 +24,6 @@ export declare namespace EndConversationAction {
         id: string;
         user_id: string;
         config?: serializers.EmptyActionConfig.Raw | null;
+        action_trigger?: serializers.EndConversationActionActionTrigger.Raw | null;
     }
 }

@@ -20,6 +20,7 @@ export interface CreateCallAgentParams {
     conversationSpeed?: number;
     initialMessageDelay?: number;
     openaiModelNameOverride?: string;
+    askIfHumanPresentOnIdle?: boolean;
     openaiAccountConnection?: Vocode.CreateCallAgentParamsOpenaiAccountConnection;
     runDoNotCallDetection?: boolean;
 }

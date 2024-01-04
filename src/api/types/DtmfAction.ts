@@ -8,4 +8,5 @@ export interface DtmfAction {
     id: string;
     userId: string;
     config?: Vocode.EmptyActionConfig;
+    actionTrigger?: Vocode.DtmfActionActionTrigger;
 }

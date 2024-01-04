@@ -14,6 +14,8 @@ export interface NormalizedCall {
     humanDetectionResult?: Vocode.NormalizedCallHumanDetectionResult;
     doNotCallResult?: boolean;
     telephonyId?: string;
+    stage?: Vocode.NormalizedCallStage;
+    stageOutcome?: Vocode.NormalizedCallStageOutcome;
     toNumber: string;
     fromNumber: string;
     agent: string;

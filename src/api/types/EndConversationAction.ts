@@ -8,4 +8,5 @@ export interface EndConversationAction {
     id: string;
     userId: string;
     config?: Vocode.EmptyActionConfig;
+    actionTrigger?: Vocode.EndConversationActionActionTrigger;
 }

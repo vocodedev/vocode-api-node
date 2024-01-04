@@ -7,7 +7,9 @@ import * as Vocode from "..";
 export type ActionPageItemsItem =
     | Vocode.ActionPageItemsItem.ActionTransferCall
     | Vocode.ActionPageItemsItem.ActionEndConversation
-    | Vocode.ActionPageItemsItem.ActionDtmf;
+    | Vocode.ActionPageItemsItem.ActionDtmf
+    | Vocode.ActionPageItemsItem.ActionAddToConference
+    | Vocode.ActionPageItemsItem.ActionSetHold;
 
 export declare namespace ActionPageItemsItem {
     interface ActionTransferCall extends Vocode.TransferCallAction {
@@ -20,5 +22,13 @@ export declare namespace ActionPageItemsItem {
 
     interface ActionDtmf extends Vocode.DtmfAction {
         type: "action_dtmf";
+    }
+
+    interface ActionAddToConference extends Vocode.AddToConferenceAction {
+        type: "action_add_to_conference";
+    }
+
+    interface ActionSetHold extends Vocode.SetHoldAction {
+        type: "action_set_hold";
     }
 }

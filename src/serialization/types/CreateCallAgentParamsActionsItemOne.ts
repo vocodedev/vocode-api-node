@@ -16,6 +16,10 @@ export const CreateCallAgentParamsActionsItemOne: core.serialization.Schema<
             async () => (await import("..")).EndConversationActionParams
         ),
         action_dtmf: core.serialization.lazyObject(async () => (await import("..")).DtmfActionParams),
+        action_add_to_conference: core.serialization.lazyObject(
+            async () => (await import("..")).AddToConferenceActionParams
+        ),
+        action_set_hold: core.serialization.lazyObject(async () => (await import("..")).SetHoldActionParams),
     })
     .transform<Vocode.CreateCallAgentParamsActionsItemOne>({
         transform: (value) => value,
@@ -26,7 +30,9 @@ export declare namespace CreateCallAgentParamsActionsItemOne {
     type Raw =
         | CreateCallAgentParamsActionsItemOne.ActionTransferCall
         | CreateCallAgentParamsActionsItemOne.ActionEndConversation
-        | CreateCallAgentParamsActionsItemOne.ActionDtmf;
+        | CreateCallAgentParamsActionsItemOne.ActionDtmf
+        | CreateCallAgentParamsActionsItemOne.ActionAddToConference
+        | CreateCallAgentParamsActionsItemOne.ActionSetHold;
 
     interface ActionTransferCall extends serializers.TransferCallActionParams.Raw {
         type: "action_transfer_call";
@@ -38,5 +44,13 @@ export declare namespace CreateCallAgentParamsActionsItemOne {
 
     interface ActionDtmf extends serializers.DtmfActionParams.Raw {
         type: "action_dtmf";
+    }
+
+    interface ActionAddToConference extends serializers.AddToConferenceActionParams.Raw {
+        type: "action_add_to_conference";
+    }
+
+    interface ActionSetHold extends serializers.SetHoldActionParams.Raw {
+        type: "action_set_hold";
     }
 }

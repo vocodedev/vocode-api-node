@@ -14,6 +14,8 @@ export const ActionPageItemsItem: core.serialization.Schema<
         action_transfer_call: core.serialization.lazyObject(async () => (await import("..")).TransferCallAction),
         action_end_conversation: core.serialization.lazyObject(async () => (await import("..")).EndConversationAction),
         action_dtmf: core.serialization.lazyObject(async () => (await import("..")).DtmfAction),
+        action_add_to_conference: core.serialization.lazyObject(async () => (await import("..")).AddToConferenceAction),
+        action_set_hold: core.serialization.lazyObject(async () => (await import("..")).SetHoldAction),
     })
     .transform<Vocode.ActionPageItemsItem>({
         transform: (value) => value,
@@ -24,7 +26,9 @@ export declare namespace ActionPageItemsItem {
     type Raw =
         | ActionPageItemsItem.ActionTransferCall
         | ActionPageItemsItem.ActionEndConversation
-        | ActionPageItemsItem.ActionDtmf;
+        | ActionPageItemsItem.ActionDtmf
+        | ActionPageItemsItem.ActionAddToConference
+        | ActionPageItemsItem.ActionSetHold;
 
     interface ActionTransferCall extends serializers.TransferCallAction.Raw {
         type: "action_transfer_call";
@@ -36,5 +40,13 @@ export declare namespace ActionPageItemsItem {
 
     interface ActionDtmf extends serializers.DtmfAction.Raw {
         type: "action_dtmf";
+    }
+
+    interface ActionAddToConference extends serializers.AddToConferenceAction.Raw {
+        type: "action_add_to_conference";
+    }
+
+    interface ActionSetHold extends serializers.SetHoldAction.Raw {
+        type: "action_set_hold";
     }
 }

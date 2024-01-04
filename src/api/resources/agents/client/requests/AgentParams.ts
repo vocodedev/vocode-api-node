@@ -20,6 +20,7 @@ export interface AgentParams {
     conversationSpeed?: number;
     initialMessageDelay?: number;
     openaiModelNameOverride?: string;
+    askIfHumanPresentOnIdle?: boolean;
     openaiAccountConnection?: Vocode.AgentParamsOpenaiAccountConnection;
     runDoNotCallDetection?: boolean;
 }

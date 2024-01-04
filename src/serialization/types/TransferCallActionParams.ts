@@ -11,10 +11,15 @@ export const TransferCallActionParams: core.serialization.ObjectSchema<
     Vocode.TransferCallActionParams
 > = core.serialization.object({
     config: core.serialization.lazyObject(async () => (await import("..")).TransferCallConfig),
+    actionTrigger: core.serialization.property(
+        "action_trigger",
+        core.serialization.lazy(async () => (await import("..")).TransferCallActionParamsActionTrigger).optional()
+    ),
 });
 
 export declare namespace TransferCallActionParams {
     interface Raw {
         config: serializers.TransferCallConfig.Raw;
+        action_trigger?: serializers.TransferCallActionParamsActionTrigger.Raw | null;
     }
 }

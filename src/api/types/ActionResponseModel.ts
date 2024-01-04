@@ -7,7 +7,9 @@ import * as Vocode from "..";
 export type ActionResponseModel =
     | Vocode.ActionResponseModel.ActionTransferCall
     | Vocode.ActionResponseModel.ActionEndConversation
-    | Vocode.ActionResponseModel.ActionDtmf;
+    | Vocode.ActionResponseModel.ActionDtmf
+    | Vocode.ActionResponseModel.ActionAddToConference
+    | Vocode.ActionResponseModel.ActionSetHold;
 
 export declare namespace ActionResponseModel {
     interface ActionTransferCall extends Vocode.TransferCallAction {
@@ -20,5 +22,13 @@ export declare namespace ActionResponseModel {
 
     interface ActionDtmf extends Vocode.DtmfAction {
         type: "action_dtmf";
+    }
+
+    interface ActionAddToConference extends Vocode.AddToConferenceAction {
+        type: "action_add_to_conference";
+    }
+
+    interface ActionSetHold extends Vocode.SetHoldAction {
+        type: "action_set_hold";
     }
 }

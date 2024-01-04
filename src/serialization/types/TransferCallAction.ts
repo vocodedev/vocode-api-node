@@ -13,6 +13,10 @@ export const TransferCallAction: core.serialization.ObjectSchema<
     id: core.serialization.string(),
     userId: core.serialization.property("user_id", core.serialization.string()),
     config: core.serialization.lazyObject(async () => (await import("..")).TransferCallConfig),
+    actionTrigger: core.serialization.property(
+        "action_trigger",
+        core.serialization.lazy(async () => (await import("..")).TransferCallActionActionTrigger).optional()
+    ),
 });
 
 export declare namespace TransferCallAction {
@@ -20,5 +24,6 @@ export declare namespace TransferCallAction {
         id: string;
         user_id: string;
         config: serializers.TransferCallConfig.Raw;
+        action_trigger?: serializers.TransferCallActionActionTrigger.Raw | null;
     }
 }

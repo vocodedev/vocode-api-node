@@ -19,6 +19,11 @@ export const Call: core.serialization.ObjectSchema<serializers.Call.Raw, Vocode.
     ),
     doNotCallResult: core.serialization.property("do_not_call_result", core.serialization.boolean().optional()),
     telephonyId: core.serialization.property("telephony_id", core.serialization.string().optional()),
+    stage: core.serialization.lazy(async () => (await import("..")).CallStage).optional(),
+    stageOutcome: core.serialization.property(
+        "stage_outcome",
+        core.serialization.lazy(async () => (await import("..")).CallStageOutcome).optional()
+    ),
     toNumber: core.serialization.property("to_number", core.serialization.string()),
     fromNumber: core.serialization.property("from_number", core.serialization.string()),
     agent: core.serialization.lazyObject(async () => (await import("..")).Agent),
@@ -56,6 +61,8 @@ export declare namespace Call {
         human_detection_result?: serializers.CallHumanDetectionResult.Raw | null;
         do_not_call_result?: boolean | null;
         telephony_id?: string | null;
+        stage?: serializers.CallStage.Raw | null;
+        stage_outcome?: serializers.CallStageOutcome.Raw | null;
         to_number: string;
         from_number: string;
         agent: serializers.Agent.Raw;

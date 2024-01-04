@@ -6,4 +6,5 @@ import * as Vocode from "..";
 
 export interface DtmfActionUpdateParams {
     config?: Vocode.DtmfActionUpdateParamsConfig;
+    actionTrigger?: Vocode.DtmfActionUpdateParamsActionTrigger;
 }

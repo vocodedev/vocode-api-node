@@ -14,6 +14,8 @@ export interface Call {
     humanDetectionResult?: Vocode.CallHumanDetectionResult;
     doNotCallResult?: boolean;
     telephonyId?: string;
+    stage?: Vocode.CallStage;
+    stageOutcome?: Vocode.CallStageOutcome;
     toNumber: string;
     fromNumber: string;
     agent: Vocode.Agent;

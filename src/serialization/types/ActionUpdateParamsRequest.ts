@@ -18,6 +18,10 @@ export const ActionUpdateParamsRequest: core.serialization.Schema<
             async () => (await import("..")).EndConversationActionUpdateParams
         ),
         action_dtmf: core.serialization.lazyObject(async () => (await import("..")).DtmfActionUpdateParams),
+        action_add_to_conference: core.serialization.lazyObject(
+            async () => (await import("..")).AddToConferenceActionUpdateParams
+        ),
+        action_set_hold: core.serialization.lazyObject(async () => (await import("..")).SetHoldActionUpdateParams),
     })
     .transform<Vocode.ActionUpdateParamsRequest>({
         transform: (value) => value,
@@ -28,7 +32,9 @@ export declare namespace ActionUpdateParamsRequest {
     type Raw =
         | ActionUpdateParamsRequest.ActionTransferCall
         | ActionUpdateParamsRequest.ActionEndConversation
-        | ActionUpdateParamsRequest.ActionDtmf;
+        | ActionUpdateParamsRequest.ActionDtmf
+        | ActionUpdateParamsRequest.ActionAddToConference
+        | ActionUpdateParamsRequest.ActionSetHold;
 
     interface ActionTransferCall extends serializers.TransferCallActionUpdateParams.Raw {
         type: "action_transfer_call";
@@ -40,5 +46,13 @@ export declare namespace ActionUpdateParamsRequest {
 
     interface ActionDtmf extends serializers.DtmfActionUpdateParams.Raw {
         type: "action_dtmf";
+    }
+
+    interface ActionAddToConference extends serializers.AddToConferenceActionUpdateParams.Raw {
+        type: "action_add_to_conference";
+    }
+
+    interface ActionSetHold extends serializers.SetHoldActionUpdateParams.Raw {
+        type: "action_set_hold";
     }
 }

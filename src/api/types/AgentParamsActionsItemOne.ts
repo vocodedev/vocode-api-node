@@ -7,7 +7,9 @@ import * as Vocode from "..";
 export type AgentParamsActionsItemOne =
     | Vocode.AgentParamsActionsItemOne.ActionTransferCall
     | Vocode.AgentParamsActionsItemOne.ActionEndConversation
-    | Vocode.AgentParamsActionsItemOne.ActionDtmf;
+    | Vocode.AgentParamsActionsItemOne.ActionDtmf
+    | Vocode.AgentParamsActionsItemOne.ActionAddToConference
+    | Vocode.AgentParamsActionsItemOne.ActionSetHold;
 
 export declare namespace AgentParamsActionsItemOne {
     interface ActionTransferCall extends Vocode.TransferCallActionParams {
@@ -20,5 +22,13 @@ export declare namespace AgentParamsActionsItemOne {
 
     interface ActionDtmf extends Vocode.DtmfActionParams {
         type: "action_dtmf";
+    }
+
+    interface ActionAddToConference extends Vocode.AddToConferenceActionParams {
+        type: "action_add_to_conference";
+    }
+
+    interface ActionSetHold extends Vocode.SetHoldActionParams {
+        type: "action_set_hold";
     }
 }

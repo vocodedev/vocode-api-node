@@ -8,4 +8,5 @@ export interface TransferCallAction {
     id: string;
     userId: string;
     config: Vocode.TransferCallConfig;
+    actionTrigger?: Vocode.TransferCallActionActionTrigger;
 }

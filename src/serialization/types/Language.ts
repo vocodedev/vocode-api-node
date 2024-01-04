@@ -10,8 +10,16 @@ export const Language: core.serialization.Schema<serializers.Language.Raw, Vocod
     "en",
     "es",
     "de",
+    "hi",
+    "pt",
+    "fr",
+    "nl",
+    "id",
+    "it",
+    "ja",
+    "ko",
 ]);
 
 export declare namespace Language {
-    type Raw = "en" | "es" | "de";
+    type Raw = "en" | "es" | "de" | "hi" | "pt" | "fr" | "nl" | "id" | "it" | "ja" | "ko";
 }

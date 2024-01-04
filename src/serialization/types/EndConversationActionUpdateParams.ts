@@ -13,10 +13,17 @@ export const EndConversationActionUpdateParams: core.serialization.ObjectSchema<
     config: core.serialization
         .lazy(async () => (await import("..")).EndConversationActionUpdateParamsConfig)
         .optional(),
+    actionTrigger: core.serialization.property(
+        "action_trigger",
+        core.serialization
+            .lazy(async () => (await import("..")).EndConversationActionUpdateParamsActionTrigger)
+            .optional()
+    ),
 });
 
 export declare namespace EndConversationActionUpdateParams {
     interface Raw {
         config?: serializers.EndConversationActionUpdateParamsConfig.Raw | null;
+        action_trigger?: serializers.EndConversationActionUpdateParamsActionTrigger.Raw | null;
     }
 }

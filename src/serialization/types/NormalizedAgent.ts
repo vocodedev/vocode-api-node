@@ -43,6 +43,10 @@ export const NormalizedAgent: core.serialization.ObjectSchema<serializers.Normal
             "openai_model_name_override",
             core.serialization.string().optional()
         ),
+        askIfHumanPresentOnIdle: core.serialization.property(
+            "ask_if_human_present_on_idle",
+            core.serialization.boolean().optional()
+        ),
         openaiAccountConnection: core.serialization.property(
             "openai_account_connection",
             core.serialization.lazy(async () => (await import("..")).NormalizedAgentOpenaiAccountConnection).optional()
@@ -72,6 +76,7 @@ export declare namespace NormalizedAgent {
         conversation_speed?: number | null;
         initial_message_delay?: number | null;
         openai_model_name_override?: string | null;
+        ask_if_human_present_on_idle?: boolean | null;
         openai_account_connection?: serializers.NormalizedAgentOpenaiAccountConnection.Raw | null;
         run_do_not_call_detection?: boolean | null;
     }
