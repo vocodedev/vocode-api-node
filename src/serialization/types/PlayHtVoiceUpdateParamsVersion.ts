@@ -9,8 +9,11 @@ import * as core from "../../core";
 export const PlayHtVoiceUpdateParamsVersion: core.serialization.Schema<
     serializers.PlayHtVoiceUpdateParamsVersion.Raw,
     Vocode.PlayHtVoiceUpdateParamsVersion
-> = core.serialization.enum_(["1", "2"]);
+> = core.serialization.undiscriminatedUnion([
+    core.serialization.lazy(async () => (await import("..")).PlayHtVoiceUpdateParamsVersion),
+    core.serialization.lazyObject(async () => (await import("..")).Undefined),
+]);
 
 export declare namespace PlayHtVoiceUpdateParamsVersion {
-    type Raw = "1" | "2";
+    type Raw = serializers.PlayHtVoiceUpdateParamsVersion.Raw | serializers.Undefined.Raw;
 }

@@ -9,8 +9,11 @@ import * as core from "../../core";
 export const AgentUpdateParamsEndpointingSensitivity: core.serialization.Schema<
     serializers.AgentUpdateParamsEndpointingSensitivity.Raw,
     Vocode.AgentUpdateParamsEndpointingSensitivity
-> = core.serialization.enum_(["auto", "relaxed", "sensitive"]);
+> = core.serialization.undiscriminatedUnion([
+    core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsEndpointingSensitivity),
+    core.serialization.lazyObject(async () => (await import("..")).Undefined),
+]);
 
 export declare namespace AgentUpdateParamsEndpointingSensitivity {
-    type Raw = "auto" | "relaxed" | "sensitive";
+    type Raw = serializers.AgentUpdateParamsEndpointingSensitivity.Raw | serializers.Undefined.Raw;
 }

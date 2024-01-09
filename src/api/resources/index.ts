@@ -1,8 +1,11 @@
 export * as numbers from "./numbers";
+export * from "./numbers/types";
 export * as calls from "./calls";
+export * from "./calls/types";
+export * as agents from "./agents";
+export * from "./agents/types";
 export * as usage from "./usage";
 export * as actions from "./actions";
-export * as agents from "./agents";
 export * as voices from "./voices";
 export * as webhooks from "./webhooks";
 export * as prompts from "./prompts";

@@ -9,8 +9,11 @@ import * as core from "../../core";
 export const AgentUpdateParamsIvrNavigationMode: core.serialization.Schema<
     serializers.AgentUpdateParamsIvrNavigationMode.Raw,
     Vocode.AgentUpdateParamsIvrNavigationMode
-> = core.serialization.enum_(["default", "off"]);
+> = core.serialization.undiscriminatedUnion([
+    core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsIvrNavigationMode),
+    core.serialization.lazyObject(async () => (await import("..")).Undefined),
+]);
 
 export declare namespace AgentUpdateParamsIvrNavigationMode {
-    type Raw = "default" | "off";
+    type Raw = serializers.AgentUpdateParamsIvrNavigationMode.Raw | serializers.Undefined.Raw;
 }
