@@ -4,4 +4,4 @@
 
 import * as Vocode from "..";
 
-export type AgentUpdateParamsEndpointingSensitivity = Vocode.AgentUpdateParamsEndpointingSensitivity | Vocode.Undefined;
+export type AgentUpdateParamsEndpointingSensitivity = "auto" | "relaxed" | "sensitive" | Vocode.Undefined;

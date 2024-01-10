@@ -4,4 +4,11 @@
 
 import * as Vocode from "..";
 
-export type PlayHtVoiceUpdateParamsQuality = Vocode.PlayHtVoiceUpdateParamsQuality | Vocode.Undefined;
+export type PlayHtVoiceUpdateParamsQuality =
+    | "faster"
+    | "draft"
+    | "low"
+    | "medium"
+    | "high"
+    | "premium"
+    | Vocode.Undefined;

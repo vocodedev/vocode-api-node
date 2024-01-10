@@ -4,4 +4,4 @@
 
 import * as Vocode from "..";
 
-export type AgentUpdateParamsIvrNavigationMode = Vocode.AgentUpdateParamsIvrNavigationMode | Vocode.Undefined;
+export type AgentUpdateParamsIvrNavigationMode = "default" | "off" | Vocode.Undefined;

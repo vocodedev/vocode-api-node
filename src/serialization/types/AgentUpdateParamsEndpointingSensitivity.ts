@@ -10,10 +10,12 @@ export const AgentUpdateParamsEndpointingSensitivity: core.serialization.Schema<
     serializers.AgentUpdateParamsEndpointingSensitivity.Raw,
     Vocode.AgentUpdateParamsEndpointingSensitivity
 > = core.serialization.undiscriminatedUnion([
-    core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsEndpointingSensitivity),
+    core.serialization.stringLiteral("auto"),
+    core.serialization.stringLiteral("relaxed"),
+    core.serialization.stringLiteral("sensitive"),
     core.serialization.lazyObject(async () => (await import("..")).Undefined),
 ]);
 
 export declare namespace AgentUpdateParamsEndpointingSensitivity {
-    type Raw = serializers.AgentUpdateParamsEndpointingSensitivity.Raw | serializers.Undefined.Raw;
+    type Raw = "auto" | "relaxed" | "sensitive" | serializers.Undefined.Raw;
 }

@@ -10,10 +10,11 @@ export const PlayHtVoiceUpdateParamsVersion: core.serialization.Schema<
     serializers.PlayHtVoiceUpdateParamsVersion.Raw,
     Vocode.PlayHtVoiceUpdateParamsVersion
 > = core.serialization.undiscriminatedUnion([
-    core.serialization.lazy(async () => (await import("..")).PlayHtVoiceUpdateParamsVersion),
+    core.serialization.stringLiteral("1"),
+    core.serialization.stringLiteral("2"),
     core.serialization.lazyObject(async () => (await import("..")).Undefined),
 ]);
 
 export declare namespace PlayHtVoiceUpdateParamsVersion {
-    type Raw = serializers.PlayHtVoiceUpdateParamsVersion.Raw | serializers.Undefined.Raw;
+    type Raw = "1" | "2" | serializers.Undefined.Raw;
 }

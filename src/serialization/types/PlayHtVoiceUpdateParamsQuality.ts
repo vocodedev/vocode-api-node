@@ -10,10 +10,15 @@ export const PlayHtVoiceUpdateParamsQuality: core.serialization.Schema<
     serializers.PlayHtVoiceUpdateParamsQuality.Raw,
     Vocode.PlayHtVoiceUpdateParamsQuality
 > = core.serialization.undiscriminatedUnion([
-    core.serialization.lazy(async () => (await import("..")).PlayHtVoiceUpdateParamsQuality),
+    core.serialization.stringLiteral("faster"),
+    core.serialization.stringLiteral("draft"),
+    core.serialization.stringLiteral("low"),
+    core.serialization.stringLiteral("medium"),
+    core.serialization.stringLiteral("high"),
+    core.serialization.stringLiteral("premium"),
     core.serialization.lazyObject(async () => (await import("..")).Undefined),
 ]);
 
 export declare namespace PlayHtVoiceUpdateParamsQuality {
-    type Raw = serializers.PlayHtVoiceUpdateParamsQuality.Raw | serializers.Undefined.Raw;
+    type Raw = "faster" | "draft" | "low" | "medium" | "high" | "premium" | serializers.Undefined.Raw;
 }

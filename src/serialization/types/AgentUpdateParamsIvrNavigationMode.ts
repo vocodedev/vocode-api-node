@@ -10,10 +10,11 @@ export const AgentUpdateParamsIvrNavigationMode: core.serialization.Schema<
     serializers.AgentUpdateParamsIvrNavigationMode.Raw,
     Vocode.AgentUpdateParamsIvrNavigationMode
 > = core.serialization.undiscriminatedUnion([
-    core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsIvrNavigationMode),
+    core.serialization.stringLiteral("default"),
+    core.serialization.stringLiteral("off"),
     core.serialization.lazyObject(async () => (await import("..")).Undefined),
 ]);
 
 export declare namespace AgentUpdateParamsIvrNavigationMode {
-    type Raw = serializers.AgentUpdateParamsIvrNavigationMode.Raw | serializers.Undefined.Raw;
+    type Raw = "default" | "off" | serializers.Undefined.Raw;
 }

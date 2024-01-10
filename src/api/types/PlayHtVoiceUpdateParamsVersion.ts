@@ -4,4 +4,4 @@
 
 import * as Vocode from "..";
 
-export type PlayHtVoiceUpdateParamsVersion = Vocode.PlayHtVoiceUpdateParamsVersion | Vocode.Undefined;
+export type PlayHtVoiceUpdateParamsVersion = "1" | "2" | Vocode.Undefined;
