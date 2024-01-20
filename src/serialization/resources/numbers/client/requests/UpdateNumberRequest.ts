@@ -14,6 +14,10 @@ export const UpdateNumberRequest: core.serialization.Schema<
         "outbound_only",
         core.serialization.lazy(async () => (await import("../../../..")).UpdateNumberRequestOutboundOnly).optional()
     ),
+    exampleContext: core.serialization.property(
+        "example_context",
+        core.serialization.lazy(async () => (await import("../../../..")).UpdateNumberRequestExampleContext).optional()
+    ),
     label: core.serialization.lazy(async () => (await import("../../../..")).UpdateNumberRequestLabel).optional(),
     inboundAgent: core.serialization.property(
         "inbound_agent",
@@ -24,6 +28,7 @@ export const UpdateNumberRequest: core.serialization.Schema<
 export declare namespace UpdateNumberRequest {
     interface Raw {
         outbound_only?: serializers.UpdateNumberRequestOutboundOnly.Raw | null;
+        example_context?: serializers.UpdateNumberRequestExampleContext.Raw | null;
         label?: serializers.UpdateNumberRequestLabel.Raw | null;
         inbound_agent?: serializers.UpdateNumberRequestInboundAgent.Raw | null;
     }

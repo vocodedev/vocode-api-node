@@ -1,6 +1,6 @@
 {
     "name": "@vocode/vocode-api",
-    "version": "0.0.38",
+    "version": "0.0.39",
     "private": false,
     "repository": "https://github.com/vocodedev/vocode-api-node",
     "main": "./index.js",
