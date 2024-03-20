@@ -28,4 +28,5 @@ export interface NormalizedCall {
     context?: Record<string, string>;
     runDoNotCallDetection?: boolean;
     telephonyAccountConnection?: Vocode.NormalizedCallTelephonyAccountConnection;
+    telephonyParams?: Record<string, string>;
 }

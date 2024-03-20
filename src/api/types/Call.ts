@@ -28,4 +28,5 @@ export interface Call {
     context?: Record<string, string>;
     runDoNotCallDetection?: boolean;
     telephonyAccountConnection?: Vocode.TwilioAccountConnection;
+    telephonyParams?: Record<string, string>;
 }

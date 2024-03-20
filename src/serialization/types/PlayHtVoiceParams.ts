@@ -17,6 +17,13 @@ export const PlayHtVoiceParams: core.serialization.ObjectSchema<
     speed: core.serialization.number().optional(),
     quality: core.serialization.lazy(async () => (await import("..")).PlayHtVoiceParamsQuality).optional(),
     temperature: core.serialization.number().optional(),
+    topP: core.serialization.property("top_p", core.serialization.number().optional()),
+    textGuidance: core.serialization.property("text_guidance", core.serialization.number().optional()),
+    voiceGuidance: core.serialization.property("voice_guidance", core.serialization.number().optional()),
+    experimentalRemoveSilence: core.serialization.property(
+        "experimental_remove_silence",
+        core.serialization.boolean().optional()
+    ),
 });
 
 export declare namespace PlayHtVoiceParams {
@@ -28,5 +35,9 @@ export declare namespace PlayHtVoiceParams {
         speed?: number | null;
         quality?: serializers.PlayHtVoiceParamsQuality.Raw | null;
         temperature?: number | null;
+        top_p?: number | null;
+        text_guidance?: number | null;
+        voice_guidance?: number | null;
+        experimental_remove_silence?: boolean | null;
     }
 }

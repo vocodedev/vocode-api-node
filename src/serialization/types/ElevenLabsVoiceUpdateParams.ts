@@ -35,6 +35,12 @@ export const ElevenLabsVoiceUpdateParams: core.serialization.ObjectSchema<
         "model_id",
         core.serialization.lazy(async () => (await import("..")).ElevenLabsVoiceUpdateParamsModelId).optional()
     ),
+    experimentalInputStreaming: core.serialization.property(
+        "experimental_input_streaming",
+        core.serialization
+            .lazy(async () => (await import("..")).ElevenLabsVoiceUpdateParamsExperimentalInputStreaming)
+            .optional()
+    ),
 });
 
 export declare namespace ElevenLabsVoiceUpdateParams {
@@ -45,5 +51,6 @@ export declare namespace ElevenLabsVoiceUpdateParams {
         api_key?: serializers.ElevenLabsVoiceUpdateParamsApiKey.Raw | null;
         optimize_streaming_latency?: serializers.ElevenLabsVoiceUpdateParamsOptimizeStreamingLatency.Raw | null;
         model_id?: serializers.ElevenLabsVoiceUpdateParamsModelId.Raw | null;
+        experimental_input_streaming?: serializers.ElevenLabsVoiceUpdateParamsExperimentalInputStreaming.Raw | null;
     }
 }

@@ -37,7 +37,7 @@ export class Voices {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.40",
+                "X-Fern-SDK-Version": "0.0.41",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -90,7 +90,7 @@ export class Voices {
      * @throws {@link Vocode.UnprocessableEntityError}
      */
     public async listVoices(request: Vocode.ListVoicesRequest = {}): Promise<Vocode.VoicePage> {
-        const { page, size } = request;
+        const { page, size, sortColumn, sortDesc } = request;
         const _queryParams = new URLSearchParams();
         if (page != null) {
             _queryParams.append("page", page.toString());
@@ -98,6 +98,14 @@ export class Voices {
 
         if (size != null) {
             _queryParams.append("size", size.toString());
+        }
+
+        if (sortColumn != null) {
+            _queryParams.append("sort_column", sortColumn);
+        }
+
+        if (sortDesc != null) {
+            _queryParams.append("sort_desc", sortDesc.toString());
         }
 
         const _response = await core.fetcher({
@@ -110,7 +118,7 @@ export class Voices {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.40",
+                "X-Fern-SDK-Version": "0.0.41",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -173,7 +181,7 @@ export class Voices {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.40",
+                "X-Fern-SDK-Version": "0.0.41",
             },
             contentType: "application/json",
             body: await serializers.VoiceParamsRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
@@ -239,7 +247,7 @@ export class Voices {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.40",
+                "X-Fern-SDK-Version": "0.0.41",
             },
             contentType: "application/json",
             queryParameters: _queryParams,

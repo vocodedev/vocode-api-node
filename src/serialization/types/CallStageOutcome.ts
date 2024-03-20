@@ -9,6 +9,7 @@ import * as core from "../../core";
 export const CallStageOutcome: core.serialization.Schema<serializers.CallStageOutcome.Raw, Vocode.CallStageOutcome> =
     core.serialization.enum_([
         "human_unanswered",
+        "call_did_not_connect",
         "human_disconnected",
         "bot_disconnected",
         "transfer_unanswered",
@@ -18,6 +19,7 @@ export const CallStageOutcome: core.serialization.Schema<serializers.CallStageOu
 export declare namespace CallStageOutcome {
     type Raw =
         | "human_unanswered"
+        | "call_did_not_connect"
         | "human_disconnected"
         | "bot_disconnected"
         | "transfer_unanswered"

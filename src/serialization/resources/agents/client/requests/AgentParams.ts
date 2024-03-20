@@ -59,6 +59,7 @@ export const AgentParams: core.serialization.Schema<serializers.AgentParams.Raw,
             "run_do_not_call_detection",
             core.serialization.boolean().optional()
         ),
+        llmTemperature: core.serialization.property("llm_temperature", core.serialization.number().optional()),
     });
 
 export declare namespace AgentParams {
@@ -81,5 +82,6 @@ export declare namespace AgentParams {
         ask_if_human_present_on_idle?: boolean | null;
         openai_account_connection?: serializers.AgentParamsOpenaiAccountConnection.Raw | null;
         run_do_not_call_detection?: boolean | null;
+        llm_temperature?: number | null;
     }
 }

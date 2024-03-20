@@ -5,4 +5,6 @@
 export interface ListNumbersRequest {
     page?: number;
     size?: number;
+    sortColumn?: string;
+    sortDesc?: boolean;
 }

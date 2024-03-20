@@ -55,6 +55,7 @@ export const NormalizedAgent: core.serialization.ObjectSchema<serializers.Normal
             "run_do_not_call_detection",
             core.serialization.boolean().optional()
         ),
+        llmTemperature: core.serialization.property("llm_temperature", core.serialization.number().optional()),
     });
 
 export declare namespace NormalizedAgent {
@@ -79,5 +80,6 @@ export declare namespace NormalizedAgent {
         ask_if_human_present_on_idle?: boolean | null;
         openai_account_connection?: serializers.NormalizedAgentOpenaiAccountConnection.Raw | null;
         run_do_not_call_detection?: boolean | null;
+        llm_temperature?: number | null;
     }
 }

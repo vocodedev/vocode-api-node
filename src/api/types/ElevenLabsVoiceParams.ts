@@ -9,4 +9,5 @@ export interface ElevenLabsVoiceParams {
     apiKey?: string;
     optimizeStreamingLatency?: number;
     modelId?: string;
+    experimentalInputStreaming?: boolean;
 }

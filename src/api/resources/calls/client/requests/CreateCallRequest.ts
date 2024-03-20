@@ -12,4 +12,5 @@ export interface CreateCallRequest {
     runDoNotCallDetection?: boolean;
     hipaaCompliant?: boolean;
     context?: Record<string, string>;
+    telephonyParams?: Record<string, string>;
 }

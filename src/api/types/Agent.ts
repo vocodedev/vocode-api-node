@@ -25,4 +25,5 @@ export interface Agent {
     askIfHumanPresentOnIdle?: boolean;
     openaiAccountConnection?: Vocode.OpenAiAccountConnection;
     runDoNotCallDetection?: boolean;
+    llmTemperature?: number;
 }

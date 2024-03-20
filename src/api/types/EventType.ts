@@ -10,6 +10,7 @@ export type EventType =
     | "event_action"
     | "event_phone_call_connected"
     | "event_phone_call_ended"
+    | "event_phone_call_did_not_connect"
     | "event_transcript"
     | "event_recording"
     | "event_human_detection";
@@ -19,6 +20,7 @@ export const EventType = {
     EventAction: "event_action",
     EventPhoneCallConnected: "event_phone_call_connected",
     EventPhoneCallEnded: "event_phone_call_ended",
+    EventPhoneCallDidNotConnect: "event_phone_call_did_not_connect",
     EventTranscript: "event_transcript",
     EventRecording: "event_recording",
     EventHumanDetection: "event_human_detection",

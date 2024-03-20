@@ -23,6 +23,10 @@ export const CreateCallRequest: core.serialization.Schema<serializers.CreateCall
         ),
         hipaaCompliant: core.serialization.property("hipaa_compliant", core.serialization.boolean().optional()),
         context: core.serialization.record(core.serialization.string(), core.serialization.string()).optional(),
+        telephonyParams: core.serialization.property(
+            "telephony_params",
+            core.serialization.record(core.serialization.string(), core.serialization.string()).optional()
+        ),
     });
 
 export declare namespace CreateCallRequest {
@@ -34,5 +38,6 @@ export declare namespace CreateCallRequest {
         run_do_not_call_detection?: boolean | null;
         hipaa_compliant?: boolean | null;
         context?: Record<string, string> | null;
+        telephony_params?: Record<string, string> | null;
     }
 }

@@ -25,4 +25,5 @@ export interface NormalizedAgent {
     askIfHumanPresentOnIdle?: boolean;
     openaiAccountConnection?: Vocode.NormalizedAgentOpenaiAccountConnection;
     runDoNotCallDetection?: boolean;
+    llmTemperature?: number;
 }

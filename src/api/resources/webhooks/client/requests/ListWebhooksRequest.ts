@@ -5,4 +5,6 @@
 export interface ListWebhooksRequest {
     page?: number;
     size?: number;
+    sortColumn?: string;
+    sortDesc?: boolean;
 }

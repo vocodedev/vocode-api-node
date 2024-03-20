@@ -5,4 +5,6 @@
 export interface ListCallsRequest {
     page?: number;
     size?: number;
+    sortColumn?: string;
+    sortDesc?: boolean;
 }

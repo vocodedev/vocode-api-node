@@ -5,4 +5,6 @@
 export interface ListVectorDatabasesRequest {
     page?: number;
     size?: number;
+    sortColumn?: string;
+    sortDesc?: boolean;
 }

@@ -11,6 +11,7 @@ export const NormalizedCallStageOutcome: core.serialization.Schema<
     Vocode.NormalizedCallStageOutcome
 > = core.serialization.enum_([
     "human_unanswered",
+    "call_did_not_connect",
     "human_disconnected",
     "bot_disconnected",
     "transfer_unanswered",
@@ -20,6 +21,7 @@ export const NormalizedCallStageOutcome: core.serialization.Schema<
 export declare namespace NormalizedCallStageOutcome {
     type Raw =
         | "human_unanswered"
+        | "call_did_not_connect"
         | "human_disconnected"
         | "bot_disconnected"
         | "transfer_unanswered"

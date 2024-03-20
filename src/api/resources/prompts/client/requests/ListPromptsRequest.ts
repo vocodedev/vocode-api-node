@@ -5,4 +5,6 @@
 export interface ListPromptsRequest {
     page?: number;
     size?: number;
+    sortColumn?: string;
+    sortDesc?: boolean;
 }

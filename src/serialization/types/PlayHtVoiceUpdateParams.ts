@@ -28,6 +28,24 @@ export const PlayHtVoiceUpdateParams: core.serialization.ObjectSchema<
     temperature: core.serialization
         .lazy(async () => (await import("..")).PlayHtVoiceUpdateParamsTemperature)
         .optional(),
+    topP: core.serialization.property(
+        "top_p",
+        core.serialization.lazy(async () => (await import("..")).PlayHtVoiceUpdateParamsTopP).optional()
+    ),
+    textGuidance: core.serialization.property(
+        "text_guidance",
+        core.serialization.lazy(async () => (await import("..")).PlayHtVoiceUpdateParamsTextGuidance).optional()
+    ),
+    voiceGuidance: core.serialization.property(
+        "voice_guidance",
+        core.serialization.lazy(async () => (await import("..")).PlayHtVoiceUpdateParamsVoiceGuidance).optional()
+    ),
+    experimentalRemoveSilence: core.serialization.property(
+        "experimental_remove_silence",
+        core.serialization
+            .lazy(async () => (await import("..")).PlayHtVoiceUpdateParamsExperimentalRemoveSilence)
+            .optional()
+    ),
 });
 
 export declare namespace PlayHtVoiceUpdateParams {
@@ -39,5 +57,9 @@ export declare namespace PlayHtVoiceUpdateParams {
         speed?: serializers.PlayHtVoiceUpdateParamsSpeed.Raw | null;
         quality?: serializers.PlayHtVoiceUpdateParamsQuality.Raw | null;
         temperature?: serializers.PlayHtVoiceUpdateParamsTemperature.Raw | null;
+        top_p?: serializers.PlayHtVoiceUpdateParamsTopP.Raw | null;
+        text_guidance?: serializers.PlayHtVoiceUpdateParamsTextGuidance.Raw | null;
+        voice_guidance?: serializers.PlayHtVoiceUpdateParamsVoiceGuidance.Raw | null;
+        experimental_remove_silence?: serializers.PlayHtVoiceUpdateParamsExperimentalRemoveSilence.Raw | null;
     }
 }

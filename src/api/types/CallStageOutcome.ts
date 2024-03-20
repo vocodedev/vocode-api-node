@@ -4,6 +4,7 @@
 
 export type CallStageOutcome =
     | "human_unanswered"
+    | "call_did_not_connect"
     | "human_disconnected"
     | "bot_disconnected"
     | "transfer_unanswered"
@@ -11,6 +12,7 @@ export type CallStageOutcome =
 
 export const CallStageOutcome = {
     HumanUnanswered: "human_unanswered",
+    CallDidNotConnect: "call_did_not_connect",
     HumanDisconnected: "human_disconnected",
     BotDisconnected: "bot_disconnected",
     TransferUnanswered: "transfer_unanswered",

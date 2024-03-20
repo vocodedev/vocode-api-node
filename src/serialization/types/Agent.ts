@@ -51,6 +51,7 @@ export const Agent: core.serialization.ObjectSchema<serializers.Agent.Raw, Vocod
         "run_do_not_call_detection",
         core.serialization.boolean().optional()
     ),
+    llmTemperature: core.serialization.property("llm_temperature", core.serialization.number().optional()),
 });
 
 export declare namespace Agent {
@@ -75,5 +76,6 @@ export declare namespace Agent {
         ask_if_human_present_on_idle?: boolean | null;
         openai_account_connection?: serializers.OpenAiAccountConnection.Raw | null;
         run_do_not_call_detection?: boolean | null;
+        llm_temperature?: number | null;
     }
 }

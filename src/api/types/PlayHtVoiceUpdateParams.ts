@@ -12,4 +12,8 @@ export interface PlayHtVoiceUpdateParams {
     speed?: Vocode.PlayHtVoiceUpdateParamsSpeed;
     quality?: Vocode.PlayHtVoiceUpdateParamsQuality;
     temperature?: Vocode.PlayHtVoiceUpdateParamsTemperature;
+    topP?: Vocode.PlayHtVoiceUpdateParamsTopP;
+    textGuidance?: Vocode.PlayHtVoiceUpdateParamsTextGuidance;
+    voiceGuidance?: Vocode.PlayHtVoiceUpdateParamsVoiceGuidance;
+    experimentalRemoveSilence?: Vocode.PlayHtVoiceUpdateParamsExperimentalRemoveSilence;
 }

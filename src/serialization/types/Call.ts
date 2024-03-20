@@ -48,6 +48,10 @@ export const Call: core.serialization.ObjectSchema<serializers.Call.Raw, Vocode.
         "telephony_account_connection",
         core.serialization.lazyObject(async () => (await import("..")).TwilioAccountConnection).optional()
     ),
+    telephonyParams: core.serialization.property(
+        "telephony_params",
+        core.serialization.record(core.serialization.string(), core.serialization.string()).optional()
+    ),
 });
 
 export declare namespace Call {
@@ -75,5 +79,6 @@ export declare namespace Call {
         context?: Record<string, string> | null;
         run_do_not_call_detection?: boolean | null;
         telephony_account_connection?: serializers.TwilioAccountConnection.Raw | null;
+        telephony_params?: Record<string, string> | null;
     }
 }

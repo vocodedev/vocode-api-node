@@ -5,4 +5,6 @@
 export interface ListAgentsRequest {
     page?: number;
     size?: number;
+    sortColumn?: string;
+    sortDesc?: boolean;
 }

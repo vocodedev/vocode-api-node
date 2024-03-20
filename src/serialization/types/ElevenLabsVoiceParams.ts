@@ -19,6 +19,10 @@ export const ElevenLabsVoiceParams: core.serialization.ObjectSchema<
         core.serialization.number().optional()
     ),
     modelId: core.serialization.property("model_id", core.serialization.string().optional()),
+    experimentalInputStreaming: core.serialization.property(
+        "experimental_input_streaming",
+        core.serialization.boolean().optional()
+    ),
 });
 
 export declare namespace ElevenLabsVoiceParams {
@@ -29,5 +33,6 @@ export declare namespace ElevenLabsVoiceParams {
         api_key?: string | null;
         optimize_streaming_latency?: number | null;
         model_id?: string | null;
+        experimental_input_streaming?: boolean | null;
     }
 }

@@ -11,4 +11,5 @@ export interface ElevenLabsVoiceUpdateParams {
     apiKey?: Vocode.ElevenLabsVoiceUpdateParamsApiKey;
     optimizeStreamingLatency?: Vocode.ElevenLabsVoiceUpdateParamsOptimizeStreamingLatency;
     modelId?: Vocode.ElevenLabsVoiceUpdateParamsModelId;
+    experimentalInputStreaming?: Vocode.ElevenLabsVoiceUpdateParamsExperimentalInputStreaming;
 }

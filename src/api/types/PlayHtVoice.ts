@@ -14,4 +14,8 @@ export interface PlayHtVoice {
     speed?: number;
     quality?: Vocode.PlayHtVoiceQuality;
     temperature?: number;
+    topP?: number;
+    textGuidance?: number;
+    voiceGuidance?: number;
+    experimentalRemoveSilence?: boolean;
 }

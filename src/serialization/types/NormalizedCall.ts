@@ -51,6 +51,10 @@ export const NormalizedCall: core.serialization.ObjectSchema<serializers.Normali
                 .lazy(async () => (await import("..")).NormalizedCallTelephonyAccountConnection)
                 .optional()
         ),
+        telephonyParams: core.serialization.property(
+            "telephony_params",
+            core.serialization.record(core.serialization.string(), core.serialization.string()).optional()
+        ),
     });
 
 export declare namespace NormalizedCall {
@@ -78,5 +82,6 @@ export declare namespace NormalizedCall {
         context?: Record<string, string> | null;
         run_do_not_call_detection?: boolean | null;
         telephony_account_connection?: serializers.NormalizedCallTelephonyAccountConnection.Raw | null;
+        telephony_params?: Record<string, string> | null;
     }
 }
