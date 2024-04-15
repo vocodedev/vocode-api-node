@@ -10,6 +10,7 @@ export const AgentUpdateParams: core.serialization.ObjectSchema<
     serializers.AgentUpdateParams.Raw,
     Vocode.AgentUpdateParams
 > = core.serialization.object({
+    name: core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsName).optional(),
     prompt: core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsPrompt).optional(),
     language: core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsLanguage).optional(),
     actions: core.serialization.lazy(async () => (await import("..")).AgentUpdateParamsActions).optional(),
@@ -71,6 +72,7 @@ export const AgentUpdateParams: core.serialization.ObjectSchema<
 
 export declare namespace AgentUpdateParams {
     interface Raw {
+        name?: serializers.AgentUpdateParamsName.Raw | null;
         prompt?: serializers.AgentUpdateParamsPrompt.Raw | null;
         language?: serializers.AgentUpdateParamsLanguage.Raw | null;
         actions?: serializers.AgentUpdateParamsActions.Raw | null;

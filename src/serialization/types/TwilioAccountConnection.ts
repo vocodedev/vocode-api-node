@@ -13,6 +13,14 @@ export const TwilioAccountConnection: core.serialization.ObjectSchema<
     id: core.serialization.string(),
     userId: core.serialization.property("user_id", core.serialization.string()),
     credentials: core.serialization.lazyObject(async () => (await import("..")).TwilioCredentials),
+    steeringPool: core.serialization.property(
+        "steering_pool",
+        core.serialization.list(core.serialization.string()).optional()
+    ),
+    accountSupportsAnyCallerId: core.serialization.property(
+        "account_supports_any_caller_id",
+        core.serialization.boolean().optional()
+    ),
 });
 
 export declare namespace TwilioAccountConnection {
@@ -20,5 +28,7 @@ export declare namespace TwilioAccountConnection {
         id: string;
         user_id: string;
         credentials: serializers.TwilioCredentials.Raw;
+        steering_pool?: string[] | null;
+        account_supports_any_caller_id?: boolean | null;
     }
 }

@@ -8,6 +8,7 @@ import * as core from "../../../../../core";
 
 export const AgentParams: core.serialization.Schema<serializers.AgentParams.Raw, Vocode.AgentParams> =
     core.serialization.object({
+        name: core.serialization.string().optional(),
         prompt: core.serialization.lazy(async () => (await import("../../../..")).AgentParamsPrompt),
         language: core.serialization.lazy(async () => (await import("../../../..")).Language).optional(),
         actions: core.serialization
@@ -64,6 +65,7 @@ export const AgentParams: core.serialization.Schema<serializers.AgentParams.Raw,
 
 export declare namespace AgentParams {
     interface Raw {
+        name?: string | null;
         prompt: serializers.AgentParamsPrompt.Raw;
         language?: serializers.Language.Raw | null;
         actions?: serializers.AgentParamsActionsItem.Raw[] | null;

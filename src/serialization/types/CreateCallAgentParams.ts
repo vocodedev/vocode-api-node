@@ -10,6 +10,7 @@ export const CreateCallAgentParams: core.serialization.ObjectSchema<
     serializers.CreateCallAgentParams.Raw,
     Vocode.CreateCallAgentParams
 > = core.serialization.object({
+    name: core.serialization.string().optional(),
     prompt: core.serialization.lazy(async () => (await import("..")).CreateCallAgentParamsPrompt),
     language: core.serialization.lazy(async () => (await import("..")).Language).optional(),
     actions: core.serialization
@@ -61,6 +62,7 @@ export const CreateCallAgentParams: core.serialization.ObjectSchema<
 
 export declare namespace CreateCallAgentParams {
     interface Raw {
+        name?: string | null;
         prompt: serializers.CreateCallAgentParamsPrompt.Raw;
         language?: serializers.Language.Raw | null;
         actions?: serializers.CreateCallAgentParamsActionsItem.Raw[] | null;

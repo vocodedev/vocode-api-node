@@ -9,7 +9,8 @@ export type AgentUpdateParamsActionsItemOne =
     | Vocode.AgentUpdateParamsActionsItemOne.ActionEndConversation
     | Vocode.AgentUpdateParamsActionsItemOne.ActionDtmf
     | Vocode.AgentUpdateParamsActionsItemOne.ActionAddToConference
-    | Vocode.AgentUpdateParamsActionsItemOne.ActionSetHold;
+    | Vocode.AgentUpdateParamsActionsItemOne.ActionSetHold
+    | Vocode.AgentUpdateParamsActionsItemOne.ActionExternal;
 
 export declare namespace AgentUpdateParamsActionsItemOne {
     interface ActionTransferCall extends Vocode.TransferCallActionUpdateParams {
@@ -30,5 +31,9 @@ export declare namespace AgentUpdateParamsActionsItemOne {
 
     interface ActionSetHold extends Vocode.SetHoldActionUpdateParams {
         type: "action_set_hold";
+    }
+
+    interface ActionExternal extends Vocode.ExternalActionUpdateParams {
+        type: "action_external";
     }
 }

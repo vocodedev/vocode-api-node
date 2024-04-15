@@ -9,7 +9,8 @@ export type ActionUpdateParamsRequest =
     | Vocode.ActionUpdateParamsRequest.ActionEndConversation
     | Vocode.ActionUpdateParamsRequest.ActionDtmf
     | Vocode.ActionUpdateParamsRequest.ActionAddToConference
-    | Vocode.ActionUpdateParamsRequest.ActionSetHold;
+    | Vocode.ActionUpdateParamsRequest.ActionSetHold
+    | Vocode.ActionUpdateParamsRequest.ActionExternal;
 
 export declare namespace ActionUpdateParamsRequest {
     interface ActionTransferCall extends Vocode.TransferCallActionUpdateParams {
@@ -30,5 +31,9 @@ export declare namespace ActionUpdateParamsRequest {
 
     interface ActionSetHold extends Vocode.SetHoldActionUpdateParams {
         type: "action_set_hold";
+    }
+
+    interface ActionExternal extends Vocode.ExternalActionUpdateParams {
+        type: "action_external";
     }
 }

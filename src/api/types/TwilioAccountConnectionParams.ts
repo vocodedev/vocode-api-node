@@ -6,4 +6,6 @@ import * as Vocode from "..";
 
 export interface TwilioAccountConnectionParams {
     credentials: Vocode.TwilioCredentials;
+    steeringPool?: string[];
+    accountSupportsAnyCallerId?: boolean;
 }

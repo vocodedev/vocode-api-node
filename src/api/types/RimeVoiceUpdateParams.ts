@@ -7,4 +7,5 @@ import * as Vocode from "..";
 export interface RimeVoiceUpdateParams {
     speaker?: Vocode.RimeVoiceUpdateParamsSpeaker;
     speedAlpha?: Vocode.RimeVoiceUpdateParamsSpeedAlpha;
+    modelId?: Vocode.RimeVoiceUpdateParamsModelId;
 }

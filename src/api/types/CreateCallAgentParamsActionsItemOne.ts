@@ -9,7 +9,8 @@ export type CreateCallAgentParamsActionsItemOne =
     | Vocode.CreateCallAgentParamsActionsItemOne.ActionEndConversation
     | Vocode.CreateCallAgentParamsActionsItemOne.ActionDtmf
     | Vocode.CreateCallAgentParamsActionsItemOne.ActionAddToConference
-    | Vocode.CreateCallAgentParamsActionsItemOne.ActionSetHold;
+    | Vocode.CreateCallAgentParamsActionsItemOne.ActionSetHold
+    | Vocode.CreateCallAgentParamsActionsItemOne.ActionExternal;
 
 export declare namespace CreateCallAgentParamsActionsItemOne {
     interface ActionTransferCall extends Vocode.TransferCallActionParams {
@@ -30,5 +31,9 @@ export declare namespace CreateCallAgentParamsActionsItemOne {
 
     interface ActionSetHold extends Vocode.SetHoldActionParams {
         type: "action_set_hold";
+    }
+
+    interface ActionExternal extends Vocode.ExternalActionParams {
+        type: "action_external";
     }
 }

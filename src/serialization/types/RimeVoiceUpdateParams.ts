@@ -15,11 +15,16 @@ export const RimeVoiceUpdateParams: core.serialization.ObjectSchema<
         "speed_alpha",
         core.serialization.lazy(async () => (await import("..")).RimeVoiceUpdateParamsSpeedAlpha).optional()
     ),
+    modelId: core.serialization.property(
+        "model_id",
+        core.serialization.lazy(async () => (await import("..")).RimeVoiceUpdateParamsModelId).optional()
+    ),
 });
 
 export declare namespace RimeVoiceUpdateParams {
     interface Raw {
         speaker?: serializers.RimeVoiceUpdateParamsSpeaker.Raw | null;
         speed_alpha?: serializers.RimeVoiceUpdateParamsSpeedAlpha.Raw | null;
+        model_id?: serializers.RimeVoiceUpdateParamsModelId.Raw | null;
     }
 }

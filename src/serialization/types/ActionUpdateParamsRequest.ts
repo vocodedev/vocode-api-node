@@ -22,6 +22,7 @@ export const ActionUpdateParamsRequest: core.serialization.Schema<
             async () => (await import("..")).AddToConferenceActionUpdateParams
         ),
         action_set_hold: core.serialization.lazyObject(async () => (await import("..")).SetHoldActionUpdateParams),
+        action_external: core.serialization.lazyObject(async () => (await import("..")).ExternalActionUpdateParams),
     })
     .transform<Vocode.ActionUpdateParamsRequest>({
         transform: (value) => value,
@@ -34,7 +35,8 @@ export declare namespace ActionUpdateParamsRequest {
         | ActionUpdateParamsRequest.ActionEndConversation
         | ActionUpdateParamsRequest.ActionDtmf
         | ActionUpdateParamsRequest.ActionAddToConference
-        | ActionUpdateParamsRequest.ActionSetHold;
+        | ActionUpdateParamsRequest.ActionSetHold
+        | ActionUpdateParamsRequest.ActionExternal;
 
     interface ActionTransferCall extends serializers.TransferCallActionUpdateParams.Raw {
         type: "action_transfer_call";
@@ -54,5 +56,9 @@ export declare namespace ActionUpdateParamsRequest {
 
     interface ActionSetHold extends serializers.SetHoldActionUpdateParams.Raw {
         type: "action_set_hold";
+    }
+
+    interface ActionExternal extends serializers.ExternalActionUpdateParams.Raw {
+        type: "action_external";
     }
 }

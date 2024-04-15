@@ -9,7 +9,8 @@ export type AgentActionsItem =
     | Vocode.AgentActionsItem.ActionEndConversation
     | Vocode.AgentActionsItem.ActionDtmf
     | Vocode.AgentActionsItem.ActionAddToConference
-    | Vocode.AgentActionsItem.ActionSetHold;
+    | Vocode.AgentActionsItem.ActionSetHold
+    | Vocode.AgentActionsItem.ActionExternal;
 
 export declare namespace AgentActionsItem {
     interface ActionTransferCall extends Vocode.TransferCallAction {
@@ -30,5 +31,9 @@ export declare namespace AgentActionsItem {
 
     interface ActionSetHold extends Vocode.SetHoldAction {
         type: "action_set_hold";
+    }
+
+    interface ActionExternal extends Vocode.ExternalAction {
+        type: "action_external";
     }
 }

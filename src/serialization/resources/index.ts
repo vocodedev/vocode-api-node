@@ -7,3 +7,5 @@ export * from "./agents/types";
 export * from "./numbers/client/requests";
 export * from "./calls/client/requests";
 export * from "./agents/client/requests";
+export * as accountConnections from "./accountConnections";
+export * from "./accountConnections/client/requests";

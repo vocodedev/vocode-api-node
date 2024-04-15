@@ -11,10 +11,20 @@ export const TwilioAccountConnectionParams: core.serialization.ObjectSchema<
     Vocode.TwilioAccountConnectionParams
 > = core.serialization.object({
     credentials: core.serialization.lazyObject(async () => (await import("..")).TwilioCredentials),
+    steeringPool: core.serialization.property(
+        "steering_pool",
+        core.serialization.list(core.serialization.string()).optional()
+    ),
+    accountSupportsAnyCallerId: core.serialization.property(
+        "account_supports_any_caller_id",
+        core.serialization.boolean().optional()
+    ),
 });
 
 export declare namespace TwilioAccountConnectionParams {
     interface Raw {
         credentials: serializers.TwilioCredentials.Raw;
+        steering_pool?: string[] | null;
+        account_supports_any_caller_id?: boolean | null;
     }
 }

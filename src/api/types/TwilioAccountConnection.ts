@@ -8,4 +8,6 @@ export interface TwilioAccountConnection {
     id: string;
     userId: string;
     credentials: Vocode.TwilioCredentials;
+    steeringPool?: string[];
+    accountSupportsAnyCallerId?: boolean;
 }

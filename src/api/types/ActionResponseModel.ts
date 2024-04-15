@@ -9,7 +9,8 @@ export type ActionResponseModel =
     | Vocode.ActionResponseModel.ActionEndConversation
     | Vocode.ActionResponseModel.ActionDtmf
     | Vocode.ActionResponseModel.ActionAddToConference
-    | Vocode.ActionResponseModel.ActionSetHold;
+    | Vocode.ActionResponseModel.ActionSetHold
+    | Vocode.ActionResponseModel.ActionExternal;
 
 export declare namespace ActionResponseModel {
     interface ActionTransferCall extends Vocode.TransferCallAction {
@@ -30,5 +31,9 @@ export declare namespace ActionResponseModel {
 
     interface ActionSetHold extends Vocode.SetHoldAction {
         type: "action_set_hold";
+    }
+
+    interface ActionExternal extends Vocode.ExternalAction {
+        type: "action_external";
     }
 }

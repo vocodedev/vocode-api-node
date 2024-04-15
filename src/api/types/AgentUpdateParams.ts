@@ -5,6 +5,7 @@
 import * as Vocode from "..";
 
 export interface AgentUpdateParams {
+    name?: Vocode.AgentUpdateParamsName;
     prompt?: Vocode.AgentUpdateParamsPrompt;
     language?: Vocode.AgentUpdateParamsLanguage;
     actions?: Vocode.AgentUpdateParamsActions;

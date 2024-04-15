@@ -9,7 +9,8 @@ export type ActionPageItemsItem =
     | Vocode.ActionPageItemsItem.ActionEndConversation
     | Vocode.ActionPageItemsItem.ActionDtmf
     | Vocode.ActionPageItemsItem.ActionAddToConference
-    | Vocode.ActionPageItemsItem.ActionSetHold;
+    | Vocode.ActionPageItemsItem.ActionSetHold
+    | Vocode.ActionPageItemsItem.ActionExternal;
 
 export declare namespace ActionPageItemsItem {
     interface ActionTransferCall extends Vocode.TransferCallAction {
@@ -30,5 +31,9 @@ export declare namespace ActionPageItemsItem {
 
     interface ActionSetHold extends Vocode.SetHoldAction {
         type: "action_set_hold";
+    }
+
+    interface ActionExternal extends Vocode.ExternalAction {
+        type: "action_external";
     }
 }

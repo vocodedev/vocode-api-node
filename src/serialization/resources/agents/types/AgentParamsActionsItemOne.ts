@@ -22,6 +22,7 @@ export const AgentParamsActionsItemOne: core.serialization.Schema<
             async () => (await import("../../..")).AddToConferenceActionParams
         ),
         action_set_hold: core.serialization.lazyObject(async () => (await import("../../..")).SetHoldActionParams),
+        action_external: core.serialization.lazyObject(async () => (await import("../../..")).ExternalActionParams),
     })
     .transform<Vocode.AgentParamsActionsItemOne>({
         transform: (value) => value,
@@ -34,7 +35,8 @@ export declare namespace AgentParamsActionsItemOne {
         | AgentParamsActionsItemOne.ActionEndConversation
         | AgentParamsActionsItemOne.ActionDtmf
         | AgentParamsActionsItemOne.ActionAddToConference
-        | AgentParamsActionsItemOne.ActionSetHold;
+        | AgentParamsActionsItemOne.ActionSetHold
+        | AgentParamsActionsItemOne.ActionExternal;
 
     interface ActionTransferCall extends serializers.TransferCallActionParams.Raw {
         type: "action_transfer_call";
@@ -54,5 +56,9 @@ export declare namespace AgentParamsActionsItemOne {
 
     interface ActionSetHold extends serializers.SetHoldActionParams.Raw {
         type: "action_set_hold";
+    }
+
+    interface ActionExternal extends serializers.ExternalActionParams.Raw {
+        type: "action_external";
     }
 }
