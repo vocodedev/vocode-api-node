@@ -16,6 +16,7 @@ export interface Call {
     telephonyId?: string;
     stage?: Vocode.CallStage;
     stageOutcome?: Vocode.CallStageOutcome;
+    telephonyMetadata?: Vocode.CallTelephonyMetadata;
     toNumber: string;
     fromNumber: string;
     agent: Vocode.Agent;

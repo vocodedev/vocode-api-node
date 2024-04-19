@@ -24,6 +24,10 @@ export const Call: core.serialization.ObjectSchema<serializers.Call.Raw, Vocode.
         "stage_outcome",
         core.serialization.lazy(async () => (await import("..")).CallStageOutcome).optional()
     ),
+    telephonyMetadata: core.serialization.property(
+        "telephony_metadata",
+        core.serialization.lazy(async () => (await import("..")).CallTelephonyMetadata).optional()
+    ),
     toNumber: core.serialization.property("to_number", core.serialization.string()),
     fromNumber: core.serialization.property("from_number", core.serialization.string()),
     agent: core.serialization.lazyObject(async () => (await import("..")).Agent),
@@ -67,6 +71,7 @@ export declare namespace Call {
         telephony_id?: string | null;
         stage?: serializers.CallStage.Raw | null;
         stage_outcome?: serializers.CallStageOutcome.Raw | null;
+        telephony_metadata?: serializers.CallTelephonyMetadata.Raw | null;
         to_number: string;
         from_number: string;
         agent: serializers.Agent.Raw;

@@ -39,7 +39,7 @@ export class AccountConnections {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.45",
+                "X-Fern-SDK-Version": "0.0.46",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -122,7 +122,7 @@ export class AccountConnections {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.45",
+                "X-Fern-SDK-Version": "0.0.46",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -187,7 +187,7 @@ export class AccountConnections {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.45",
+                "X-Fern-SDK-Version": "0.0.46",
             },
             contentType: "application/json",
             body: await serializers.AccountConnectionParamsRequest.jsonOrThrow(request, {
@@ -257,7 +257,7 @@ export class AccountConnections {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.45",
+                "X-Fern-SDK-Version": "0.0.46",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -326,11 +326,75 @@ export class AccountConnections {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@vocode/vocode-api",
-                "X-Fern-SDK-Version": "0.0.45",
+                "X-Fern-SDK-Version": "0.0.46",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
             body: await serializers.AddToSteeringPoolRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            timeoutMs: 60000,
+        });
+        if (_response.ok) {
+            return _response.body;
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Vocode.UnprocessableEntityError(
+                        await serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
+                default:
+                    throw new errors.VocodeError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                    });
+            }
+        }
+
+        switch (_response.error.reason) {
+            case "non-json":
+                throw new errors.VocodeError({
+                    statusCode: _response.error.statusCode,
+                    body: _response.error.rawBody,
+                });
+            case "timeout":
+                throw new errors.VocodeTimeoutError();
+            case "unknown":
+                throw new errors.VocodeError({
+                    message: _response.error.errorMessage,
+                });
+        }
+    }
+
+    /**
+     * @throws {@link Vocode.UnprocessableEntityError}
+     */
+    public async removeFromSteeringPool(request: Vocode.RemoveFromSteeringPoolRequest): Promise<unknown> {
+        const { id, ..._body } = request;
+        const _queryParams = new URLSearchParams();
+        _queryParams.append("id", id);
+        const _response = await core.fetcher({
+            url: urlJoin(
+                (await core.Supplier.get(this._options.environment)) ?? environments.VocodeEnvironment.Production,
+                "v1/account_connections/remove_from_steering_pool"
+            ),
+            method: "POST",
+            headers: {
+                Authorization: await this._getAuthorizationHeader(),
+                "X-Fern-Language": "JavaScript",
+                "X-Fern-SDK-Name": "@vocode/vocode-api",
+                "X-Fern-SDK-Version": "0.0.46",
+            },
+            contentType: "application/json",
+            queryParameters: _queryParams,
+            body: await serializers.RemoveFromSteeringPoolRequest.jsonOrThrow(_body, {
+                unrecognizedObjectKeys: "strip",
+            }),
             timeoutMs: 60000,
         });
         if (_response.ok) {

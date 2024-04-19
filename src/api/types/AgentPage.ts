@@ -9,4 +9,6 @@ export interface AgentPage {
     page: number;
     size: number;
     hasMore: boolean;
+    total: number;
+    totalIsEstimated: boolean;
 }

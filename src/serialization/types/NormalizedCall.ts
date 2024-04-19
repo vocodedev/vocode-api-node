@@ -25,6 +25,10 @@ export const NormalizedCall: core.serialization.ObjectSchema<serializers.Normali
             "stage_outcome",
             core.serialization.lazy(async () => (await import("..")).NormalizedCallStageOutcome).optional()
         ),
+        telephonyMetadata: core.serialization.property(
+            "telephony_metadata",
+            core.serialization.lazy(async () => (await import("..")).NormalizedCallTelephonyMetadata).optional()
+        ),
         toNumber: core.serialization.property("to_number", core.serialization.string()),
         fromNumber: core.serialization.property("from_number", core.serialization.string()),
         agent: core.serialization.string(),
@@ -70,6 +74,7 @@ export declare namespace NormalizedCall {
         telephony_id?: string | null;
         stage?: serializers.NormalizedCallStage.Raw | null;
         stage_outcome?: serializers.NormalizedCallStageOutcome.Raw | null;
+        telephony_metadata?: serializers.NormalizedCallTelephonyMetadata.Raw | null;
         to_number: string;
         from_number: string;
         agent: string;

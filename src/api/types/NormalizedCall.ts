@@ -16,6 +16,7 @@ export interface NormalizedCall {
     telephonyId?: string;
     stage?: Vocode.NormalizedCallStage;
     stageOutcome?: Vocode.NormalizedCallStageOutcome;
+    telephonyMetadata?: Vocode.NormalizedCallTelephonyMetadata;
     toNumber: string;
     fromNumber: string;
     agent: string;

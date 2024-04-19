@@ -12,6 +12,8 @@ export const VoicePage: core.serialization.ObjectSchema<serializers.VoicePage.Ra
         page: core.serialization.number(),
         size: core.serialization.number(),
         hasMore: core.serialization.property("has_more", core.serialization.boolean()),
+        total: core.serialization.number(),
+        totalIsEstimated: core.serialization.property("total_is_estimated", core.serialization.boolean()),
     });
 
 export declare namespace VoicePage {
@@ -20,5 +22,7 @@ export declare namespace VoicePage {
         page: number;
         size: number;
         has_more: boolean;
+        total: number;
+        total_is_estimated: boolean;
     }
 }

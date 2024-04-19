@@ -6,14 +6,14 @@ import * as serializers from "../../../..";
 import * as Vocode from "../../../../../api";
 import * as core from "../../../../../core";
 
-export const AddToSteeringPoolRequest: core.serialization.Schema<
-    serializers.AddToSteeringPoolRequest.Raw,
-    Omit<Vocode.AddToSteeringPoolRequest, "id">
+export const RemoveFromSteeringPoolRequest: core.serialization.Schema<
+    serializers.RemoveFromSteeringPoolRequest.Raw,
+    Omit<Vocode.RemoveFromSteeringPoolRequest, "id">
 > = core.serialization.object({
     phoneNumber: core.serialization.property("phone_number", core.serialization.string()),
 });
 
-export declare namespace AddToSteeringPoolRequest {
+export declare namespace RemoveFromSteeringPoolRequest {
     interface Raw {
         phone_number: string;
     }
