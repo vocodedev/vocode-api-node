@@ -66,6 +66,7 @@ export const CreateCallAgentParams: core.serialization.ObjectSchema<
             .record(core.serialization.string(), CreateCallAgentParamsDeepgramKeywordsValue.optional())
             .optional()
     ),
+    idleTimeSeconds: core.serialization.property("idle_time_seconds", core.serialization.number().optional()),
     llmTemperature: core.serialization.property("llm_temperature", core.serialization.number().optional()),
 });
 
@@ -92,6 +93,7 @@ export declare namespace CreateCallAgentParams {
         run_do_not_call_detection?: boolean | null;
         llm_fallback?: InternalLlmFallback.Raw | null;
         deepgram_keywords?: Record<string, CreateCallAgentParamsDeepgramKeywordsValue.Raw | null | undefined> | null;
+        idle_time_seconds?: number | null;
         llm_temperature?: number | null;
     }
 }

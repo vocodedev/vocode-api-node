@@ -28,5 +28,6 @@ export interface NormalizedAgent {
     runDoNotCallDetection?: boolean;
     llmFallback?: Vocode.InternalLlmFallback;
     deepgramKeywords?: Record<string, Vocode.NormalizedAgentDeepgramKeywordsValue | undefined>;
+    idleTimeSeconds?: number;
     llmTemperature?: number;
 }

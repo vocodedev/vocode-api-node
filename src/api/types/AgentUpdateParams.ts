@@ -26,4 +26,5 @@ export interface AgentUpdateParams {
     runDoNotCallDetection?: Vocode.AgentUpdateParamsRunDoNotCallDetection;
     llmFallback?: Vocode.AgentUpdateParamsLlmFallback;
     deepgramKeywords?: Vocode.AgentUpdateParamsDeepgramKeywords;
+    idleTimeSeconds?: Vocode.AgentUpdateParamsIdleTimeSeconds;
 }

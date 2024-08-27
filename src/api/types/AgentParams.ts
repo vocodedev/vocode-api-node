@@ -26,5 +26,6 @@ export interface AgentParams {
     runDoNotCallDetection?: boolean;
     llmFallback?: Vocode.InternalLlmFallback;
     deepgramKeywords?: Record<string, Vocode.AgentParamsDeepgramKeywordsValue | undefined>;
+    idleTimeSeconds?: number;
     llmTemperature?: number;
 }

@@ -62,6 +62,7 @@ export * from "./AgentUpdateParamsRunDoNotCallDetection";
 export * from "./AgentUpdateParamsLlmFallback";
 export * from "./AgentUpdateParamsDeepgramKeywordsZeroValue";
 export * from "./AgentUpdateParamsDeepgramKeywords";
+export * from "./AgentUpdateParamsIdleTimeSeconds";
 export * from "./AgentUpdateParams";
 export * from "./AzureVoice";
 export * from "./AzureVoiceParams";

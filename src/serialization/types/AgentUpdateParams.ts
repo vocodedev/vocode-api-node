@@ -26,6 +26,7 @@ import { AgentUpdateParamsOpenaiAccountConnection } from "./AgentUpdateParamsOpe
 import { AgentUpdateParamsRunDoNotCallDetection } from "./AgentUpdateParamsRunDoNotCallDetection";
 import { AgentUpdateParamsLlmFallback } from "./AgentUpdateParamsLlmFallback";
 import { AgentUpdateParamsDeepgramKeywords } from "./AgentUpdateParamsDeepgramKeywords";
+import { AgentUpdateParamsIdleTimeSeconds } from "./AgentUpdateParamsIdleTimeSeconds";
 
 export const AgentUpdateParams: core.serialization.ObjectSchema<
     serializers.AgentUpdateParams.Raw,
@@ -76,6 +77,7 @@ export const AgentUpdateParams: core.serialization.ObjectSchema<
     ),
     llmFallback: core.serialization.property("llm_fallback", AgentUpdateParamsLlmFallback.optional()),
     deepgramKeywords: core.serialization.property("deepgram_keywords", AgentUpdateParamsDeepgramKeywords.optional()),
+    idleTimeSeconds: core.serialization.property("idle_time_seconds", AgentUpdateParamsIdleTimeSeconds.optional()),
 });
 
 export declare namespace AgentUpdateParams {
@@ -101,5 +103,6 @@ export declare namespace AgentUpdateParams {
         run_do_not_call_detection?: AgentUpdateParamsRunDoNotCallDetection.Raw | null;
         llm_fallback?: AgentUpdateParamsLlmFallback.Raw | null;
         deepgram_keywords?: AgentUpdateParamsDeepgramKeywords.Raw | null;
+        idle_time_seconds?: AgentUpdateParamsIdleTimeSeconds.Raw | null;
     }
 }

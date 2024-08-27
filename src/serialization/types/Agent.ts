@@ -60,6 +60,7 @@ export const Agent: core.serialization.ObjectSchema<serializers.Agent.Raw, Vocod
         "deepgram_keywords",
         core.serialization.record(core.serialization.string(), AgentDeepgramKeywordsValue.optional()).optional()
     ),
+    idleTimeSeconds: core.serialization.property("idle_time_seconds", core.serialization.number().optional()),
     llmTemperature: core.serialization.property("llm_temperature", core.serialization.number().optional()),
 });
 
@@ -88,6 +89,7 @@ export declare namespace Agent {
         run_do_not_call_detection?: boolean | null;
         llm_fallback?: InternalLlmFallback.Raw | null;
         deepgram_keywords?: Record<string, AgentDeepgramKeywordsValue.Raw | null | undefined> | null;
+        idle_time_seconds?: number | null;
         llm_temperature?: number | null;
     }
 }

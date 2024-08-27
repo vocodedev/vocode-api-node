@@ -28,5 +28,6 @@ export interface Agent {
     runDoNotCallDetection?: boolean;
     llmFallback?: Vocode.InternalLlmFallback;
     deepgramKeywords?: Record<string, Vocode.AgentDeepgramKeywordsValue | undefined>;
+    idleTimeSeconds?: number;
     llmTemperature?: number;
 }
